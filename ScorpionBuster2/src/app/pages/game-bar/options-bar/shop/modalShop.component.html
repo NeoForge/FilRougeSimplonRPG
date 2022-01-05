@@ -1,0 +1,13 @@
+<div class="container-modal">
+    <div class="modal-header">
+        <h4 class="modal-title">Amazon.com</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <img class="img-vendor"src="../../../../../assets/bill_murray.png">
+        <button type="button">Acheter</button>
+        <button type="button" (click)="activeModal.close('Close click')">Quitter</button>
+    </div>
+</div>
