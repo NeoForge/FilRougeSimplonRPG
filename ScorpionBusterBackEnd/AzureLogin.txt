@@ -1,0 +1,3 @@
+login admin AzureDB
+AdminDotNet
+Admin.dotnet.13796482
