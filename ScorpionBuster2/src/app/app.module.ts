@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StartScreenComponent } from './pages/start-screen/start-screen.component';
-import { InventoryComponent } from './pages/inventory/inventory.component';
+import { InventoryComponent } from './pages/game-bar/options-bar/inventory/inventory.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { GameComponent } from './pages/game/game.component';
 import { MapComponent } from './pages/map/map.component';
