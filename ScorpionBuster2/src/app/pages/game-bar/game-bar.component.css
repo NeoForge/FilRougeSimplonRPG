@@ -1,0 +1,27 @@
+.game-bar{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30vh;
+    margin-bottom: 0;
+    background-color: red;
+}
+.img-hero{
+    width: 20%;
+    height: 30vh;
+
+}
+.choice {
+    width: 50%;
+    margin: 0.5%;
+}
+.options {
+    width: 10%;
+    margin: 0.5%;
+}
+.statistics {
+    width: 20%;
+    border: 2px solid black;
+    margin: 0.5%;
+}

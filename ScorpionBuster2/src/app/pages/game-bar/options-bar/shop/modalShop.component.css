@@ -1,0 +1,11 @@
+.container-modal{
+    width: 600px;
+    background-color: blanchedalmond;
+}
+.modal-body{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
