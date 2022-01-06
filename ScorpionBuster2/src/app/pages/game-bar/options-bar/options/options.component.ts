@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -9,7 +10,11 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 export class NgbdModalContent {
 
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor(public activeModal: NgbActiveModal, private router: Router) {}
+  onQuit() {
+    this.router.navigateByUrl('');
+    this.activeModal.close('Close click');
+  }
 }
 @Component({
   selector: 'app-options',

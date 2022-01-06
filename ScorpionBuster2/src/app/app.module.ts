@@ -18,6 +18,7 @@ import { OptionsBarComponent } from './pages/game-bar/options-bar/options-bar.co
 import { StatisticsBarComponent } from './pages/game-bar/statistics-bar/statistics-bar.component';
 import { ItemsShopComponent } from './pages/game-bar/options-bar/shop/items-shop/items-shop.component';
 import { OptionsComponent } from './pages/game-bar/options-bar/options/options.component';
+import { DialogueComponent } from './pages/dialogue/dialogue.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { OptionsComponent } from './pages/game-bar/options-bar/options/options.c
     OptionsBarComponent,
     StatisticsBarComponent,
     ItemsShopComponent,
-    OptionsComponent
+    OptionsComponent,
+    DialogueComponent
   ],
   imports: [
     BrowserModule,

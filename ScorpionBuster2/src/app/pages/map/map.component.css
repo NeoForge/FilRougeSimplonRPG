@@ -1,0 +1,11 @@
+.map {
+   width: 100%;
+   height: 70vh;
+   background-image: url('../../../assets/background-map.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.story1{
+    position: absolute;
+    margin: 170px 0px 0px 290px;
+}
