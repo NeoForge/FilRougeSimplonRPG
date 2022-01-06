@@ -2,7 +2,9 @@
     width: 200%;
     margin-left: -250px;
 }
-
+h4{
+    text-align: center;
+}
 .inventory {
     display: flex;
     flex-direction: row;

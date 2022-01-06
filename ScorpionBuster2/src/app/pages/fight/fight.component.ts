@@ -11,5 +11,4 @@ export class FightComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
