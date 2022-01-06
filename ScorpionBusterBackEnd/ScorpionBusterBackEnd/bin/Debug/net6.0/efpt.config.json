@@ -14,8 +14,52 @@
    "SelectedToBeGenerated": 0,
    "Tables": [
       {
-         "Name": "[dbo].[AvailableCharacter]",
+         "Name": "[dbo].[equipment]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[hero]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[items]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[map]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[monster]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[pnj]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GetConsomable]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetEquippedEquipment]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetInventory]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetOwnedEquipement]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetShop]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetUnequipedEquipment]",
+         "ObjectType": 1
       }
    ],
    "UiHint": "formationdotnet.ScorpionBuster2",
