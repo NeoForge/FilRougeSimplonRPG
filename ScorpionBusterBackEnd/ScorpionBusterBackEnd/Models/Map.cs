@@ -5,10 +5,13 @@ using System.Collections.Generic;
 
 namespace ScorpionBusterBackEnd.Models
 {
-    public partial class AvailableCharacter
+    public partial class Map
     {
         public int Id { get; set; }
-        public string NomDuPersonnage { get; set; }
-        public string ProfilePicUrl { get; set; }
+        public string Name { get; set; }
+        public string Text { get; set; }
+        public string Background { get; set; }
+        public string PnjId { get; set; }
+        public string MonsterId { get; set; }
     }
 }

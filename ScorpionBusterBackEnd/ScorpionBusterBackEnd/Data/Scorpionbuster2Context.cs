@@ -19,27 +19,201 @@ namespace ScorpionBusterBackEnd.Data
         {
         }
 
-        public virtual DbSet<AvailableCharacter> AvailableCharacters { get; set; }
+        public virtual DbSet<Equipment> Equipment { get; set; }
+        public virtual DbSet<Hero> Heroes { get; set; }
+        public virtual DbSet<Indice> Indices { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<Map> Maps { get; set; }
+        public virtual DbSet<Monster> Monsters { get; set; }
+        public virtual DbSet<Pnj> Pnjs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AvailableCharacter>(entity =>
+            modelBuilder.Entity<Equipment>(entity =>
             {
-                entity.ToTable("AvailableCharacter");
+                entity.ToTable("equipment");
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("id");
+                entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.NomDuPersonnage)
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasColumnName("nomDuPersonnage");
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("description");
 
-                entity.Property(e => e.ProfilePicUrl)
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasColumnName("profilePicUrl");
+                entity.Property(e => e.Equipped).HasColumnName("equipped");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.Owned).HasColumnName("owned");
+
+                entity.Property(e => e.StatValue).HasColumnName("stat_value");
+
+                entity.Property(e => e.Type)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("type");
+            });
+
+            modelBuilder.Entity<Hero>(entity =>
+            {
+                entity.ToTable("hero");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Attack).HasColumnName("attack");
+
+                entity.Property(e => e.Defense).HasColumnName("defense");
+
+                entity.Property(e => e.DidIDo)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("did_i_do");
+
+                entity.Property(e => e.Hp).HasColumnName("hp");
+
+                entity.Property(e => e.Image)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("image");
+
+                entity.Property(e => e.Level).HasColumnName("level");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.StoryStage).HasColumnName("story_stage");
+
+                entity.Property(e => e.Xp).HasColumnName("xp");
+            });
+
+            modelBuilder.Entity<Indice>(entity =>
+            {
+                entity.ToTable("indice");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Text)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("text");
+            });
+
+            modelBuilder.Entity<Item>(entity =>
+            {
+                entity.ToTable("items");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Consomable).HasColumnName("consomable");
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("description");
+
+                entity.Property(e => e.Image)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("image");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.Owned).HasColumnName("owned");
+
+                entity.Property(e => e.OwnedQuantity).HasColumnName("owned_quantity");
+
+                entity.Property(e => e.Price).HasColumnName("price");
+            });
+
+            modelBuilder.Entity<Map>(entity =>
+            {
+                entity.ToTable("map");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Background)
+                    .HasMaxLength(255)
+                    .HasColumnName("background");
+
+                entity.Property(e => e.MonsterId)
+                    .HasMaxLength(255)
+                    .HasColumnName("monster_id");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.PnjId)
+                    .HasMaxLength(255)
+                    .HasColumnName("pnj_id");
+
+                entity.Property(e => e.Text)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("text");
+            });
+
+            modelBuilder.Entity<Monster>(entity =>
+            {
+                entity.ToTable("monster");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Attack).HasColumnName("attack");
+
+                entity.Property(e => e.Defense).HasColumnName("defense");
+
+                entity.Property(e => e.Hp).HasColumnName("hp");
+
+                entity.Property(e => e.Image)
+                    .HasMaxLength(255)
+                    .HasColumnName("image");
+
+                entity.Property(e => e.ItemId).HasColumnName("item_id");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.Xp).HasColumnName("xp");
+            });
+
+            modelBuilder.Entity<Pnj>(entity =>
+            {
+                entity.ToTable("pnj");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Dialog)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .HasColumnName("dialog");
+
+                entity.Property(e => e.Image)
+                    .HasMaxLength(255)
+                    .HasColumnName("image");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.Response)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .HasColumnName("response");
+
+                entity.Property(e => e.Stage).HasColumnName("stage");
             });
 
             OnModelCreatingPartial(modelBuilder);
