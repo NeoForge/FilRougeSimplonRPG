@@ -21,6 +21,7 @@ namespace ScorpionBusterBackEnd.Data
 
         public virtual DbSet<Equipment> Equipment { get; set; }
         public virtual DbSet<Hero> Heroes { get; set; }
+        public virtual DbSet<Indice> Indices { get; set; }
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<Map> Maps { get; set; }
         public virtual DbSet<Monster> Monsters { get; set; }
@@ -88,6 +89,18 @@ namespace ScorpionBusterBackEnd.Data
                 entity.Property(e => e.StoryStage).HasColumnName("story_stage");
 
                 entity.Property(e => e.Xp).HasColumnName("xp");
+            });
+
+            modelBuilder.Entity<Indice>(entity =>
+            {
+                entity.ToTable("indice");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Text)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("text");
             });
 
             modelBuilder.Entity<Item>(entity =>
