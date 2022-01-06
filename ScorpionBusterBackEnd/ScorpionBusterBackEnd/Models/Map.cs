@@ -11,7 +11,7 @@ namespace ScorpionBusterBackEnd.Models
         public string Name { get; set; }
         public string Text { get; set; }
         public string Background { get; set; }
-        public int? PnjId { get; set; }
-        public int? MonsterId { get; set; }
+        public string PnjId { get; set; }
+        public string MonsterId { get; set; }
     }
 }

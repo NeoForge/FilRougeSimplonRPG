@@ -10,7 +10,7 @@ namespace ScorpionBusterBackEnd.Models
         public int id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
-        public bool equiped { get; set; }
+        public bool equipped { get; set; }
         public string type { get; set; }
         public int stat_value { get; set; }
         public bool owned { get; set; }
