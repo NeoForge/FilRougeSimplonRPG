@@ -4,8 +4,8 @@
     </div>
     <div class="shop">
         <div class="container-items" *ngIf="!!(itemShop)">
-            <div class="items" *ngFor="let item of itemShop">
-                <button (click)="displayDescription(item.description)">{{item.name}}</button>
+            <div class="items" *ngFor="let item of itemShop; let index = index">
+                <button (click)="displayDescription(item.description, index) ">{{item.name}}</button>
             </div>
         </div>
         <div class="description">
@@ -16,7 +16,7 @@
         <div class="merchant">
             <img class="img-vendor" src="../../../../../assets/jeff_bezos.png">
             <div class="button_merchant">
-                <button type="button">Acheter</button>
+                <button type="button" (click)="onBuy()">Acheter</button>
                 <button type="button" (click)="activeModal.close('Close click')">Retour</button>
             </div>
         </div>
