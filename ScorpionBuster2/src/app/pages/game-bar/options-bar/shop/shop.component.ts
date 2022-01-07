@@ -1,15 +1,27 @@
 import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ItemsService } from 'src/app/apiServices/items.service';
+import { Item } from 'src/app/models/items';
 
 @Component({
-  selector: 'ngbd-modal-content',
+  selector: 'ngbd-modal-shop',
   templateUrl: './modalShop.component.html',
   styleUrls: ['./modalShop.component.css']
 })
 
-export class NgbdModalContent {
+export class NgbdModalShop {
 
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor(public activeModal: NgbActiveModal,private ItemsService:ItemsService) {}
+  itemShop: any;
+  salut = "salut";
+  ngOnInit() {
+    this.ItemsService.GetItem().subscribe(
+      (data: any) => {
+        this.itemShop = data;
+        console.log(this.itemShop);
+      }
+    );
+  }
 }
 
 @Component({
@@ -22,9 +34,10 @@ export class ShopComponent implements OnInit {
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    
   }
   onShop() {
-    const modalRef = this.modalService.open(NgbdModalContent);
+    let modalRef = this.modalService.open(NgbdModalShop);
   }
 
 }

@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-modal-content',
+  selector: 'ngbd-modal-options',
   templateUrl: './modalOptions.component.html',
   styleUrls: ['./modalOptions.component.css']
 })
 
-export class NgbdModalContent {
+export class NgbdModalOptions {
 
   constructor(public activeModal: NgbActiveModal, private router: Router) {}
   onQuit() {
@@ -28,7 +28,7 @@ export class OptionsComponent implements OnInit {
   ngOnInit(): void {
   }
   onOptions() {
-    const modalRef = this.modalService.open(NgbdModalContent);
+    const modalRef = this.modalService.open(NgbdModalOptions);
   }
 
 }
