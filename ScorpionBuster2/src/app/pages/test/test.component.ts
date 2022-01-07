@@ -10,9 +10,6 @@ export class TestComponent implements OnInit {
 
   constructor(private items: ItemsService) { }
   ngOnInit(): void {
-    this.items.GetItem().subscribe((data:any) => {
-      console.log(data);
-    });
   }
 
 }

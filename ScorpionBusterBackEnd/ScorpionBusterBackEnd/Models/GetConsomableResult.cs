@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ScorpionBusterBackEnd.Models
 {
-    public partial class GetConsomableResult
+    public partial class GetConsommableResult
     {
         public int id { get; set; }
         public string name { get; set; }

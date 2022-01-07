@@ -19,13 +19,13 @@ export class EquipmentService {
     return this.http.get<Equipment>(environment.apiUrl + 'Equipment/'+id,{headers:this.headers});
   }
   GetEquipmentOwned() : Observable<Equipment> {
-    return this.http.get<Equipment>(environment.apiUrl + 'Equipment/EquipementOwned',{headers:this.headers});
+    return this.http.get<Equipment>(environment.apiUrl + 'Equipment/Owned',{headers:this.headers});
   }
   GetEquipmentOwnedEquipped() : Observable<Equipment> {
-    return this.http.get<Equipment>(environment.apiUrl + 'Equipment/EquipementOwnedEquipped',{headers:this.headers});
+    return this.http.get<Equipment>(environment.apiUrl + 'Equipment/OwnedEquipped',{headers:this.headers});
   }
   GetEquipmentOwnedUnEquipped() : Observable<Equipment> {
-    return this.http.get<Equipment>(environment.apiUrl + 'Equipment/EquipementOwnedUnEquipped',{headers:this.headers});
+    return this.http.get<Equipment>(environment.apiUrl + 'Equipment/OwnedUnequipped',{headers:this.headers});
   }
   
 }

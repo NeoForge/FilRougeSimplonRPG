@@ -18,7 +18,7 @@ export class ItemsService {
     console.log(this.headers);
     return this.http.get<Item>(environment.apiUrl + 'Items',{headers:this.headers});
   }
-  GetInvotory() : Observable<Item> {
+  GetInventory() : Observable<Item> {
     return this.http.get<Item>(environment.apiUrl + 'Items/Inventory',{headers:this.headers});
   }
   GetShop() : Observable<Item> {

@@ -41,11 +41,11 @@ namespace ScorpionBusterBackEnd.Controllers
         {
             return await _context.GetProcedures().GetShopAsync();
         }
-        // GET: api/Items/Consomable
-        [HttpGet("Consomable")]
-        public async Task<ActionResult<IEnumerable<GetConsomableResult>>> GetConsomable()
+        // GET: api/Items/Consommable
+        [HttpGet("Consommable")]
+        public async Task<ActionResult<IEnumerable<GetConsommableResult>>> GetConsommable()
         {
-            return await _context.GetProcedures().GetConsomableAsync();
+            return await _context.GetProcedures().GetConsommableAsync();
         }
 
         // GET: api/Items/5
