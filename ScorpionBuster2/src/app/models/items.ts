@@ -7,9 +7,9 @@ export class Item
         price : number;
         owned : boolean;
         ownedQuantity : number;
-        consommable : boolean;
+        consumable : boolean;
 
-        constructor(id : number, name : string, description : string, image : string, price : number, owned : boolean, ownedQuantity : number, consommable : boolean)
+        constructor(id : number, name : string, description : string, image : string, price : number, owned : boolean, ownedQuantity : number, consumable : boolean)
         {
             this.id = id;
             this.name = name;
@@ -18,6 +18,6 @@ export class Item
             this.price = price;
             this.owned = owned;
             this.ownedQuantity = ownedQuantity;
-            this.consommable = consommable;
+            this.consumable = consumable;
         }
     }

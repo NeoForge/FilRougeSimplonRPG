@@ -29,19 +29,19 @@ namespace ScorpionBusterBackEnd.Controllers
             return await _context.Equipment.ToListAsync();
         }
         // Get; api/Equipements/EquipementOwned
-        [HttpGet("EquipementOwned")]
+        [HttpGet("Owned")]
         public async Task<ActionResult<IEnumerable<GetOwnedEquipementResult>>> GetAllEquipmentOwned()
         {
             return await _context.GetProcedures().GetOwnedEquipementAsync();
         }
         // Get; api/Equipements/EquipementOwnedEquiped
-        [HttpGet("EquipementOwnedEquiped")]
+        [HttpGet("OwnedEquipped")]
         public async Task<ActionResult<IEnumerable<GetEquippedEquipmentResult>>> GetAllEquipmentOwnedEquiped()
         {
             return await _context.GetProcedures().GetEquippedEquipmentAsync();
         }
         // Get; api/Equipements/EquipementOwnedUnequiped
-        [HttpGet("EquipementOwnedUnequiped")]
+        [HttpGet("OwnedUnequipped")]
         public async Task<ActionResult<IEnumerable<GetUnequipedEquipmentResult>>> GetAllEquipmentOwnedUnequiped()
         {
             return await _context.GetProcedures().GetUnequipedEquipmentAsync();

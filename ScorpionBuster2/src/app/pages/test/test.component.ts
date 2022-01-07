@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from 'src/app/apiServices/items.service';
-
+import { Item } from 'src/app/models/items';
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -10,7 +10,6 @@ export class TestComponent implements OnInit {
 
   constructor(private items: ItemsService) { }
   ngOnInit(): void {
-
   }
 
 }

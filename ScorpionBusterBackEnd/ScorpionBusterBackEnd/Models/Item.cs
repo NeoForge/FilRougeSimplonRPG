@@ -14,6 +14,6 @@ namespace ScorpionBusterBackEnd.Models
         public int Price { get; set; }
         public bool Owned { get; set; }
         public int OwnedQuantity { get; set; }
-        public bool Consomable { get; set; }
+        public bool Consumable { get; set; }
     }
 }

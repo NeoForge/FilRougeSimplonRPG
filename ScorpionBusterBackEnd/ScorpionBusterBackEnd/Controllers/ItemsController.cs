@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -40,11 +41,11 @@ namespace ScorpionBusterBackEnd.Controllers
         {
             return await _context.GetProcedures().GetShopAsync();
         }
-        // GET: api/Items/Inventory
-        [HttpGet("Consomable")]
-        public async Task<ActionResult<IEnumerable<GetConsomableResult>>> GetConsomable()
+        // GET: api/Items/Consommable
+        [HttpGet("Consumable")]
+        public async Task<ActionResult<IEnumerable<GetConsumableResult>>> GetConsumable()
         {
-            return await _context.GetProcedures().GetConsomableAsync();
+            return await _context.GetProcedures().GetConsumableAsync();
         }
 
         // GET: api/Items/5
