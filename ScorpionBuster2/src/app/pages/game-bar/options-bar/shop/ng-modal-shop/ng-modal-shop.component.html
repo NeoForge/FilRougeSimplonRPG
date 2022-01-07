@@ -3,13 +3,15 @@
         <h4 class="title">Amazon.com</h4>
     </div>
     <div class="shop">
-        <div class="items" *ngIf="!!(itemShop)">
-            <div *ngFor="let item of itemShop">
-                <button>{{item.name}}</button>
+        <div class="container-items" *ngIf="!!(itemShop)">
+            <div class="items" *ngFor="let item of itemShop">
+                <button (click)="displayDescription(item.description)">{{item.name}}</button>
             </div>
         </div>
         <div class="description">
             <h2>Description</h2>
+            <div class="description-txt">{{description}}</div>
+
         </div>
         <div class="merchant">
             <img class="img-vendor" src="../../../../../assets/jeff_bezos.png">

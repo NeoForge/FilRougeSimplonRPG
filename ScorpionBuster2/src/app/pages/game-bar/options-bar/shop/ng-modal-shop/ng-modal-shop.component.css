@@ -14,11 +14,14 @@ h4{
     height: 50vh;
     background-color: bisque;
 }
+.container-items {
+    width: 50%;
+    height: 100%;
+}
 .items {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-
 }
 .merchant{
     width: 30%;

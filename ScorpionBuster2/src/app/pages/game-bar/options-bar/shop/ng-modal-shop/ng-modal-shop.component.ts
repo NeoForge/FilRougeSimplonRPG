@@ -9,7 +9,7 @@ import { ItemsService } from 'src/app/apiServices/items.service';
 })
 export class NgModalShopComponent implements OnInit {
     itemShop: any;
-    salut = "salut";
+    description: string = "";
   constructor(public activeModal: NgbActiveModal,private ItemsService:ItemsService) { }
 
   ngOnInit(): void {
@@ -20,5 +20,8 @@ export class NgModalShopComponent implements OnInit {
               console.log(this.itemShop);
       }
     );
+  }
+  displayDescription(description: string){
+    this.description = description;
   }
 }

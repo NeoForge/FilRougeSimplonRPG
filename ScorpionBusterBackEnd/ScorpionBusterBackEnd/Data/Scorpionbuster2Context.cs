@@ -65,6 +65,8 @@ namespace ScorpionBusterBackEnd.Data
 
                 entity.Property(e => e.Attack).HasColumnName("attack");
 
+                entity.Property(e => e.Credit).HasColumnName("credit");
+
                 entity.Property(e => e.Defense).HasColumnName("defense");
 
                 entity.Property(e => e.DidIDo)
@@ -85,6 +87,8 @@ namespace ScorpionBusterBackEnd.Data
                     .IsRequired()
                     .HasMaxLength(255)
                     .HasColumnName("name");
+
+                entity.Property(e => e.PaSion).HasColumnName("pa$$sion");
 
                 entity.Property(e => e.StoryStage).HasColumnName("story_stage");
 

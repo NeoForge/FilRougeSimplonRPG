@@ -17,5 +17,7 @@ namespace ScorpionBusterBackEnd.Models
         public int Level { get; set; }
         public int Xp { get; set; }
         public string DidIDo { get; set; }
+        public int? PaSion { get; set; }
+        public int? Credit { get; set; }
     }
 }
