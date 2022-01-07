@@ -11,7 +11,9 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class NgbdModalContent {
 
   constructor(public activeModal: NgbActiveModal, private router: Router) {}
+  
   onQuit() {
+    localStorage.clear();
     this.router.navigateByUrl('');
     this.activeModal.close('Close click');
   }

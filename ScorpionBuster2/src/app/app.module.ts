@@ -19,7 +19,6 @@ import { StatisticsBarComponent } from './pages/game-bar/statistics-bar/statisti
 import { ItemsShopComponent } from './pages/game-bar/options-bar/shop/items-shop/items-shop.component';
 import { OptionsComponent } from './pages/game-bar/options-bar/options/options.component';
 import { DialogueComponent } from './pages/dialogue/dialogue.component';
-import { TestComponent } from './pages/test/test.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +38,7 @@ import { TestComponent } from './pages/test/test.component';
     ItemsShopComponent,
     OptionsComponent,
     DialogueComponent
-    TestComponent
+
   ],
   imports: [
     BrowserModule,

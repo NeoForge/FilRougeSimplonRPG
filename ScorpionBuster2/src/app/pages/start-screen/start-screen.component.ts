@@ -8,13 +8,33 @@ import { Router } from '@angular/router';
 })
 export class StartScreenComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+
+   }
 
   ngOnInit(): void {
   }
 
   onStart(){
-    this.router.navigateByUrl('map');
+    let heroChoice = localStorage.getItem('hero');
+    if(heroChoice != null){
+      this.router.navigateByUrl('map');
+    }
+    else {
+      let displayMessage = document.getElementById('message') as HTMLElement;
+      displayMessage!.innerHTML = 'Veuillez choisir un héro !';
+    }
+  }
+  onBill(){
+    let displayMessage = document.getElementById('message') as HTMLElement;
+    displayMessage.innerHTML = '“Je suis taré, mais pas seulement.”';
+    localStorage.setItem('hero', 'Bill');
+  }
+
+  onMarty(){
+    let displayMessage = document.getElementById('message') as HTMLElement;
+    displayMessage.innerHTML = '“Oh dur, c’est pas le pied !”';
+    localStorage.setItem('hero', 'Marty');
   }
 
 }

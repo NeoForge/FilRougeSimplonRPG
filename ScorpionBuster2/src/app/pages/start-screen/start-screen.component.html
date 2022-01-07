@@ -1,12 +1,13 @@
 <section class="start-screen">
     <h1>Scorpion Buster II</h1>
+    <div id="message"></div>
     <div class="select-character">
         <div class="bill">
-            <button class="character1">Bill</button>
+            <button class="character1"(click)="onBill()">Bill Murray</button>
         </div>
         <button class="start-button" (click)="onStart()">START</button>
         <div class="marty">
-            <button class="character2">Marty</button>
+            <button class="character2" (click)="onMarty()">Marty McfLy</button>
         </div>
     </div>
 </section>
