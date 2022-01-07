@@ -1,16 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
-@Component({
-  selector: 'ngbd-modal-inventory',
-  templateUrl: './modalInventory.component.html',
-  styleUrls: ['./modalInventory.component.css']
-})
-
-export class NgbdModalInventory {
-
-  constructor(public activeModal: NgbActiveModal) {}
-}
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgModalInventoryComponent } from './ng-modal-inventory/ng-modal-inventory.component';
 
 @Component({
   selector: 'app-inventory',
@@ -24,7 +14,7 @@ export class InventoryComponent implements OnInit {
   ngOnInit(): void {
   }
   onInventory() {
-    const modalRef = this.modalService.open(NgbdModalInventory);
+    const modalRef = this.modalService.open(NgModalInventoryComponent);
   }
 
 }
