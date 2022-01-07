@@ -42,7 +42,7 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[GetConsomable]",
+         "Name": "[dbo].[GetConsumable]",
          "ObjectType": 1
       },
       {

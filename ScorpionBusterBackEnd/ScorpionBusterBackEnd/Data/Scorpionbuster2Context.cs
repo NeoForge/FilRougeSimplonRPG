@@ -109,7 +109,7 @@ namespace ScorpionBusterBackEnd.Data
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.Consomable).HasColumnName("consomable");
+                entity.Property(e => e.Consumable).HasColumnName("consumable");
 
                 entity.Property(e => e.Description)
                     .IsRequired()
