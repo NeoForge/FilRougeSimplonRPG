@@ -1,4 +1,4 @@
-export class equipment
+export class Equipment
 {
     id : Number;
     name : String;

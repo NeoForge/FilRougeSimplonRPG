@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gN8F3iYF18fXTO3X1/22mrzfX8ccjVc9CR1TofgZTaPny3fgS2s/Qjq1Aiy7ARuL5sc9uqJUQ8QPlTOrAahHwA==",
+  "dgSpecHash": "CUND+Hyaj7p7IHj3sUhybeuUkG/oupBtlA1lqkvqyLEZB8g+2C4doZWCMfqhi4PYJlRnyOKxklDM4NO3ah38JA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\const\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
+  "projectFilePath": "C:\\Users\\const\\FilRougeSimplonRPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\const\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\const\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

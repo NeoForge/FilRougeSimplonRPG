@@ -42,7 +42,7 @@ namespace ScorpionBusterBackEnd.Data
             _context = context;
         }
 
-        public virtual async Task<List<GetConsomableResult>> GetConsomableAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        public virtual async Task<List<GetConsumableResult>> GetConsumableAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
             {
@@ -55,7 +55,7 @@ namespace ScorpionBusterBackEnd.Data
             {
                 parameterreturnValue,
             };
-            var _ = await _context.SqlQueryAsync<GetConsomableResult>("EXEC @returnValue = [dbo].[GetConsomable]", sqlParameters, cancellationToken);
+            var _ = await _context.SqlQueryAsync<GetConsumableResult>("EXEC @returnValue = [dbo].[GetConsumable]", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 
