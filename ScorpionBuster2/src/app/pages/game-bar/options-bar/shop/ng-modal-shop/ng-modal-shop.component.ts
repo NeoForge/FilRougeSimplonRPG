@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { HeroService } from 'src/app/apiServices/hero.service';
 import { ItemsService } from 'src/app/apiServices/items.service';
-import { Hero } from 'src/app/models/hero';
-import { Item } from 'src/app/models/items';
+
 
 @Component({
   selector: 'app-ng-modal-shop',
