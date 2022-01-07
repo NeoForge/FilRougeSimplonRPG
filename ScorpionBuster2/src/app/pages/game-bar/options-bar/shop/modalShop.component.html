@@ -3,16 +3,10 @@
         <h4 class="title">Amazon.com</h4>
     </div>
     <div class="shop">
-        <div class="items">
-            <button>Item 1</button>
-            <button>Item 2</button>
-            <button>Item 3</button>
-            <button>Item 4</button>
-            <button>Item 5</button>
-            <button>Item 6</button>
-            <button>Item 7</button>
-            <button>Item 8</button>
-            <button>Item 9</button>
+        <div class="items" *ngIf="!!(itemShop)">
+            <div *ngFor="let item of itemShop">
+                <button>{{item.name}}</button>
+            </div>
         </div>
         <div class="description">
             <h2>Description</h2>

@@ -14,9 +14,9 @@ export class ItemsService {
     "Access-Control-Allow-Origin": '*'
   });
 
-  GetItem() : Observable<Item> {
+  GetItem() : Observable<any> {
     console.log(this.headers);
-    return this.http.get<Item>(environment.apiUrl + 'Items',{headers:this.headers});
+    return this.http.get<any>(environment.apiUrl + 'Items',{headers:this.headers});
   }
   GetInventory() : Observable<Item> {
     return this.http.get<Item>(environment.apiUrl + 'Items/Inventory',{headers:this.headers});

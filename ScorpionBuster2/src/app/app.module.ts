@@ -6,8 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StartScreenComponent } from './pages/start-screen/start-screen.component';
-import { InventoryComponent } from './pages/game-bar/options-bar/inventory/inventory.component';
-import { ShopComponent } from './pages/game-bar/options-bar/shop/shop.component';
+import { InventoryComponent, NgbdModalInventory } from './pages/game-bar/options-bar/inventory/inventory.component';
+import { NgbdModalShop, ShopComponent } from './pages/game-bar/options-bar/shop/shop.component';
 import { GameComponent } from './pages/game/game.component';
 import { MapComponent } from './pages/map/map.component';
 import { FightComponent } from './pages/fight/fight.component';
@@ -18,8 +18,9 @@ import { HeroComponent } from './pages/game-bar/hero/hero.component';
 import { OptionsBarComponent } from './pages/game-bar/options-bar/options-bar.component';
 import { StatisticsBarComponent } from './pages/game-bar/statistics-bar/statistics-bar.component';
 import { ItemsShopComponent } from './pages/game-bar/options-bar/shop/items-shop/items-shop.component';
-import { OptionsComponent } from './pages/game-bar/options-bar/options/options.component';
+import { NgbdModalOptions, OptionsComponent } from './pages/game-bar/options-bar/options/options.component';
 import { DialogueComponent } from './pages/dialogue/dialogue.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +39,10 @@ import { DialogueComponent } from './pages/dialogue/dialogue.component';
     StatisticsBarComponent,
     ItemsShopComponent,
     OptionsComponent,
-    DialogueComponent
+    DialogueComponent,
+    NgbdModalShop,
+    NgbdModalInventory,
+    NgbdModalOptions,
   ],
   imports: [
     BrowserModule,
