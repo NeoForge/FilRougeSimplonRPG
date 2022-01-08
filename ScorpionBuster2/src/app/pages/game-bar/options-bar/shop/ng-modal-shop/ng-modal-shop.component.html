@@ -5,7 +5,7 @@
     <div class="shop">
         <div class="container-items" *ngIf="!!(itemShop)">
             <div class="items" *ngFor="let item of itemShop; let index = index">
-                <button (click)="displayDescription(item.description, index) ">{{item.name}}</button>
+                <button (click)="displayDescription(item.description, index) "><p>{{item.name}}</p><p> Prix : {{item.price}}</p></button>
             </div>
         </div>
         <div class="description">

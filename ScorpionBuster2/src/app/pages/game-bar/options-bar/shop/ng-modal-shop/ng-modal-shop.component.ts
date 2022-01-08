@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { HeroService } from 'src/app/apiServices/hero.service';
 import { ItemsService } from 'src/app/apiServices/items.service';
-
 
 @Component({
   selector: 'app-ng-modal-shop',
@@ -13,7 +11,7 @@ export class NgModalShopComponent implements OnInit {
     itemShop: any;
     description: string = "";
 
-  constructor(public activeModal: NgbActiveModal,private ItemsService:ItemsService, private HeroService: HeroService) { }
+  constructor(public activeModal: NgbActiveModal,private ItemsService:ItemsService) { }
 
   ngOnInit(): void {
     this.ItemsService.GetItem().subscribe(
