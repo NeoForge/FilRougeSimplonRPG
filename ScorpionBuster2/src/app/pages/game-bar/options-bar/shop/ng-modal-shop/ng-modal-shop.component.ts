@@ -9,7 +9,8 @@ import { ItemsService } from 'src/app/apiServices/items.service';
   styleUrls: ['./ng-modal-shop.component.css']
 })
 export class NgModalShopComponent implements OnInit {
-    itemShop: any;
+  heroId: number = 0;  
+  itemShop: any;
     hero: any;
     description: string = "";
 
@@ -22,13 +23,17 @@ export class NgModalShopComponent implements OnInit {
               console.log(this.itemShop);
       }
     );
-    this.HeroService.GetHeroById(5).subscribe(
-            (data: any) => {
-              this.hero = data;
-              console.log(this.hero);
-      } 
-    );
-  }
+    if (localStorage.getItem("hero") === "Marty") {
+      this.heroId = 5;
+    } else if(localStorage.getItem("hero") === "Bill") {
+      this.heroId = 6;
+    }
+    this.HeroService.GetHeroById(this.heroId).subscribe(
+      (data: any) => {
+        this.hero = data;
+        console.log(this.hero);
+      });
+    }
   choosenItem: number = 0;
   displayDescription(description: string, id: number){
     this.description = description;

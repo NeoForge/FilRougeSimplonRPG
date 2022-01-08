@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HeroService } from 'src/app/apiServices/hero.service';
 
 @Component({
   selector: 'app-start-screen',
@@ -8,16 +9,16 @@ import { Router } from '@angular/router';
 })
 export class StartScreenComponent implements OnInit {
 
-  constructor(private router: Router) {
-
-   }
-
+  constructor(private router: Router, private HeroService: HeroService) { }
+  hero: any;
   ngOnInit(): void {
+
   }
 
-  onStart(){
+
+  onStart() {
     let heroChoice = localStorage.getItem('hero');
-    if(heroChoice != null){
+    if (heroChoice != null) {
       this.router.navigateByUrl('map');
     }
     else {
@@ -25,13 +26,13 @@ export class StartScreenComponent implements OnInit {
       displayMessage!.innerHTML = 'Veuillez choisir un héro !';
     }
   }
-  onBill(){
+  onBill() {
     let displayMessage = document.getElementById('message') as HTMLElement;
     displayMessage.innerHTML = '“Je suis taré, mais pas seulement.”';
     localStorage.setItem('hero', 'Bill');
   }
 
-  onMarty(){
+  onMarty() {
     let displayMessage = document.getElementById('message') as HTMLElement;
     displayMessage.innerHTML = '“Oh dur, c’est pas le pied !”';
     localStorage.setItem('hero', 'Marty');
