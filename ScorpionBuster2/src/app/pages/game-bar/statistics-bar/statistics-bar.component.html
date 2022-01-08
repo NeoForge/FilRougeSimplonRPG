@@ -1,12 +1,16 @@
 <section class="statistics">
-    <div class="health-bar">
-        <div class="health-bar-glass">
-            <div class="health-bar-fluid anim-width"></div>
+    <div class="health-bar" data-total="100" data-value="100">
+        <div id="bar">
+              <div id="hit"></div>
+        </div>
+        <div>hp : {{hero.hp}}/100</div>
+      </div> 
+      <br>
+      <button class="damage" (click)="onHit()">Hit</button>
+    <div class="infos">
             <div>{{hero.name}}</div>
-            <div>{{hero.hp}} hp</div>
             <div>{{hero.xp}} xp</div>
             <div>Attaque : {{hero.attack}}</div>
             <div>Defense : {{hero.defense}}</div>
-        </div>
     </div>
 </section>

@@ -23,6 +23,7 @@ import { DialogueComponent } from './pages/dialogue/dialogue.component';
 import { NgModalInventoryComponent } from './pages/game-bar/options-bar/inventory/ng-modal-inventory/ng-modal-inventory.component';
 import { NgModalShopComponent } from './pages/game-bar/options-bar/shop/ng-modal-shop/ng-modal-shop.component';
 import { NgModalOptionsComponent } from './pages/game-bar/options-bar/options/ng-modal-options/ng-modal-options.component';
+import { ResetAllComponent } from './pages/game-over/reset-all/reset-all.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { NgModalOptionsComponent } from './pages/game-bar/options-bar/options/ng
     DialogueComponent,
     NgModalInventoryComponent,
     NgModalOptionsComponent,
-    NgModalShopComponent
+    NgModalShopComponent,
+    ResetAllComponent
   ],
   imports: [
     BrowserModule,

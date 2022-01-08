@@ -15,7 +15,6 @@ export class StartScreenComponent implements OnInit {
 
   }
 
-
   onStart() {
     let heroChoice = localStorage.getItem('hero');
     if (heroChoice != null) {

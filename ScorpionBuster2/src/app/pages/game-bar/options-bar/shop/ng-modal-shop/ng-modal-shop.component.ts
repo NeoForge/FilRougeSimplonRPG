@@ -9,23 +9,23 @@ import { ItemsService } from 'src/app/apiServices/items.service';
   styleUrls: ['./ng-modal-shop.component.css']
 })
 export class NgModalShopComponent implements OnInit {
-  heroId: number = 0;  
+  heroId: number = 0;
   itemShop: any;
-    hero: any;
-    description: string = "";
+  hero: any;
+  description: string = "";
 
-  constructor(public activeModal: NgbActiveModal,private ItemsService:ItemsService, private HeroService: HeroService) { }
+  constructor(public activeModal: NgbActiveModal, private ItemsService: ItemsService, private HeroService: HeroService) { }
 
   ngOnInit(): void {
     this.ItemsService.GetItem().subscribe(
-            (data: any) => {
-              this.itemShop = data;
-              console.log(this.itemShop);
+      (data: any) => {
+        this.itemShop = data;
+        console.log(this.itemShop);
       }
     );
     if (localStorage.getItem("hero") === "Marty") {
       this.heroId = 5;
-    } else if(localStorage.getItem("hero") === "Bill") {
+    } else if (localStorage.getItem("hero") === "Bill") {
       this.heroId = 6;
     }
     this.HeroService.GetHeroById(this.heroId).subscribe(
@@ -33,30 +33,30 @@ export class NgModalShopComponent implements OnInit {
         this.hero = data;
         console.log(this.hero);
       });
-    }
+  }
   choosenItem: number = 0;
-  displayDescription(description: string, id: number){
+  displayDescription(description: string, id: number) {
     this.description = description;
     this.choosenItem = id;
   }
-  onBuy(){
-    if (this.hero.credit >= this.itemShop[this.choosenItem].price){
-    this.itemShop[this.choosenItem].ownedQuantity = this.itemShop[this.choosenItem].ownedQuantity + 1;
-    this.itemShop[this.choosenItem].owned = true;
-    this.ItemsService.PutItem(this.itemShop[this.choosenItem]).subscribe(
-            (data: any) => {
-              console.log(data);
-      }
-    );
-    this.hero.credit = this.hero.credit - this.itemShop[this.choosenItem].price;
-    this.HeroService.PutHero(this.hero).subscribe(
-            (data: any) => {
-              console.log(data);
-      }
-    );
-
+  onBuy() {
+    if (this.hero.credit >= this.itemShop[this.choosenItem].price) {
+      this.itemShop[this.choosenItem].ownedQuantity = this.itemShop[this.choosenItem].ownedQuantity + 1;
+      this.itemShop[this.choosenItem].owned = true;
+      this.ItemsService.PutItem(this.itemShop[this.choosenItem]).subscribe(
+        (data: any) => {
+          console.log(data);
+        }  
+      );
+      document.getElementById("txt")!.innerHTML = "Vous avez acheté " + this.itemShop[this.choosenItem].name + " pour " + this.itemShop[this.choosenItem].price + " de pa$$ion.";
+      this.hero.credit = this.hero.credit - this.itemShop[this.choosenItem].price;
+      this.HeroService.PutHero(this.hero).subscribe(
+        (data: any) => {
+          console.log(data);
+        }
+      );
     } else {
-      alert("You don't have enough credit");
+      document.getElementById("txt")!.innerHTML = "Vous n'avez pas assez de Pa$$ion !";
     }
   }
 }

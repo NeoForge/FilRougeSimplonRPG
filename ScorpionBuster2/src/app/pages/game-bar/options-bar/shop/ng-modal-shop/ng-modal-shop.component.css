@@ -58,3 +58,9 @@ img{
     margin-left: auto;
     margin-right: auto;
 }
+#txt{
+    background: rgba(0, 0, 0, 0.452);
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
