@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
-
 @Component({
   selector: 'app-options-bar',
   templateUrl: './options-bar.component.html',
@@ -12,6 +10,7 @@ export class OptionsBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 
