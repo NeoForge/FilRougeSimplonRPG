@@ -26,5 +26,15 @@ export class NgModalInventoryComponent implements OnInit {
     this.description = description;
     this.choosenItem = id;
   }
+  onUse() {
+    this.itemInventory[this.choosenItem].owned_quantity = this.itemInventory[this.choosenItem].owned_quantity - 1;
+    this.itemInventory[this.choosenItem].owned = false;
+    this.ItemsService.PutItem(this.itemInventory[this.choosenItem]).subscribe(
+            (data: any) => {
+              console.log(data);
+      }
+    );
+
+  }
 
 }

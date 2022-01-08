@@ -3,9 +3,9 @@
         <h4 class="title">Inventaire</h4>
     </div>
     <div class="inventory">
-        <div class="items" *ngIf="!!(itemInventory)">
+        <div class="container-items" *ngIf="!!(itemInventory)">
             <div class="items" *ngFor="let item of itemInventory; let index = index">
-                <button (click)="displayDescription(item.description, index)"> {{ item.name }}</button>
+                <button (click)="displayDescription(item.description, index)"> {{ item.name }} Possédé : {{item.owned_quantity}}</button>
             </div>
         </div>
         <div class="description_inventory">
@@ -14,7 +14,7 @@
                 {{description}}
             </div>
             <div class="button_inventory">
-                <button type="button">Equiper</button>
+                <button type="button" (click)="onUse()">Equiper/Utiliser</button>
                 <button type="button" (click)="activeModal.close('Close click')">Retour</button>
             </div>
         </div>
