@@ -56,7 +56,12 @@ export class NgModalShopComponent implements OnInit {
         }
       );
     } else {
+      let random = Math.round(Math.random());
+      if (random === 0) {
       document.getElementById("txt")!.innerHTML = "Vous n'avez pas assez de Pa$$ion !";
+      } else {
+       document.getElementById("txt")!.innerHTML = "Il vous faut plus de pa$$ion !";
+      }
     }
   }
 }
