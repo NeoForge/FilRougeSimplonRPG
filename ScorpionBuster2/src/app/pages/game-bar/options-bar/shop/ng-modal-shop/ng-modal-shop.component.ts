@@ -13,7 +13,8 @@ export class NgModalShopComponent implements OnInit {
   itemShop: any;
   hero: any;
   description: string = "";
-
+  price: number = 0;
+  
   constructor(public activeModal: NgbActiveModal, private ItemsService: ItemsService, private HeroService: HeroService) { }
 
   ngOnInit(): void {
@@ -23,6 +24,8 @@ export class NgModalShopComponent implements OnInit {
         console.log(this.itemShop);
       }
     );
+
+    //  document.getElementById("btn-item-shop")!.style.backgroundImage = `url('../../../../../../assets/${this.itemShop[this.choosenItem].image}')`;	
     if (localStorage.getItem("hero") === "Marty") {
       this.heroId = 5;
     } else if (localStorage.getItem("hero") === "Bill") {
@@ -37,6 +40,7 @@ export class NgModalShopComponent implements OnInit {
   choosenItem: number = 0;
   displayDescription(description: string, id: number) {
     this.description = description;
+    this.price = this.itemShop[id].price;
     this.choosenItem = id;
   }
   onBuy() {
