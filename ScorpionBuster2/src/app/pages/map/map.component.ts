@@ -11,8 +11,10 @@ export class MapComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+
   }
   onStory1() {
     this.router.navigateByUrl('game');
   }
+
 }
