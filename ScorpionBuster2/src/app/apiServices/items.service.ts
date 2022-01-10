@@ -33,5 +33,8 @@ export class ItemsService {
   PutItem(item:Item) : Observable<Item> {
     return this.http.put<Item>(environment.apiUrl + 'Items/'+item.id,item,{headers:this.headers});
   }
+  GetEquippedEquipement() : Observable<Item> {
+    return this.http.get<Item>(environment.apiUrl + 'Items/EquippedEquipement',{headers:this.headers});
+  }
 
 }

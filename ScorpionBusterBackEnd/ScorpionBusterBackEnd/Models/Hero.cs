@@ -19,5 +19,7 @@ namespace ScorpionBusterBackEnd.Models
         public string DidIDo { get; set; }
         public int? PaSion { get; set; }
         public int? Credit { get; set; }
+        public int? WeaponId { get; set; }
+        public int? ArmorId { get; set; }
     }
 }

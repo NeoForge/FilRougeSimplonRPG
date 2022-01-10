@@ -19,7 +19,6 @@ namespace ScorpionBusterBackEnd.Data
         {
         }
 
-        public virtual DbSet<Equipment> Equipment { get; set; }
         public virtual DbSet<Hero> Heroes { get; set; }
         public virtual DbSet<Indice> Indices { get; set; }
         public virtual DbSet<Item> Items { get; set; }
@@ -29,39 +28,13 @@ namespace ScorpionBusterBackEnd.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Equipment>(entity =>
-            {
-                entity.ToTable("equipment");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("description");
-
-                entity.Property(e => e.Equipped).HasColumnName("equipped");
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("name");
-
-                entity.Property(e => e.Owned).HasColumnName("owned");
-
-                entity.Property(e => e.StatValue).HasColumnName("stat_value");
-
-                entity.Property(e => e.Type)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("type");
-            });
-
             modelBuilder.Entity<Hero>(entity =>
             {
                 entity.ToTable("hero");
 
                 entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.ArmorId).HasColumnName("armor_id");
 
                 entity.Property(e => e.Attack).HasColumnName("attack");
 
@@ -91,6 +64,8 @@ namespace ScorpionBusterBackEnd.Data
                 entity.Property(e => e.PaSion).HasColumnName("pa$$sion");
 
                 entity.Property(e => e.StoryStage).HasColumnName("story_stage");
+
+                entity.Property(e => e.WeaponId).HasColumnName("weapon_id");
 
                 entity.Property(e => e.Xp).HasColumnName("xp");
             });
@@ -124,6 +99,8 @@ namespace ScorpionBusterBackEnd.Data
                     .IsRequired()
                     .HasMaxLength(255)
                     .HasColumnName("image");
+
+                entity.Property(e => e.IsBuyable).HasColumnName("isBuyable");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
