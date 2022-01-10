@@ -26,11 +26,12 @@ export class GameManager{
         this.heroService = heroService;
     }
 
-    static getInstance(heroService : any){
+    static getInstance(heroService : any,id:number){
 
         if(!GameManager.instance){
             GameManager.instance = new GameManager(heroService);
         }
+        this.instance.update(id);
         return GameManager.instance;
     }
 

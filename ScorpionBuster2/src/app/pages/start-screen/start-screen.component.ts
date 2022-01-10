@@ -14,9 +14,8 @@ export class StartScreenComponent implements OnInit {
   constructor(private router: Router, private HeroService: HeroService) { }
   hero: any;
   gameData: any;
-  GM = GameManager.getInstance(this.HeroService);
+  GM = GameManager.getInstance(this.HeroService,5);
   ngOnInit(): void {
-    this.GM.update(5);
     this.GM?.Data.subscribe(data => {
       this.gameData = data;
       console.log(this.gameData);
