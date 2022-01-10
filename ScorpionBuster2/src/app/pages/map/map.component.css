@@ -10,15 +10,23 @@
 }
 .story1{
     position: absolute;
-    margin: 10% 0 0 20%;
+    margin: 30% 0 0 42.5%;
 }
 .story2{
     position: absolute;
-    margin: 23% 0 0 50%;
+    margin: 18% 0 0 47%;
 }
 
 .story3{
     position: absolute;
     margin: 30% 0 0 12%;
-    
+}
+
+.story4{
+    position: absolute;
+    margin: 5% 0 0 35%;
+}
+
+span{
+    font-size: xx-small;
 }

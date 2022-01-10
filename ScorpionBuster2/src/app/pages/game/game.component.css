@@ -1,6 +1,8 @@
 .game {
     width: 100%;
     height: 70vh;
-    background-color: rebeccapurple;
-    background-image: url('../../../assets/peru_passion_plant.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
 }

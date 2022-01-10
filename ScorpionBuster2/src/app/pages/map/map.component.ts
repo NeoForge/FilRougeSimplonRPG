@@ -22,5 +22,7 @@ export class MapComponent implements OnInit {
   onStory3() {
     this.router.navigateByUrl('game');
   }
-
+  onStory4() {
+    this.router.navigateByUrl('game');
+  }
 }
