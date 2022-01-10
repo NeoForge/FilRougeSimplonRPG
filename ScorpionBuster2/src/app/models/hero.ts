@@ -10,7 +10,10 @@ export class Hero
     level:number;
     storyStage:number;
     didIDo:string;
-    constructor(id:number,name:string,hp:number,attack:number,defense:number,xp:number,image:string,level:number,storyStage:number,didIDo:string){
+    paSion : number;
+    credit : number;
+    
+    constructor(id:number,name:string,hp:number,attack:number,defense:number,xp:number,image:string,level:number,storyStage:number,didIDo:string,paSion:number,credit:number){
         this.id=id;
         this.name=name;
         this.hp=hp;
@@ -21,5 +24,7 @@ export class Hero
         this.level=level;
         this.storyStage=storyStage;
         this.didIDo=didIDo;
+        this.paSion=paSion;
+        this.credit=credit;
     }
 }
