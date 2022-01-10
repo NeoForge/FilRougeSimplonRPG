@@ -98,6 +98,12 @@ namespace ScorpionBusterBackEnd.Data
 
                 entity.Property(e => e.IsBuyable).HasColumnName("isBuyable");
 
+                entity.Property(e => e.IsEquipped).HasColumnName("isEquipped");
+
+                entity.Property(e => e.ItemType)
+                    .HasMaxLength(255)
+                    .HasColumnName("itemType");
+
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255)
@@ -108,6 +114,8 @@ namespace ScorpionBusterBackEnd.Data
                 entity.Property(e => e.OwnedQuantity).HasColumnName("owned_quantity");
 
                 entity.Property(e => e.Price).HasColumnName("price");
+
+                entity.Property(e => e.StatValue).HasColumnName("statValue");
             });
 
             modelBuilder.Entity<Map>(entity =>
