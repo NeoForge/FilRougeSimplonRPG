@@ -19,19 +19,37 @@ interface Data{
 
 export class GameManager{
     private static instance : GameManager;
+    heroService : HeroService;
     private DataSubject = new ReplaySubject<Data>(1);
     public readonly Data = this.DataSubject.asObservable();
-    private constructor(){}
+    private constructor(heroService : HeroService){
+        this.heroService = heroService;
+    }
 
-    static getInstance(){
+    static getInstance(heroService : any){
+
         if(!GameManager.instance){
-            GameManager.instance = new GameManager();
+            GameManager.instance = new GameManager(heroService);
         }
         return GameManager.instance;
     }
 
     dispatch(data:Data){
         this.DataSubject.next(data);
+        this.heroService.PutHero(data).subscribe(
+            (data: any) => {
+                this.update(data.id)
+            }
+        );
+    }
+
+    update(id:number)
+    {
+        this.heroService.GetHeroById(id).subscribe(
+            (data: any) => {
+                this.DataSubject.next(data);
+            }
+        );
     }
 
 }
