@@ -29,7 +29,7 @@ export class StatisticsBarComponent implements OnInit {
       this.hero.hp = this.hero.hp - damage;
       this.changeHPbar();
       this.GM.dispatch(this.hero);
-      
+
     } else if (this.hero.hp - damage < 1) {
       this.hero.hp = 0;
       this.changeHPbar();
@@ -40,7 +40,6 @@ export class StatisticsBarComponent implements OnInit {
 
   changeHPbar() {
     let bar = document.getElementById("bar") as HTMLDivElement;
-
     bar.style.width = `${this.hero.hp}%`;
   }
 
