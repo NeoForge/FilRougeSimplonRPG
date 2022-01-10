@@ -40,7 +40,11 @@ export class NgModalShopComponent implements OnInit {
   }
   onBuy() {
     if (this.hero.credit >= this.itemShop[this.choosenItem].price) {
+      if(this.itemShop[this.choosenItem].ownedQuantity >0) {
       this.itemShop[this.choosenItem].ownedQuantity = this.itemShop[this.choosenItem].ownedQuantity + 1;
+      }else{
+        this.itemShop[this.choosenItem].ownedQuantity = 1;
+      }
       this.itemShop[this.choosenItem].owned = true;
       console.log(this.itemShop[this.choosenItem]);
       this.ItemsService.PutItem(this.itemShop[this.choosenItem]).subscribe(
