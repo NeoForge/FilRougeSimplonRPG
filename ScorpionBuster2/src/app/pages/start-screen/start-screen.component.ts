@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeroService } from 'src/app/apiServices/hero.service';
 import { GameManager } from 'src/app/helpers/gameManager';
-import { Hero } from 'src/app/models/hero';
 
 @Component({
   selector: 'app-start-screen',
@@ -12,14 +11,10 @@ import { Hero } from 'src/app/models/hero';
 export class StartScreenComponent implements OnInit {
 
   constructor(private router: Router, private HeroService: HeroService) { }
-  hero: any;
   gameData: any;
-  GM = GameManager.getInstance(this.HeroService,5);
+
+  GM = GameManager.getInstance(this.HeroService,2);
   ngOnInit(): void {
-    this.GM?.Data.subscribe(data => {
-      this.gameData = data;
-      console.log(this.gameData);
-    });
   }
 
   onStart() {
@@ -43,5 +38,5 @@ export class StartScreenComponent implements OnInit {
     displayMessage.innerHTML = '“Oh dur, c’est pas le pied !”';
     localStorage.setItem('hero', 'Marty');
   }
-
+  
 }

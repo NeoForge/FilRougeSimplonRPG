@@ -15,6 +15,6 @@ namespace ScorpionBusterBackEnd.Models
         public bool owned { get; set; }
         public int owned_quantity { get; set; }
         public bool consumable { get; set; }
-
+        public bool? isBuyable { get; set; }
     }
 }
