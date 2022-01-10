@@ -54,8 +54,6 @@ namespace ScorpionBusterBackEnd.Data
                     .HasMaxLength(255)
                     .HasColumnName("image");
 
-                entity.Property(e => e.Level).HasColumnName("level");
-
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255)
@@ -66,8 +64,6 @@ namespace ScorpionBusterBackEnd.Data
                 entity.Property(e => e.StoryStage).HasColumnName("story_stage");
 
                 entity.Property(e => e.WeaponId).HasColumnName("weapon_id");
-
-                entity.Property(e => e.Xp).HasColumnName("xp");
             });
 
             modelBuilder.Entity<Indice>(entity =>
@@ -165,8 +161,6 @@ namespace ScorpionBusterBackEnd.Data
                     .IsRequired()
                     .HasMaxLength(255)
                     .HasColumnName("name");
-
-                entity.Property(e => e.Xp).HasColumnName("xp");
             });
 
             modelBuilder.Entity<Pnj>(entity =>
