@@ -16,29 +16,34 @@ export class StatisticsBarComponent implements OnInit {
   GM = GameManager.getInstance(this.HeroService, parseInt(this.heroId));
   constructor(private HeroService: HeroService, private router: Router) { }
   ngOnInit(): void {
-    let bar = document.getElementById("bar") as HTMLDivElement;
     this.sub = this.GM.Data.subscribe(
       (data: any) => {
         this.hero = data;
-        bar.style.width = `${this.hero.hp}%`;
+        this.changeHPbar();
       }
     );
-
   }
   onHit() {
-    let bar = document.getElementById("bar") as HTMLDivElement;
     let damage = 10;
     if (this.hero.hp - damage >= 1) {
       this.hero.hp = this.hero.hp - damage;
+      this.changeHPbar();
       this.GM.dispatch(this.hero);
-      bar.style.width = `${this.hero.hp}%`;
+      
     } else if (this.hero.hp - damage < 1) {
       this.hero.hp = 0;
-      bar.style.width = `${this.hero.hp}%`;
+      this.changeHPbar();
       this.GM.dispatch(this.hero);
       this.router.navigateByUrl('game-over');
     }
   }
+
+  changeHPbar() {
+    let bar = document.getElementById("bar") as HTMLDivElement;
+
+    bar.style.width = `${this.hero.hp}%`;
+  }
+
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
