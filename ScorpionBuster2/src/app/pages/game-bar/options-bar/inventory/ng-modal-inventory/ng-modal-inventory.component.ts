@@ -39,16 +39,21 @@ export class NgModalInventoryComponent implements OnInit {
     this.choosenItem = id;
   }
   onUse() {
-    console.log(this.itemInventory[this.choosenItem].owned_quantity);
+    console.log(this.itemInventory[this.choosenItem].quantity);
     switch (this.itemInventory[this.choosenItem].itemType) {
       case "potion": {
         let temp = this.itemInventory[this.choosenItem];
-        temp.owned_quantity = temp.owned_quantity - 1;
-        if (temp.owned_quantity <= 0) {
+        temp.quantity = temp.quantity - 1;
+        if (temp.quantity <= 0) {
           temp.owned = false;
         }
         this.ItemsService.PutItem(temp).subscribe(
           (data: any) => {
+            this.ItemsService.GetInventory().subscribe(
+              (data: any) => {
+                this.itemInventory = data;
+              }
+            );
           }
         );
         if(this.hero.hp + temp.statValue > 100) {
@@ -58,15 +63,29 @@ export class NgModalInventoryComponent implements OnInit {
           this.hero.hp = this.hero.hp + temp.statValue;
         }
         this.GM.dispatch(this.hero);
-        this.ItemsService.GetInventory().subscribe(
-          (data: any) => {
-            this.itemInventory = data;
-          }
-        );
+
         break;
 
       }
       case "weapon": {
+        let temp = this.itemInventory[this.choosenItem];
+        if (!temp.isEquipped) {
+        temp.isEquipped = true;
+        this.hero.attack = this.hero.attack + temp.statValue;
+        } else if (temp.isEquipped) {
+        temp.isEquipped = false;
+        this.hero.attack = this.hero.attack - temp.statValue;
+        }
+        this.ItemsService.PutItem(temp).subscribe(
+          (data: any) => {
+            this.ItemsService.GetInventory().subscribe(
+              (data: any) => {
+                this.itemInventory = data;
+              }
+            );
+          }
+        );
+
         break;
       }
       case "armor": {
