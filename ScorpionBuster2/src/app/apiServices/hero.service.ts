@@ -14,12 +14,12 @@ export class HeroService {
     "Access-Control-Allow-Origin": '*'
   });
   GetHero() : Observable<Hero> {
-    return this.http.get<Hero>(environment.apiUrl + 'Hero',{headers:this.headers});
+    return this.http.get<Hero>(environment.apiUrl + 'Heroes',{headers:this.headers});
   }
   GetHeroById(id:number) : Observable<Hero> {
-    return this.http.get<Hero>(environment.apiUrl + 'Hero/'+id,{headers:this.headers});
+    return this.http.get<Hero>(environment.apiUrl + 'Heroes/'+id,{headers:this.headers});
   }
   PutHero(hero:any) : Observable<Hero> {
-    return this.http.put<Hero>(environment.apiUrl + 'Hero/'+hero.id,hero,{headers:this.headers});
+    return this.http.put<Hero>(environment.apiUrl + 'Heroes/'+hero.id,hero,{headers:this.headers});
   }
 }
