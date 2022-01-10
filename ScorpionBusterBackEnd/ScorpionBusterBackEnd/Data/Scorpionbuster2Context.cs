@@ -111,9 +111,9 @@ namespace ScorpionBusterBackEnd.Data
 
                 entity.Property(e => e.Owned).HasColumnName("owned");
 
-                entity.Property(e => e.OwnedQuantity).HasColumnName("owned_quantity");
-
                 entity.Property(e => e.Price).HasColumnName("price");
+
+                entity.Property(e => e.Quantity).HasColumnName("quantity");
 
                 entity.Property(e => e.StatValue).HasColumnName("statValue");
             });

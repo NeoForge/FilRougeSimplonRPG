@@ -11,5 +11,4 @@ export class GameBarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
