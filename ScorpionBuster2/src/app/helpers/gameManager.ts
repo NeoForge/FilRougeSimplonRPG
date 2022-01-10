@@ -37,9 +37,10 @@ export class GameManager{
 
     dispatch(data:Data){
         this.DataSubject.next(data);
+        let temp = data.id
         this.heroService.PutHero(data).subscribe(
             (data: any) => {
-                this.update(data.id)
+                this.update(temp);
             }
         );
     }

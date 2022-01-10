@@ -13,13 +13,17 @@ export class StartScreenComponent implements OnInit {
   constructor(private router: Router, private HeroService: HeroService) { }
   gameData: any;
 
-  GM = GameManager.getInstance(this.HeroService,2);
+  GM:any;
   ngOnInit(): void {
   }
 
   onStart() {
     let heroChoice = localStorage.getItem('hero');
-    if (heroChoice != null) {
+    if (heroChoice === '2') {
+      this.GM = GameManager.getInstance(this.HeroService, 2);
+      this.router.navigateByUrl('map');
+    } else if (heroChoice === '3') {
+      this.GM = GameManager.getInstance(this.HeroService, 3);
       this.router.navigateByUrl('map');
     }
     else {
@@ -30,13 +34,13 @@ export class StartScreenComponent implements OnInit {
   onBill() {
     let displayMessage = document.getElementById('message') as HTMLElement;
     displayMessage.innerHTML = '“Je suis taré, mais pas seulement.”';
-    localStorage.setItem('hero', 'Bill');
+    localStorage.setItem('hero', '2');
   }
 
   onMarty() {
     let displayMessage = document.getElementById('message') as HTMLElement;
     displayMessage.innerHTML = '“Oh dur, c’est pas le pied !”';
-    localStorage.setItem('hero', 'Marty');
+    localStorage.setItem('hero', '3');
   }
   
 }
