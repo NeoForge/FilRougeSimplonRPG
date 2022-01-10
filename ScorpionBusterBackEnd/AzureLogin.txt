@@ -1,3 +1,4 @@
 login admin AzureDB
+formationdotnet.database.windows.net
 AdminDotNet
 Admin.dotnet.13796482
