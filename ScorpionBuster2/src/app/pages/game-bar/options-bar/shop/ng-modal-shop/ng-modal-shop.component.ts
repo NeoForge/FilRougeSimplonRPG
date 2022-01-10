@@ -42,7 +42,7 @@ export class NgModalShopComponent implements OnInit {
     if (this.hero.credit >= this.itemShop[this.choosenItem].price) {
       this.itemShop[this.choosenItem].ownedQuantity = this.itemShop[this.choosenItem].ownedQuantity + 1;
       this.itemShop[this.choosenItem].owned = true;
-      console.log(this.itemShop[this.choosenItem]);
+      console.log("index ",this.itemShop[this.choosenItem]);
       this.ItemsService.PutItem(this.itemShop[this.choosenItem]).subscribe(
         (data: any) => {
           console.log(data);
@@ -50,11 +50,7 @@ export class NgModalShopComponent implements OnInit {
       );
       document.getElementById("txt")!.innerHTML = "Vous avez acheté " + this.itemShop[this.choosenItem].name + " pour " + this.itemShop[this.choosenItem].price + " de pa$$ion.";
       this.hero.credit = this.hero.credit - this.itemShop[this.choosenItem].price;
-      this.HeroService.PutHero(this.hero).subscribe(
-        (data: any) => {
-          console.log(data);
-        }
-      );
+      this.GM.dispatch(this.hero);
     } else {
       let random = Math.round(Math.random());
       if (random === 0) {

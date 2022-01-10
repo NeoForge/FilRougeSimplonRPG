@@ -17,7 +17,6 @@ export class HeroComponent implements OnInit {
     this.sub = this.GM.Data.subscribe(
       (data: any) => {
         this.hero = data;
-        console.log(this.hero);
       }
     );
   }
