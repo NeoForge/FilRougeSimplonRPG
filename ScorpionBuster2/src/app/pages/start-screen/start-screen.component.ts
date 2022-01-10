@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeroService } from 'src/app/apiServices/hero.service';
+import { GameManager } from 'src/app/helpers/gameManager';
 
 @Component({
   selector: 'app-start-screen',
@@ -11,7 +12,15 @@ export class StartScreenComponent implements OnInit {
 
   constructor(private router: Router, private HeroService: HeroService) { }
   hero: any;
+  gameData: any;
+  GM: GameManager = GameManager.getInstance();
   ngOnInit(): void {
+    this.HeroService.GetHeroById(5).subscribe(
+      (data: any) => {
+        this.GM.dispatch(data);
+        this.GM.Data.subscribe((data:any)=>{this.gameData = data; console.log(this.gameData)});
+      });
+
 
   }
 
