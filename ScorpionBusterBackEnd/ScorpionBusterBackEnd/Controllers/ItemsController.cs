@@ -125,6 +125,31 @@ namespace ScorpionBusterBackEnd.Controllers
             return NoContent();
         }
 
+        //GET : api/weaponEquip/5
+        [HttpGet("weaponEquip/{id}")]
+        public async Task<ActionResult<int>> SetWeaponEquip(int id)
+        {
+            return await _context.GetProcedures().EquipWeaponAsync(id);
+        }
+        //GET : api/armorEquip/5
+        [HttpGet("armorEquip/{id}")]
+        public async Task<ActionResult<int>> SetArmorEquip(int id)
+        {
+            return await _context.GetProcedures().EquipArmorAsync(id);
+        }
+        //GET : api/armorUnequip
+        [HttpGet("armorUnequip")]
+        public async Task<ActionResult<int>> UnequipArmor()
+        {
+            return await _context.GetProcedures().UnequipArmorAsync();
+        }
+        //GET : api/weaponUnequip
+        [HttpGet("weaponUnequip")]
+        public async Task<ActionResult<int>> weaponUnequip()
+        {
+            return await _context.GetProcedures().UnequipWeaponAsync();
+        }
+
         private bool ItemExists(int id)
         {
             return _context.Items.Any(e => e.Id == id);
