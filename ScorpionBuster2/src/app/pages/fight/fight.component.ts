@@ -34,7 +34,6 @@ export class FightComponent implements OnInit {
         this.monster = data;   
         this.localData.playerState = "fight";
         this.GM.dispatchLocal(this.localData);
-        console.log(this.localData.playerState);
         this.fightLoop();
       }
     );
@@ -45,36 +44,54 @@ export class FightComponent implements OnInit {
     while (this.monster.hp > 0 && this.data.hp > 0 && this.localData.combatState != "flee") {
       await this.timer(1000);
       console.log("fight");
+      let monsterDamage = this.data.attack - this.monster.defense;
+      let playerDamage = this.monster.attack - this.data.defense;
       switch (this.localData.combatState) {
         case "attack": {
-          this.monster.hp = this.monster.hp - this.data.attack*this.data.attack;
-          this.data.hp = this.data.hp - this.monster.attack;
+          console.log("attack");
+          if (monsterDamage <= 0) {
+            monsterDamage = 0;
+          }
+          if (playerDamage <= 0) {
+            playerDamage = 0;
+          }
+          this.monster.hp -= monsterDamage;
+          this.data.hp -= playerDamage;
           this.GM.dispatchLocal(this.localData);
           this.localData.combatState = "wait";
+          this.changeHPbar();
           break;
         }
         case "flee": {
+          console.log("flee");
+          
           this.localData.combatState = "flee";
           this.onLeave();
           break;
         }
         case "defense": {
-          this.data.hp = this.data.hp - this.monster.attack / 2;
+          console.log("defense");
+          this.data.hp -= playerDamage / 2;
           this.localData.combatState = "wait";
           this.GM.dispatchLocal(this.localData);
           break;
         }
         case "wait": {
+          console.log("wait");
           break;
         }
     }
   }
+  console.log("I'm OUT OF THE LOOP");
+  
 
-  if (this.monster.hp == 0) {
-    this.data.credit += 10;
+  if (this.monster.hp <= 0) {
+    console.log("You win!");
+    this.data.credit += 100;
     this.GM.dispatch(this.data);
-  } else if (this.data.hp == 0) {
-
+    this.onLeave();
+  } else if (this.data.hp <= 0) {
+    console.log("You lose!");
     this.router.navigateByUrl('game-over');
   }
 }
