@@ -17,7 +17,7 @@ export class FightComponent implements OnInit {
   data: any;
   localData: any;
   monster: any;
-
+  combatlog : string = "";
   ngOnInit(): void {
     this.GM.Data.subscribe(
       (data: any) => {
@@ -43,18 +43,19 @@ export class FightComponent implements OnInit {
   async fightLoop(){
     while (this.monster.hp > 0 && this.data.hp > 0 && this.localData.combatState != "flee") {
       await this.timer(1000);
-      console.log("fight");
       let monsterDamage = this.data.attack - this.monster.defense;
       let playerDamage = this.monster.attack - this.data.defense;
       switch (this.localData.combatState) {
         case "attack": {
-          console.log("attack");
           if (monsterDamage <= 0) {
             monsterDamage = 0;
           }
           if (playerDamage <= 0) {
             playerDamage = 0;
           }
+          this.combatlog="";
+          this.combatlog += `${this.data.name} attacked ${this.monster.name} for ${monsterDamage} damage.\n`;
+          this.combatlog += `${this.monster.name} attacked ${this.data.name} for ${playerDamage} damage.\n`;
           this.monster.hp -= monsterDamage;
           this.data.hp -= playerDamage;
           this.GM.dispatchLocal(this.localData);
@@ -63,21 +64,24 @@ export class FightComponent implements OnInit {
           break;
         }
         case "flee": {
-          console.log("flee");
           
           this.localData.combatState = "flee";
           this.onLeave();
           break;
         }
         case "defense": {
-          console.log("defense");
+          if (playerDamage <= 0) {
+            playerDamage = 0;
+          }
+          this.combatlog="";
+          this.combatlog += `${this.data.name} defend himself\n`;
+          this.combatlog += `${this.monster.name} attacked ${this.data.name} for ${playerDamage/2} damage.\n`;
           this.data.hp -= playerDamage / 2;
           this.localData.combatState = "wait";
           this.GM.dispatchLocal(this.localData);
           break;
         }
         case "wait": {
-          console.log("wait");
           break;
         }
     }
