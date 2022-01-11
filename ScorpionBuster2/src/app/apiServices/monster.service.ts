@@ -15,9 +15,9 @@ export class MonsterService {
   });
 
   GetMonster() : Observable<Monster> {
-    return this.http.get<Monster>(environment.apiUrl + 'Monster',{headers:this.headers});
+    return this.http.get<Monster>(environment.apiUrl + 'Monsters',{headers:this.headers});
   }
   GetMonsterById(id:number) : Observable<Monster> {
-    return this.http.get<Monster>(environment.apiUrl + 'Monster/'+id,{headers:this.headers});
+    return this.http.get<Monster>(environment.apiUrl + 'Monsters/'+id,{headers:this.headers});
   }
 }

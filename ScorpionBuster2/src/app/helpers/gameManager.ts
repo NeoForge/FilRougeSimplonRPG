@@ -1,31 +1,32 @@
 import { ReplaySubject } from 'rxjs';
 import { HeroService } from '../apiServices/hero.service';
 
-interface Data{
-    id:number;
-    name:string;
-    hp:number;
-    attack:number;
-    defense:number;
-    xp:number;
-    image:string;
-    level:number;
-    storyStage:number;
-    didIDo:string;
-    paSion : number;
-    credit : number;
+interface Data {
+    id: number;
+    name: string;
+    hp: number;
+    attack: number;
+    defense: number;
+    xp: number;
+    image: string;
+    level: number;
+    storyStage: number;
+    didIDo: string;
+    paSion: number;
+    credit: number;
 }
- interface LocalData {
-     combatState: string;
-     choiceState: number;
-     monsterId: number;
-        heroId: number;
+interface LocalData {
+    combatState: string;
+    choiceState: number;
+    monsterId: number;
+    heroId: number;
+    playerState: string;
 
- }
+}
 
-export class GameManager{
-    private static instance : GameManager;
-    heroService : HeroService;
+export class GameManager {
+    private static instance: GameManager;
+    heroService: HeroService;
 
     private DataSubject = new ReplaySubject<Data>(1);
     public readonly Data = this.DataSubject.asObservable();
@@ -33,20 +34,27 @@ export class GameManager{
     private LocalDataSubject = new ReplaySubject<LocalData>(1);
     public readonly LocalData = this.LocalDataSubject.asObservable();
 
-    private constructor(heroService : HeroService){
+    private constructor(heroService: HeroService) {
         this.heroService = heroService;
     }
 
-    static getInstance(heroService : any,id:number){
+    static getInstance(heroService: any, id: number) {
 
-        if(!GameManager.instance){
+        if (!GameManager.instance) {
             GameManager.instance = new GameManager(heroService);
         }
         this.instance.update(id);
+        this.instance.LocalDataSubject.next({
+            combatState: "wait",
+            choiceState: 0,
+            monsterId: 0,
+            heroId: id,
+            playerState: "indice"
+        });
         return GameManager.instance;
     }
 
-    dispatch(data:Data){
+    dispatch(data: Data) {
         this.DataSubject.next(data);
         let temp = data.id
         this.heroService.PutHero(data).subscribe(
@@ -56,12 +64,11 @@ export class GameManager{
         );
     }
 
-    dispatchLocal(LocalData: LocalData){
+    dispatchLocal(LocalData: LocalData) {
         this.LocalDataSubject.next(LocalData);
     }
 
-    update(id:number)
-    {
+    update(id: number) {
         this.heroService.GetHeroById(id).subscribe(
             (data: any) => {
                 this.DataSubject.next(data);

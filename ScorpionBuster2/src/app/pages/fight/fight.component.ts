@@ -29,17 +29,65 @@ export class FightComponent implements OnInit {
         this.localData = data;
       }
     );
-    this.monsterService.GetMonsterById(this.localData.monsterId).subscribe(
+    this.monsterService.GetMonsterById(1).subscribe(
       (data: any) => {
-        this.monster = data;
+        this.monster = data;   
+        this.localData.playerState = "fight";
+        this.GM.dispatchLocal(this.localData);
+        console.log(this.localData.playerState);
+        this.fightLoop();
       }
     );
   }
 
-  fightLoop(){
+  timer = (ms:any) => new Promise(res => setTimeout(res, ms));
+  async fightLoop(){
+    console.log(this.monster.hp, this.data.hp, this.localData.combatState);
+    console.log(this.monster.hp > 0);
+    console.log(this.data.hp > 0);
+    console.log(this.localData.combatState != "flee");
     
+    
+    
+    while (this.monster.hp > 0 || this.data.hp > 0 || this.localData.combatState != "flee") {
+      await this.timer(1000);
+      switch (this.localData.combatState) {
+        case "attack": {
+          this.monster.hp = this.monster.hp - this.data.attack;
+          this.data.hp = this.data.hp - this.monster.attack;
+          this.localData.combatState = "wait";
+          break;
+        }
+        case "flee": {
+          this.localData.combatState = "flee";
+          this.onLeave();
+          break;
+        }
+        case "defense": {
+          this.data.hp = this.data.hp - this.monster.attack / 2;
+          this.localData.combatState = "wait";
+          break;
+        }
+        case "wait": {
+          break;
+        }
+    }
   }
+
+  if (this.monster.hp == 0) {
+    this.data.paSion += 10;
+    this.GM.dispatch(this.data);
+  } else if (this.data.hp == 0) {
+
+    this.router.navigateByUrl('game-over');
+  }
+}
   onLeave(){
     this.router.navigateByUrl('/map');
+    return;
   }
+  ngOnDestroy() {
+    console.log("destroy");
+  }
+
 }
