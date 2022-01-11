@@ -9723,11 +9723,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Apprenant\\Documents\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
+      "projectUniqueName": "C:\\Users\\Apprenant\\Documents\\Cours Simplon\\Projets\\Projet Fil Rouge RPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
       "projectName": "ScorpionBusterBackEnd",
-      "projectPath": "C:\\Users\\Apprenant\\Documents\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
+      "projectPath": "C:\\Users\\Apprenant\\Documents\\Cours Simplon\\Projets\\Projet Fil Rouge RPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
       "packagesPath": "C:\\Users\\Apprenant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Apprenant\\Documents\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\obj\\",
+      "outputPath": "C:\\Users\\Apprenant\\Documents\\Cours Simplon\\Projets\\Projet Fil Rouge RPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Apprenant\\AppData\\Roaming\\NuGet\\NuGet.Config",
