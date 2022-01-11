@@ -15,13 +15,24 @@ interface Data{
     paSion : number;
     credit : number;
 }
+ interface LocalData {
+     combatState: string;
+     choiceState: number;
+     monsterId: number;
+        heroId: number;
 
+ }
 
 export class GameManager{
     private static instance : GameManager;
     heroService : HeroService;
+
     private DataSubject = new ReplaySubject<Data>(1);
     public readonly Data = this.DataSubject.asObservable();
+
+    private LocalDataSubject = new ReplaySubject<LocalData>(1);
+    public readonly LocalData = this.LocalDataSubject.asObservable();
+
     private constructor(heroService : HeroService){
         this.heroService = heroService;
     }
@@ -43,6 +54,10 @@ export class GameManager{
                 this.update(temp);
             }
         );
+    }
+
+    dispatchLocal(LocalData: LocalData){
+        this.LocalDataSubject.next(LocalData);
     }
 
     update(id:number)

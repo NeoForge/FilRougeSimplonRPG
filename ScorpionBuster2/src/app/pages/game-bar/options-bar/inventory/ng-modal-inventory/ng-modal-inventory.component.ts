@@ -1,4 +1,3 @@
-import { compileNgModuleDeclarationExpression } from '@angular/compiler/src/render3/r3_module_compiler';
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { HeroService } from 'src/app/apiServices/hero.service';
@@ -10,6 +9,7 @@ import { GameManager } from 'src/app/helpers/gameManager';
   templateUrl: './ng-modal-inventory.component.html',
   styleUrls: ['./ng-modal-inventory.component.css']
 })
+
 export class NgModalInventoryComponent implements OnInit {
   itemInventory: any;
   description: string = "";
@@ -39,62 +39,101 @@ export class NgModalInventoryComponent implements OnInit {
     this.choosenItem = id;
   }
   onUse() {
-    console.log(this.itemInventory[this.choosenItem].quantity);
+    let txt = document.getElementById("txt") as HTMLInputElement;
     switch (this.itemInventory[this.choosenItem].itemType) {
       case "potion": {
         let temp = this.itemInventory[this.choosenItem];
-        temp.quantity = temp.quantity - 1;
-        if (temp.quantity <= 0) {
-          temp.owned = false;
-        }
-        this.ItemsService.PutItem(temp).subscribe(
-          (data: any) => {
-            this.ItemsService.GetInventory().subscribe(
-              (data: any) => {
-                this.itemInventory = data;
-              }
-            );
+        if (this.hero.hp >= 100) {
+          txt.innerHTML = "Votre vie est déjà au maximum";
+        } else {
+          temp.quantity = temp.quantity - 1;
+          if (temp.quantity <= 0) {
+            temp.owned = false;
           }
-        );
-        if(this.hero.hp + temp.statValue > 100) {
-        
-          this.hero.hp = 100;
-        }else{
-          this.hero.hp = this.hero.hp + temp.statValue;
+          this.ItemsService.PutItem(temp).subscribe(
+            (data: any) => {
+              this.ItemsService.GetInventory().subscribe(
+                (data: any) => {
+                  this.itemInventory = data;
+                }
+              );
+            }
+          );
+          if (this.hero.hp + temp.statValue > 100) {
+            this.hero.hp = 100;
+          } else {
+            this.hero.hp = this.hero.hp + temp.statValue;
+          }
+          this.GM.dispatch(this.hero);
         }
-        this.GM.dispatch(this.hero);
-
         break;
 
       }
       case "weapon": {
         let temp = this.itemInventory[this.choosenItem];
         if (!temp.isEquipped) {
-        temp.isEquipped = true;
-        this.hero.attack = this.hero.attack + temp.statValue;
+          this.hero.attack = 10;
+          this.hero.attack = this.hero.attack + temp.statValue;
+          this.ItemsService.SetEquippedWeapon(temp.id).subscribe(
+            (data: any) => {
+              this.ItemsService.GetInventory().subscribe(
+                (data: any) => {
+                  this.itemInventory = data;
+                  this.GM.dispatch(this.hero);
+                }
+              );
+            });
+          txt.innerHTML = `Vous avez équipé ${temp.name}`;
         } else if (temp.isEquipped) {
-        temp.isEquipped = false;
-        this.hero.attack = this.hero.attack - temp.statValue;
+          this.hero.attack = this.hero.attack - temp.statValue;
+          this.ItemsService.UnequipWeapon().subscribe(
+            (data: any) => {
+              this.ItemsService.GetInventory().subscribe(
+                (data: any) => {
+                  this.itemInventory = data;
+                  this.GM.dispatch(this.hero);
+                }
+              );
+            });
+          txt.innerHTML = `Vous avez déséquipé ${temp.name}`;
         }
-        this.ItemsService.PutItem(temp).subscribe(
-          (data: any) => {
-            this.ItemsService.GetInventory().subscribe(
-              (data: any) => {
-                this.itemInventory = data;
-              }
-            );
-          }
-        );
 
         break;
       }
       case "armor": {
+        let temp = this.itemInventory[this.choosenItem];
+        if (!temp.isEquipped) {
+          this.hero.defense = 5;
+          this.hero.defense = this.hero.defense + temp.statValue;
+          this.ItemsService.SetEquippedArmor(temp.id).subscribe(
+            (data: any) => {
+              this.ItemsService.GetInventory().subscribe(
+                (data: any) => {
+                  this.itemInventory = data;
+                  this.GM.dispatch(this.hero);
+                }
+              );
+            });
+          txt.innerHTML = `Vous avez équipé ${temp.name}`;
+        } else if (temp.isEquipped) {
+          this.hero.defense = this.hero.defense - temp.statValue;
+          this.ItemsService.UnequipArmor().subscribe(
+            (data: any) => {
+              this.ItemsService.GetInventory().subscribe(
+                (data: any) => {
+                  this.itemInventory = data;
+                  this.GM.dispatch(this.hero);
+                }
+              );
+            });
+          txt.innerHTML = `Vous avez déséquipé ${temp.name}`;
+        }
         break;
       }
 
     }
   }
-    ngOnDestroy() {
-      this.sub.unsubscribe();
-    }
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
+}
