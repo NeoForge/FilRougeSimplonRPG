@@ -37,5 +37,17 @@ export class ItemsService {
   GetEquippedEquipement() : Observable<Item> {
     return this.http.get<Item>(environment.apiUrl + 'Items/EquippedEquipement',{headers:this.headers});
   }
+  SetEquippedWeapon(id:number) : Observable<Item> {
+    return this.http.get<Item>(environment.apiUrl + 'Items/weaponEquip/'+id,{headers:this.headers});
+  }
+  SetEquippedArmor(id:number) : Observable<Item> {
+    return this.http.get<Item>(environment.apiUrl + 'Items/weaponArmor/'+id,{headers:this.headers});
+  }
+  UnequipArmor() : Observable<Item> {
+    return this.http.get<Item>(environment.apiUrl + 'Items/armorUnequip',{headers:this.headers});
+  }
+  UnequipWeapon() : Observable<Item> {
+    return this.http.get<Item>(environment.apiUrl + 'Items/weaponUnequip',{headers:this.headers});
+  }
 
 }

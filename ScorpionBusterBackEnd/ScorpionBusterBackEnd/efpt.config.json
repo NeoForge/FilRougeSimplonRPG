@@ -38,6 +38,14 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[EquipArmor]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[EquipWeapon]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[GetConsumable]",
          "ObjectType": 1
       },
@@ -51,6 +59,14 @@
       },
       {
          "Name": "[dbo].[GetShop]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UnequipArmor]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UnequipWeapon]",
          "ObjectType": 1
       }
    ],
