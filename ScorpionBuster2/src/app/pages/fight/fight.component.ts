@@ -42,19 +42,14 @@ export class FightComponent implements OnInit {
 
   timer = (ms:any) => new Promise(res => setTimeout(res, ms));
   async fightLoop(){
-    console.log(this.monster.hp, this.data.hp, this.localData.combatState);
-    console.log(this.monster.hp > 0);
-    console.log(this.data.hp > 0);
-    console.log(this.localData.combatState != "flee");
-    
-    
-    
-    while (this.monster.hp > 0 || this.data.hp > 0 || this.localData.combatState != "flee") {
+    while (this.monster.hp > 0 && this.data.hp > 0 && this.localData.combatState != "flee") {
       await this.timer(1000);
+      console.log("fight");
       switch (this.localData.combatState) {
         case "attack": {
-          this.monster.hp = this.monster.hp - this.data.attack;
+          this.monster.hp = this.monster.hp - this.data.attack*this.data.attack;
           this.data.hp = this.data.hp - this.monster.attack;
+          this.GM.dispatchLocal(this.localData);
           this.localData.combatState = "wait";
           break;
         }
@@ -66,6 +61,7 @@ export class FightComponent implements OnInit {
         case "defense": {
           this.data.hp = this.data.hp - this.monster.attack / 2;
           this.localData.combatState = "wait";
+          this.GM.dispatchLocal(this.localData);
           break;
         }
         case "wait": {
@@ -75,19 +71,25 @@ export class FightComponent implements OnInit {
   }
 
   if (this.monster.hp == 0) {
-    this.data.paSion += 10;
+    this.data.credit += 10;
     this.GM.dispatch(this.data);
   } else if (this.data.hp == 0) {
 
     this.router.navigateByUrl('game-over');
   }
 }
+changeHPbar() {
+  let bar = document.getElementById("bar") as HTMLDivElement;
+  bar.style.width = `${this.monster.hp}%`;
+}
   onLeave(){
     this.router.navigateByUrl('/map');
-    return;
+    this.ngOnDestroy();
   }
   ngOnDestroy() {
-    console.log("destroy");
+    this.localData.combatState = "flee";
+    console.log('Destroying...');
+    
   }
 
 }

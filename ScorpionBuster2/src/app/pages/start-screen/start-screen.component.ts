@@ -12,9 +12,10 @@ export class StartScreenComponent implements OnInit {
 
   constructor(private router: Router, private HeroService: HeroService) { }
   gameData: any;
-
+  localData: any;
   GM:any;
   ngOnInit(): void {
+    
   }
 
   onStart() {

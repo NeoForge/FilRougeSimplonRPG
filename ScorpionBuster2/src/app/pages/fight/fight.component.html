@@ -1,9 +1,12 @@
 <section class="fight">
     <div class="container-fight">
         <h2 class="monster-name">Scorpion</h2>
-        <div class="health-bar-glass">
-            <div class="health-bar-fluid anim-width"></div>
-        </div>
+        <div class="health-bar" data-total="100" data-value="100">
+            <div id="bar">
+              <div id="hit"></div>
+            </div>
+            <div *ngIf="monster" (change)="changeHPbar()">hp : {{monster.hp}}/100</div>
+          </div>
         <div class="img-monster">
             <img src="../../../assets/scorpion1.png" alt="Scorpion">
         </div>
