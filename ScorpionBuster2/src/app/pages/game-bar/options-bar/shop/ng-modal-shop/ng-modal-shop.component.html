@@ -5,14 +5,15 @@
     <div class="shop">
         <div class="container-items" *ngIf="!!(itemShop)">
             <div class="items" *ngFor="let item of itemShop; let index = index">
-                <div class="btn-items" (click)="displayDescription(item.description, index)">
+                <div class="btn-items" (click)="displayDescription(item.name, item.description, index)">
                     <p>{{item.name}}</p>
                     <img [src]="'../../../../../assets/'+item.image">
                 </div>
             </div>
         </div>
         <div class="description">
-            <h2>Description</h2>
+            <h2 *ngIf="!itemName">Description</h2>
+            <h2 *ngIf="itemName">{{itemName}}</h2>
             <div class="description-txt">
                 <p>{{description}}</p>
                 <p *ngIf="price !=0"><strong>Prix : {{price}}</strong></p>

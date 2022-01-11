@@ -13,6 +13,7 @@ import { GameManager } from 'src/app/helpers/gameManager';
 export class NgModalInventoryComponent implements OnInit {
   itemInventory: any;
   description: string = "";
+  itemName: string = "";
 
   constructor(public activeModal: NgbActiveModal, private ItemsService: ItemsService, private HeroService: HeroService) { }
   heroId = localStorage.getItem("hero") as string;
@@ -34,8 +35,9 @@ export class NgModalInventoryComponent implements OnInit {
     );
   }
   choosenItem: number = 0;
-  displayDescription(description: string, id: number) {
+  displayDescription(name: string, description: string, id: number) {
     this.description = description;
+    this.itemName = name;
     this.choosenItem = id;
   }
   onUse() {
