@@ -39,3 +39,15 @@ h2 {
     
     transition: width .5s linear;
   }
+
+  .reward
+  {
+    width: 70%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }

@@ -18,6 +18,7 @@ export class FightComponent implements OnInit {
   localData: any;
   monster: any;
   combatlog : string = "";
+  combatFinished = false;
   ngOnInit(): void {
     this.GM.Data.subscribe(
       (data: any) => {
@@ -91,12 +92,17 @@ export class FightComponent implements OnInit {
 
   if (this.monster.hp <= 0) {
     console.log("You win!");
+    this.combatlog="Vous avais vaincu le "+this.monster.name+"! Vous gagnez 100 de Pa$$ion!";
     this.data.credit += 100;
     this.GM.dispatch(this.data);
-    this.onLeave();
+    this.combatFinished = true;
   } else if (this.data.hp <= 0) {
     console.log("You lose!");
+    this.combatlog="Vous avait était vaincu par le "+this.monster.name+"! Vous perdez votre vie!";
+    this.combatFinished = true;
     this.router.navigateByUrl('game-over');
+    this.ngOnDestroy();
+
   }
 }
 changeHPbar() {
