@@ -28,8 +28,9 @@ export class NgModalOptionsComponent implements OnInit {
   };
   onQuit() {
     this.itemShop.forEach((element: any) => {
-      element.ownedQuantity = 0;
+      element.quantity = 0;
       element.owned = false;
+      element.isEquipped = false;
       this.ItemService.PutItem(element).subscribe(
         (data: any) => {
           console.log(data);
@@ -52,6 +53,7 @@ export class NgModalOptionsComponent implements OnInit {
         }
       );
     });
+
     localStorage.clear();
     this.router.navigateByUrl('');
     this.activeModal.close('Close click');

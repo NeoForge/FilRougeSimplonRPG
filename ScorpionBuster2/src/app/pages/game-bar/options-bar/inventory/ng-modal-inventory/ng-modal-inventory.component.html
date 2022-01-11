@@ -5,10 +5,10 @@
     <div class="inventory">
         <div class="container-items" *ngIf="(itemInventory)">
             <div class="items" *ngFor="let item of itemInventory; let index = index">
-                <div class="btn-items" *ngIf="(item.owned_quantity>0)" (click)="displayDescription(item.description, index)">
+                <div class="btn-items" (click)="displayDescription(item.description, index)">
                     <p>{{ item.name }}</p>
                     <img [src]="'../../../../../assets/'+item.image"> 
-                    <p>Possédé : {{item.owned_quantity}}</p>
+                    <p>Possédé : {{item.quantity}}</p>
                 </div>
             </div>
         </div>
@@ -24,3 +24,4 @@
         </div>
     </div>
 </div>
+<div id="txt"></div>

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\const\\FilRougeSimplonRPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj": {}
+    "C:\\Users\\Apprenant\\Documents\\Cours Simplon\\Projets\\Projet Fil Rouge RPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj": {}
   },
   "projects": {
-    "C:\\Users\\const\\FilRougeSimplonRPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj": {
+    "C:\\Users\\Apprenant\\Documents\\Cours Simplon\\Projets\\Projet Fil Rouge RPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\const\\FilRougeSimplonRPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
+        "projectUniqueName": "C:\\Users\\Apprenant\\Documents\\Cours Simplon\\Projets\\Projet Fil Rouge RPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
         "projectName": "ScorpionBusterBackEnd",
-        "projectPath": "C:\\Users\\const\\FilRougeSimplonRPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
-        "packagesPath": "C:\\Users\\const\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\const\\FilRougeSimplonRPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\obj\\",
+        "projectPath": "C:\\Users\\Apprenant\\Documents\\Cours Simplon\\Projets\\Projet Fil Rouge RPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
+        "packagesPath": "C:\\Users\\Apprenant\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Apprenant\\Documents\\Cours Simplon\\Projets\\Projet Fil Rouge RPG\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\const\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Apprenant\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

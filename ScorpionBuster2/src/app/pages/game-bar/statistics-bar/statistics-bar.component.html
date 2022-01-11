@@ -3,11 +3,11 @@
         <div id="bar">
               <div id="hit"></div>
         </div>
-        <div>hp : {{hero.hp}}/100</div>
+        <div *ngIf="hero" (change)="changeHPbar()">hp : {{hero.hp}}/100</div>
       </div> 
       <br>
       <button class="damage" (click)="onHit()">Hit</button>
-    <div class="infos">
+    <div class="infos" *ngIf="hero">
             <div>{{hero.name}}</div>
             <div>Attaque : {{hero.attack}}</div>
             <div>Defense : {{hero.defense}}</div>
