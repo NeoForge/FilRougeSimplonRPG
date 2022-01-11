@@ -10,9 +10,38 @@
 }
 .story1{
     position: absolute;
-    margin: 10% 0 0 20%;
+    margin: 30% 0 0 42.5%;
 }
 .story2{
     position: absolute;
-    margin: 23% 0 0 50%;
+    margin: 18% 0 0 47%;
+}
+
+.story3{
+    position: absolute;
+    margin: 30% 0 0 12%;
+}
+
+.story4{
+    position: absolute;
+    margin: 5% 0 0 35%;
+}
+.story5{
+    position: absolute;
+    margin: 15% 0 0 25%;
+}
+.story6{
+    position: absolute;
+    margin: 18% 0 0 65%;
+}
+.story7{
+    position: absolute;
+    margin: 12.5% 0 0 6%;
+}
+.story8{
+    position: absolute;
+    margin: 28% 0 0 88%;
+}
+span{
+    font-size: xx-small;
 }
