@@ -10,8 +10,8 @@
       </div>
       <div *ngIf="monster" (change)="changeHPbar()">hp : {{monster.hp}}/100</div>
     </div>
-    <div class="img-monster">
-      <img src="../../../assets/scorpion1.png" alt="Scorpion">
+    <div class="img-monster" *ngIf="monster">
+      <img [src]="'../../../assets/'+monster.image" alt="Scorpion">
     </div>
   </div>
 </section>
@@ -25,4 +25,3 @@
     </div>
   </div>
 </section>
-<app-game-bar></app-game-bar>

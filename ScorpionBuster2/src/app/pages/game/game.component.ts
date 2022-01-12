@@ -44,11 +44,11 @@ export class GameComponent implements OnInit {
           this.pnjData = data;
         });
       }
-      // else if(data.monsterId != null){
-      //   this.monsterService.GetMonsterById(data.monsterId).subscribe(data => {
-      //     this.monsterData = data;
-      //   });
-      // }
+      if(data.monsterId != null){
+        this.monsterService.GetMonsterById(data.monsterId).subscribe(data => {
+          this.monsterData = data;
+        });
+      }
     });
   }
   onFight(monsterId : number) {

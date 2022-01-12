@@ -11,15 +11,18 @@ import { GameManager } from 'src/app/helpers/gameManager';
 export class StartScreenComponent implements OnInit {
 
   constructor(private router: Router, private HeroService: HeroService) { }
-  gameData: any;
   localData: any;
-  GM:any;
+  GM = GameManager.getInstance(this.HeroService, 2);
   ngOnInit(): void {
-    
+    this.GM.LocalData.subscribe((data : any) => {
+      this.localData = data;
+    });
   }
 
   onStart() {
     let heroChoice = localStorage.getItem('hero');
+    this.localData.playerState = "indice";
+    this.GM.dispatchLocal(this.localData);
     if (heroChoice === '2') {
       this.GM = GameManager.getInstance(this.HeroService, 2);
       this.router.navigateByUrl('map');
