@@ -47,12 +47,7 @@ namespace ScorpionBusterBackEnd.Controllers
         {
             return await _context.GetProcedures().GetConsumableAsync();
         }
-        // GET: api/Items/Equipped
-        [HttpGet("Equipped")]
-        public async Task<ActionResult<IEnumerable<GetEquippedEquipmentResult>>> GetEquipped()
-        {
-            return await _context.GetProcedures().GetEquippedEquipmentAsync();
-        }
+      
         // GET: api/Items/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Item>> GetItem(int id)
@@ -148,6 +143,13 @@ namespace ScorpionBusterBackEnd.Controllers
         public async Task<ActionResult<int>> weaponUnequip()
         {
             return await _context.GetProcedures().UnequipWeaponAsync();
+        }
+
+        //GET : api/addToInventory/5
+        [HttpGet("addToInventory/{id}")]
+        public async Task<ActionResult<int>> AddToInventory(int id)
+        {
+            return await _context.GetProcedures().AddToInventoryAsync(id);
         }
 
         private bool ItemExists(int id)

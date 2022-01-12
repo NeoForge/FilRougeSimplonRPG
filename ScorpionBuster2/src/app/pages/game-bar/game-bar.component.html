@@ -1,14 +1,17 @@
-<section class="game-bar">
-    <div class="img-hero">
-        <app-hero></app-hero>
+<section class="game-bar" *ngIf="localData">
+    <div  *ngIf="localData.playerState != 'start'">
+        <div class="img-hero">
+            <app-hero></app-hero>
+        </div>
+        <div class="choice">
+            <app-choices></app-choices>
+        </div>
+        <div class="options">
+            <app-options-bar></app-options-bar>
+        </div>
+        <div class="statistics">
+            <app-statistics-bar></app-statistics-bar>
+        </div>
     </div>
-    <div class="choice">
-        <app-choices></app-choices>
-    </div>
-    <div class="options">
-        <app-options-bar></app-options-bar>
-    </div>
-    <div class="statistics">
-        <app-statistics-bar></app-statistics-bar>
-    </div>
+    
 </section>

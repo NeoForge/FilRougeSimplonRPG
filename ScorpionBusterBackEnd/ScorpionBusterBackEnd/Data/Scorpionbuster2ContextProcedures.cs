@@ -42,6 +42,32 @@ namespace ScorpionBusterBackEnd.Data
             _context = context;
         }
 
+        public virtual async Task<int> AddToInventoryAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "id",
+                    Value = id ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[AddToInventory] @id", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
         public virtual async Task<int> EquipArmorAsync(int? armorId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
@@ -108,26 +134,6 @@ namespace ScorpionBusterBackEnd.Data
                 parameterreturnValue,
             };
             var _ = await _context.SqlQueryAsync<GetConsumableResult>("EXEC @returnValue = [dbo].[GetConsumable]", sqlParameters, cancellationToken);
-
-            returnValue?.SetValue(parameterreturnValue.Value);
-
-            return _;
-        }
-
-        public virtual async Task<List<GetEquippedEquipmentResult>> GetEquippedEquipmentAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
-        {
-            var parameterreturnValue = new SqlParameter
-            {
-                ParameterName = "returnValue",
-                Direction = System.Data.ParameterDirection.Output,
-                SqlDbType = System.Data.SqlDbType.Int,
-            };
-
-            var sqlParameters = new []
-            {
-                parameterreturnValue,
-            };
-            var _ = await _context.SqlQueryAsync<GetEquippedEquipmentResult>("EXEC @returnValue = [dbo].[GetEquippedEquipment]", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 

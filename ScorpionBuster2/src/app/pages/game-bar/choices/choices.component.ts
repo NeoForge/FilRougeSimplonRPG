@@ -25,6 +25,13 @@ export class ChoicesComponent implements OnInit {
       }
     );
   }
+
+  onDialog(nb : number)
+  {
+    this.localData.choiceState = nb;
+  }
+
+
   onFight(nb: number) {
     switch (nb) {
       case 1: {

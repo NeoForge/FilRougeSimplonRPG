@@ -15,7 +15,6 @@ export class ItemsService {
   });
 
   GetItem() : Observable<any> {
-    console.log(this.headers);
     return this.http.get<any>(environment.apiUrl + 'Items',{headers:this.headers});
   }
   GetInventory() : Observable<Item> {
@@ -31,7 +30,6 @@ export class ItemsService {
     return this.http.get<Item>(environment.apiUrl + 'Items/'+id,{headers:this.headers});
   }
   PutItem(item:Item) : Observable<Item> {
-    console.log(item);
     return this.http.put<Item>(environment.apiUrl + 'Items/'+item.id,item,{headers:this.headers});
   }
   GetEquippedEquipement() : Observable<Item> {
@@ -48,6 +46,9 @@ export class ItemsService {
   }
   UnequipWeapon() : Observable<Item> {
     return this.http.get<Item>(environment.apiUrl + 'Items/weaponUnequip',{headers:this.headers});
+  }
+  AddToInventory(id:number) : Observable<Item> {
+    return this.http.get<Item>(environment.apiUrl + 'Items/addToInventory/'+id,{headers:this.headers});
   }
 
 }

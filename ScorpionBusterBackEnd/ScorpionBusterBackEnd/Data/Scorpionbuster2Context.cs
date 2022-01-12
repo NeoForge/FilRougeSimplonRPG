@@ -128,18 +128,14 @@ namespace ScorpionBusterBackEnd.Data
                     .HasMaxLength(255)
                     .HasColumnName("background");
 
-                entity.Property(e => e.MonsterId)
-                    .HasMaxLength(255)
-                    .HasColumnName("monster_id");
+                entity.Property(e => e.MonsterId).HasColumnName("monster_id");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255)
                     .HasColumnName("name");
 
-                entity.Property(e => e.PnjId)
-                    .HasMaxLength(255)
-                    .HasColumnName("pnj_id");
+                entity.Property(e => e.PnjId).HasColumnName("pnj_id");
 
                 entity.Property(e => e.Text)
                     .IsRequired()
@@ -185,6 +181,8 @@ namespace ScorpionBusterBackEnd.Data
                 entity.Property(e => e.Image)
                     .HasMaxLength(255)
                     .HasColumnName("image");
+
+                entity.Property(e => e.ItemId).HasColumnName("item_id");
 
                 entity.Property(e => e.Name)
                     .IsRequired()

@@ -1,3 +1,5 @@
+{{localData.playerState}}
+
 <section class="choices" *ngIf="localData.playerState == 'indice'">
 <div class="txt-indice">
     <h2>Indice</h2>
@@ -5,9 +7,9 @@
 </div>
 </section>
 <section class="choices" *ngIf="localData.playerState == 'choix'">
-    <button class="choice1">Choix 1</button>
-    <button class="choice2">Choix 2</button>
-    <button class="choice3">Choix 3</button>
+    <button class="choice1">{{localData.choice1}}</button>
+    <button class="choice2">{{localData.choice2}}</button>
+    <button class="choice3">{{localData.choice3}}</button>
 </section>
 <section class="choices" *ngIf="localData.playerState == 'fight'">
     <button class="choice1" (click)="onFight(1)">Attaquer</button>

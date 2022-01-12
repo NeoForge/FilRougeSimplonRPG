@@ -10,11 +10,10 @@
       </div>
       <div *ngIf="monster" (change)="changeHPbar()">hp : {{monster.hp}}/100</div>
     </div>
-    <div class="img-monster">
-      <img src="../../../assets/scorpion1.png" alt="Scorpion">
+    <div class="img-monster" *ngIf="monster">
+      <img [src]="'../../../assets/'+monster.image" alt="Scorpion">
     </div>
   </div>
-  <app-game-bar></app-game-bar>
 </section>
 
 <section class="reward" *ngIf="combatFinished">
@@ -22,8 +21,7 @@
     <div class="card-body">
       <h5 class="card-title">Résultat du Combat</h5>
       <p class="card-text">{{combatlog}}</p>
-      <a href="#" class="btn btn-primary" (click)="onLeave()">Sortir de l'écran</a>
+      <a class="btn btn-primary" (click)="onLeave()">Sortir de l'écran</a>
     </div>
   </div>
-  <app-game-bar></app-game-bar>
 </section>

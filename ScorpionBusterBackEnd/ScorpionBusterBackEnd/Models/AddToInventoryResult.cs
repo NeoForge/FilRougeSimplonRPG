@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ScorpionBusterBackEnd.Models
 {
-    public partial class GetEquippedEquipmentResult
+    public partial class AddToInventoryResult
     {
     }
 }
