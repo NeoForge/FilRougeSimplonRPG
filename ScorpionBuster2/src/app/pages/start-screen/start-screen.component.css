@@ -4,6 +4,7 @@
     background-image: url('../../../assets/background_house.png');
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 12000;
 }
 h1 {
     position: absolute;
