@@ -38,6 +38,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[AddToInventory]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[EquipArmor]",
          "ObjectType": 1
       },

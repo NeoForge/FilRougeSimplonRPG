@@ -31,7 +31,6 @@ export class DialogueComponent implements OnInit {
       this.localData.playerState = "choix"
       this.GM.dispatchLocal(this.localData);
     });
-
   }
 
 }

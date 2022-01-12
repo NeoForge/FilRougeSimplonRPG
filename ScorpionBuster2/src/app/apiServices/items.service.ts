@@ -49,5 +49,8 @@ export class ItemsService {
   UnequipWeapon() : Observable<Item> {
     return this.http.get<Item>(environment.apiUrl + 'Items/weaponUnequip',{headers:this.headers});
   }
+  AddToInventory(id:number) : Observable<Item> {
+    return this.http.get<Item>(environment.apiUrl + 'Items/addToInventory/'+id,{headers:this.headers});
+  }
 
 }

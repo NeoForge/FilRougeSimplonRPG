@@ -182,6 +182,8 @@ namespace ScorpionBusterBackEnd.Data
                     .HasMaxLength(255)
                     .HasColumnName("image");
 
+                entity.Property(e => e.ItemId).HasColumnName("item_id");
+
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255)

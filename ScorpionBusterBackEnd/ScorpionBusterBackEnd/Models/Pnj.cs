@@ -13,5 +13,6 @@ namespace ScorpionBusterBackEnd.Models
         public int Stage { get; set; }
         public string Dialog { get; set; }
         public string Response { get; set; }
+        public int? ItemId { get; set; }
     }
 }

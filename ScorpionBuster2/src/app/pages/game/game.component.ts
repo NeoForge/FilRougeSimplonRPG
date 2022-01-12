@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeroService } from 'src/app/apiServices/hero.service';
@@ -35,16 +36,19 @@ export class GameComponent implements OnInit {
     });
     this.mapService.GetMapByid(parseInt(localStorage.getItem("mapId") as string)).subscribe(data => {
       this.mapData = data;
-      if (data.pnjId != null) {
-        this.pnjService.GetPNJById(data.pnjId).subscribe(data => {
-          this.pnjData = data;
-        });
-      }
-      else if(data.monsterId != null){
-        this.monsterService.GetMonsterById(data.monsterId).subscribe(data => {
-          this.monsterData = data;
-        });
-      }
+      console.log(this.mapData);
+      let div = document.querySelector(".game") as HTMLElement;
+      div.style.backgroundImage = "url("+'../../../assets/' + this.mapData.background + ")";
+      // if (data.pnjId != null) {
+      //   this.pnjService.GetPNJById(data.pnjId).subscribe(data => {
+      //     this.pnjData = data;
+      //   });
+      // }
+      // else if(data.monsterId != null){
+      //   this.monsterService.GetMonsterById(data.monsterId).subscribe(data => {
+      //     this.monsterData = data;
+      //   });
+      // }
     });
   }
   onFight(monsterId : number) {
