@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { HeroService } from 'src/app/apiServices/hero.service';
 import { ItemsService } from 'src/app/apiServices/items.service';
+import { GameManager } from 'src/app/helpers/gameManager';
 
 @Component({
   selector: 'app-ng-modal-options',
@@ -14,6 +15,8 @@ export class NgModalOptionsComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal, private router: Router, private HeroService: HeroService, private ItemService: ItemsService) { }
   hero: any;
   itemShop: any;
+  GM = GameManager.getInstance(this.HeroService, parseInt(localStorage.getItem('hero') as string));
+  localData:any;
   ngOnInit(): void {
     this.HeroService.GetHero().subscribe(
       (data: any) => {
@@ -24,7 +27,10 @@ export class NgModalOptionsComponent implements OnInit {
       (data: any) => {
         this.itemShop = data;
         console.log(this.itemShop);
-      })  
+      }) 
+    this.GM.LocalData.subscribe(data => {
+      this.localData = data;
+    })
   };
   onQuit() {
     this.itemShop.forEach((element: any) => {
@@ -53,7 +59,8 @@ export class NgModalOptionsComponent implements OnInit {
         }
       );
     });
-
+    this.localData.playerState = 'startmenu';
+    this.GM.dispatchLocal(this.localData);    
     localStorage.clear();
     this.router.navigateByUrl('');
     this.activeModal.close('Close click');

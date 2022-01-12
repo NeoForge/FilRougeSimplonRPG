@@ -30,20 +30,6 @@ export class StatisticsBarComponent implements OnInit {
       }
     );
   }
-  // onHit() {
-  //   let damage = 10;
-  //   if (this.hero.hp - damage >= 1) {
-  //     this.hero.hp = this.hero.hp - damage;
-  //     this.changeHPbar();
-  //     this.GM.dispatch(this.hero);
-
-  //   } else if (this.hero.hp - damage < 1) {
-  //     this.hero.hp = 0;
-  //     this.changeHPbar();
-  //     this.GM.dispatch(this.hero);
-  //     this.router.navigateByUrl('game-over');
-  //   }
-  // }
 
   changeHPbar() {
     let bar = document.getElementById("bar") as HTMLElement;
