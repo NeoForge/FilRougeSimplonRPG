@@ -42,6 +42,8 @@ export class FightComponent implements OnInit {
 
   timer = (ms:any) => new Promise(res => setTimeout(res, ms));
   async fightLoop(){
+    console.log(this.monster.hp > 0 && this.data.hp > 0 && this.localData.combatState != "flee");
+    
     while (this.monster.hp > 0 && this.data.hp > 0 && this.localData.combatState != "flee") {
       await this.timer(1000);
       let monsterDamage = this.data.attack - this.monster.defense;

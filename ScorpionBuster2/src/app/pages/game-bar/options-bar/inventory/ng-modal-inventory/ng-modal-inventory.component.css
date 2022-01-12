@@ -78,6 +78,7 @@ img{
 
 button {
     margin-top: 15px;
+    border-radius: 10px;
 }
 
 #txt {
