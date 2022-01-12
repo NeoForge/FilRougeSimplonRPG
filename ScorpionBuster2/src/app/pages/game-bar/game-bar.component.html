@@ -1,5 +1,4 @@
-<section class="game-bar" *ngIf="localData">
-    <div  *ngIf="localData.playerState != 'start'">
+<section class="game-bar" *ngIf="localData.playerState != 'startmenu'">
         <div class="img-hero">
             <app-hero></app-hero>
         </div>
@@ -12,6 +11,4 @@
         <div class="statistics">
             <app-statistics-bar></app-statistics-bar>
         </div>
-    </div>
-    
 </section>
