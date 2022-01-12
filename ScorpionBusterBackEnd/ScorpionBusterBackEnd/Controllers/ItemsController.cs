@@ -145,6 +145,13 @@ namespace ScorpionBusterBackEnd.Controllers
             return await _context.GetProcedures().UnequipWeaponAsync();
         }
 
+        //GET : api/addToInventory/5
+        [HttpGet("addToInventory/{id}")]
+        public async Task<ActionResult<int>> AddToInventory(int id)
+        {
+            return await _context.GetProcedures().AddToInventoryAsync(id);
+        }
+
         private bool ItemExists(int id)
         {
             return _context.Items.Any(e => e.Id == id);

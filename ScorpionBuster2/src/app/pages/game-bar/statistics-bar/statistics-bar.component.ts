@@ -46,7 +46,7 @@ export class StatisticsBarComponent implements OnInit {
   // }
 
   changeHPbar() {
-    let bar = document.getElementById("bar") as HTMLDivElement;
+    let bar = document.getElementById("bar") as HTMLElement;
     bar.style.width = `${this.hero.hp}%`;
   }
 

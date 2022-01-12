@@ -47,18 +47,19 @@ export class GameManager {
 
         if (!GameManager.instance) {
             GameManager.instance = new GameManager(heroService);
+            this.instance.LocalDataSubject.next({
+                combatState: "wait",
+                choiceState: 0,
+                monsterId: 0,
+                heroId: id,
+                playerState: "indice",
+                choice1: "",
+                choice2: "",
+                choice3: ""
+            });
         }
         this.instance.update(id);
-        this.instance.LocalDataSubject.next({
-            combatState: "wait",
-            choiceState: 0,
-            monsterId: 0,
-            heroId: id,
-            playerState: "indice",
-            choice1: "",
-            choice2: "",
-            choice3: ""
-        });
+        
         return GameManager.instance;
     }
 

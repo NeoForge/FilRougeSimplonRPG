@@ -16,14 +16,14 @@ export class MapService {
   });
 
   GetMap() : Observable<Map> {
-    return this.http.get<Map>(environment.apiUrl + 'Map',{headers:this.headers});
+    return this.http.get<Map>(environment.apiUrl + 'Maps',{headers:this.headers});
   }
 
   GetMapByid(id:number) : Observable<Map> {
-    return this.http.get<Map>(environment.apiUrl + 'Map/'+id,{headers:this.headers});
+    return this.http.get<Map>(environment.apiUrl + 'Maps/'+id,{headers:this.headers});
   }
 
   PutMap(map:Map) : Observable<Map> {
-    return this.http.put<Map>(environment.apiUrl + 'Map/'+map.id,map,{headers:this.headers});
+    return this.http.put<Map>(environment.apiUrl + 'Maps/'+map.id,map,{headers:this.headers});
   }
 }
