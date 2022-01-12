@@ -15,12 +15,12 @@ export class PNJService {
   });
   
   GetPNJ() : Observable<PNJ> {
-    return this.http.get<any>(environment.apiUrl + 'PNJ',{headers:this.headers});
+    return this.http.get<any>(environment.apiUrl + 'Pnjs',{headers:this.headers});
   }
   GetPNJById(id:number) : Observable<PNJ> {
-    return this.http.get<any>(environment.apiUrl + 'PNJ/'+id,{headers:this.headers});
+    return this.http.get<any>(environment.apiUrl + 'Pnjs/'+id,{headers:this.headers});
   }
   PutPNJ(pnj:PNJ) : Observable<PNJ> {
-    return this.http.put<any>(environment.apiUrl + 'PNJ/'+pnj.id,pnj,{headers:this.headers});
+    return this.http.put<any>(environment.apiUrl + 'Pnjs/'+pnj.id,pnj,{headers:this.headers});
   }
 }
