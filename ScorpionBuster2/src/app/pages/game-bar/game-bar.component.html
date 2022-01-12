@@ -11,4 +11,9 @@
     <div class="statistics">
         <app-statistics-bar></app-statistics-bar>
     </div>
+    <audio autoplay>
+        <source *ngIf="hero === '2'" src="../../../assets/audio/original-ghostbusters-theme-song.mp3">
+        <source *ngIf="hero === '3'" src="../../../assets/audio/the-power-of-love.mp3" >
+    </audio>
+
 </section>

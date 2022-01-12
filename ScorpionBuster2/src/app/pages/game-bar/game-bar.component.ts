@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-bar.component.css']
 })
 export class GameBarComponent implements OnInit {
-
+  hero: any;
   constructor() { }
 
   ngOnInit(): void {
+    this.hero = localStorage.getItem('hero');
   }
 }
