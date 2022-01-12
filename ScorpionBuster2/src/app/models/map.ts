@@ -4,10 +4,10 @@ export class Map
     name: String;
     text: String;
     background: String;
-    pnjId: String;
-    monsterId: String
+    pnjId: number;
+    monsterId: number
 
-    constructor(id: Number, name: String, text: String, background: String, pnjId: String, monsterId: String)
+    constructor(id: Number, name: String, text: String, background: String, pnjId: number, monsterId: number)
     {
         this.id = id;
         this.name = name;
