@@ -52,7 +52,7 @@ export class GameManager {
                 choiceState: 0,
                 monsterId: 0,
                 heroId: id,
-                playerState: "indice",
+                playerState: "startmenu",
                 choice1: "",
                 choice2: "",
                 choice3: ""
