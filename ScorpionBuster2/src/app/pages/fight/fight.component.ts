@@ -67,6 +67,8 @@ export class FightComponent implements OnInit {
         case "flee": {
           
           this.localData.combatState = "flee";
+          this.data.credit -= 10;
+          this.GM.dispatch(this.data);
           this.onLeave();
           break;
         }
