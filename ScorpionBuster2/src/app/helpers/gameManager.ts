@@ -14,6 +14,8 @@ interface Data {
     didIDo: string;
     paSion: number;
     credit: number;
+    weapon: string;
+    armor: string;
 }
 interface LocalData {
     combatState: string;

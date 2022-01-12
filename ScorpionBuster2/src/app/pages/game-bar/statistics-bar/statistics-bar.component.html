@@ -3,14 +3,19 @@
     <div id="bar">
       <div id="hit"></div>
     </div>
-    <div *ngIf="hero" (change)="changeHPbar()">hp : {{hero.hp}}/100</div>
+    <div *ngIf="hero" (change)="changeHPbar()"></div>
+    <div class="life">Points de vie : {{hero.hp}}/100</div>
   </div>
-  <br>
-  <button class="damage" (click)="onHit()">Hit</button>
+  <!-- <br>
+  <button class="damage" (click)="onHit()">Hit</button> -->
   <div class="infos" *ngIf="hero">
     <div>{{hero.name}}</div>
-    <div>Attaque : {{hero.attack}}</div>
-    <div>Defense : {{hero.defense}}</div>
-    <div>Monnaie : {{hero.credit}}</div>
+    <div>⚔️ {{hero.attack}}</div>
+    <div>🛡️ {{hero.defense}}</div>
+    <div>💰 {{hero.credit}} pa$$ion</div>
+  </div>
+  <div class="equiped-items">
+    <!-- <div class="weapon" *ngIf="weapon.image"><img [src]="'../../../../assets/' + weapon.image " alt="">Armes</div>
+    <div class="armor"*ngIf="armor.image"><img [src]="'../../../../assets/' + armor.image" alt="">Armure</div> -->
   </div>
 </section>

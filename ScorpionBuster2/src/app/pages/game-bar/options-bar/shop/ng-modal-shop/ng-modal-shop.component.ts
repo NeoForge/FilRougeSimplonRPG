@@ -16,6 +16,7 @@ export class NgModalShopComponent implements OnInit {
   itemShop: any;
   hero: any;
   description: string = "";
+  itemName: string = "";
   price: number = 0;
   
   constructor(public activeModal: NgbActiveModal, private ItemsService: ItemsService, private HeroService: HeroService) { }
@@ -33,7 +34,8 @@ export class NgModalShopComponent implements OnInit {
     );
   }
   choosenItem: number = 0;
-  displayDescription(description: string, id: number) {
+  displayDescription(name: string, description: string, id: number) {
+    this.itemName = name;
     this.description = description;
     this.price = this.itemShop[id].price;
     this.choosenItem = id;

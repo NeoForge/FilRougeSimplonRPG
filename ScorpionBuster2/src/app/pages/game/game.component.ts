@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MapComponent } from '../map/map.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-game',
@@ -10,9 +11,14 @@ export class GameComponent implements OnInit {
 
 
   
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  onFight(){
+    this.router.navigateByUrl('fight')
+  }
+  onPNJ() {
+    this.router.navigateByUrl('dialogue')
+  }
 }
