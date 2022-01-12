@@ -47,12 +47,7 @@ namespace ScorpionBusterBackEnd.Controllers
         {
             return await _context.GetProcedures().GetConsumableAsync();
         }
-        // GET: api/Items/Equipped
-        [HttpGet("Equipped")]
-        public async Task<ActionResult<IEnumerable<GetEquippedEquipmentResult>>> GetEquipped()
-        {
-            return await _context.GetProcedures().GetEquippedEquipmentAsync();
-        }
+      
         // GET: api/Items/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Item>> GetItem(int id)
