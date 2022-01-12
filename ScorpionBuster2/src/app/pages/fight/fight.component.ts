@@ -34,6 +34,7 @@ export class FightComponent implements OnInit {
       (data: any) => {
         this.monster = data;   
         this.localData.playerState = "fight";
+        this.localData.combatState = "wait";
         this.GM.dispatchLocal(this.localData);
         this.fightLoop();
       }
@@ -59,8 +60,8 @@ export class FightComponent implements OnInit {
           this.combatlog += `${this.monster.name} attacked ${this.data.name} for ${playerDamage} damage.\n`;
           this.monster.hp -= monsterDamage;
           this.data.hp -= playerDamage;
-          this.GM.dispatchLocal(this.localData);
           this.localData.combatState = "wait";
+          this.GM.dispatchLocal(this.localData);
           this.changeHPbar();
           break;
         }
@@ -89,13 +90,12 @@ export class FightComponent implements OnInit {
         }
     }
   }
-  console.log("I'm OUT OF THE LOOP");
-  
 
   if (this.monster.hp <= 0) {
     console.log("You win!");
     this.combatlog="Vous avais vaincu le "+this.monster.name+"! Vous gagnez 100 de Pa$$ion!";
     this.data.credit += 100;
+    this.localData.playerState="indice";
     this.GM.dispatch(this.data);
     this.combatFinished = true;
   } else if (this.data.hp <= 0) {
@@ -112,6 +112,8 @@ changeHPbar() {
   bar.style.width = `${this.monster.hp}%`;
 }
   onLeave(){
+    this.localData.playerState="indice";
+    this.GM.dispatch(this.data);
     this.router.navigateByUrl('/map');
     this.ngOnDestroy();
   }
