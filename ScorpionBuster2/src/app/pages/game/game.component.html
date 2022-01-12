@@ -1,6 +1,6 @@
 <section class="game">
     <button (click)="onFight(mapData.monsterId)">Figth</button>
-    <button (click)="onPNJ(mapData.pnjId)" class="pnjButton">PNJ</button>
+    <button (click)="onPNJ(mapData.pnjId)"  *ngIf="pnjData" class="pnjButton"><img [src]="'../../../assets/'+pnjData.image"></button>
     <!-- <app-fight></app-fight> -->
     <app-game-bar></app-game-bar>
 </section>

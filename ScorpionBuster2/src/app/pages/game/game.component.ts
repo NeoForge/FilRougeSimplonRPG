@@ -42,8 +42,6 @@ export class GameComponent implements OnInit {
       if (data.pnjId != null) {
         this.pnjService.GetPNJById(data.pnjId).subscribe(data => {
           this.pnjData = data;
-          let pnjbutton = document.querySelector(".pnjButton") as HTMLElement;
-          pnjbutton.style.backgroundImage = "url("+'../../../assets/' + this.pnjData.image + ")";
         });
       }
       // else if(data.monsterId != null){
