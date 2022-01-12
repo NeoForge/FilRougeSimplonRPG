@@ -47,6 +47,13 @@ export class GameManager {
 
         if (!GameManager.instance) {
             GameManager.instance = new GameManager(heroService);
+            this.instance.LocalDataSubject.next({
+                combatState: "wait",
+                choiceState: 0,
+                monsterId: 0,
+                heroId: id,
+                playerState: "indice"
+            });
         }
         this.instance.update(id);
         this.instance.LocalDataSubject.next({
