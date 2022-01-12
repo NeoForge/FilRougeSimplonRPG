@@ -11,6 +11,7 @@
 }
 .infos {
   border: 2px solid black;
+  padding: 5%;
 }
 .health-bar {
     -webkit-box-sizing: border-box;

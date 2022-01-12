@@ -4,7 +4,7 @@
 }
 h2 {
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
 }
 h4{
     text-align: center;
@@ -83,8 +83,9 @@ Z
     margin-right: auto;
 }
 #txt{
-    background: rgba(0, 0, 0, 0.452);
-    text-align: center;
-    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: rgba(0, 0, 0, 0.322);
     font-size: 20px;
+    text-align: center;
 }
