@@ -103,7 +103,13 @@ export class DialogueComponent implements OnInit {
  onLeave(){
     this.localData.playerState="indice";
     this.GM.dispatch(this.gameData);
-    this.router.navigateByUrl('/game');
+    if(this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0){ 
+      this.onFight(this.PNJData.monsterId);
+    }
+    else
+    {
+      this.router.navigateByUrl('/game');
+    }
     this.ngOnDestroy();
   }
   ngOnDestroy() {
@@ -111,7 +117,10 @@ export class DialogueComponent implements OnInit {
     this.gameData.storyStage += 1;
     this.GM.dispatch(this.gameData);
     console.log('Destroying...');
-
-
+  }
+  onFight(monsterId : number) {
+    this.localData.monsterId = monsterId;
+    this.GM.dispatchLocal(this.localData);
+    this.router.navigateByUrl('fight')
   }
 }
