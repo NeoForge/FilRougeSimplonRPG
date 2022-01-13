@@ -9718,19 +9718,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Apprenant\\.nuget\\packages\\": {}
+    "C:\\Users\\const\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Apprenant\\Documents\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
+      "projectUniqueName": "F:\\DEV\\PROJ\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
       "projectName": "ScorpionBusterBackEnd",
-      "projectPath": "C:\\Users\\Apprenant\\Documents\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
-      "packagesPath": "C:\\Users\\Apprenant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Apprenant\\Documents\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\obj\\",
+      "projectPath": "F:\\DEV\\PROJ\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd.csproj",
+      "packagesPath": "C:\\Users\\const\\.nuget\\packages\\",
+      "outputPath": "F:\\DEV\\PROJ\\FilRougeSimplonRPG\\ScorpionBusterBackEnd\\ScorpionBusterBackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Apprenant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\const\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
