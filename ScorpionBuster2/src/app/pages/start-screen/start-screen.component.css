@@ -75,6 +75,7 @@ h1 {
     color: #ffc107;
 }
 button {
+    width: 100%;
     border-radius: 20px;
     background-color: rgb(255, 182, 65, 0.8);
     border: 1px ridge #1bff80bf;

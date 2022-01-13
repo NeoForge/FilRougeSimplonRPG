@@ -1,8 +1,8 @@
 <section class="dialogue">
+    <img class="pnj_img" [src]="'../../../assets/'+PNJData.image">
     <div class="dialog_card" *ngIf="PNJData">
-        <img class="pnj_img" [src]="'../../../assets/'+PNJData.image">
         <div class="text_dialog">
-            <h4>{{PNJData.name}}</h4>
+            <h2>{{PNJData.name}}</h2>
             <p>{{dialogToDisplay}}</p>
         </div>
     </div>
