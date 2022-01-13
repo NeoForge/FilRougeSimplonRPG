@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Zilla+Slab+Highlight:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Special+Elite&family=Zilla+Slab+Highlight:wght@700&display=swap');
+/* @import url('../src/assets/fonts/fallout.ttf'); */
+
+
+@font-face {
+    font-family: 'Fallout';
+    src: url(   '../src/assets/fonts/fallout.ttf');
+}
 
 body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Fallout;
 }
 
 h1
