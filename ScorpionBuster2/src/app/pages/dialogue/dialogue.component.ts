@@ -25,6 +25,7 @@ export class DialogueComponent implements OnInit {
   ngOnInit(): void {
     this.GM.LocalData.subscribe(data => {
       this.localData = data;
+      console.log(this.localData);
     });
     this.GM.Data.subscribe(data => {
       this.gameData = data;
@@ -105,19 +106,26 @@ export class DialogueComponent implements OnInit {
     this.pnjService.PutPNJ(this.PNJData).subscribe(data => {
     })
     this.gameData.storyStage += 1;
+    console.log("Story Stage On Leave(after +1 ) = ",this.gameData.storyStage);
+    console.log("Story Stage Before Dialog",this.localData.storyStageBeforeDialog);
+    
     if(this.gameData.storyStage == this.localData.storyStageBeforeDialog + 1 ){
+      console.log("StoryStage que je vais save",this.gameData.storyStage);
       this.GM.dispatch(this.gameData);
     }
     else
     {
       this.gameData.storyStage = this.localData.storyStageBeforeDialog +1;
+      console.log("StoryStage que je vais save",this.gameData.storyStage);
       this.GM.dispatch(this.gameData);
     }
     if (this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0) {
       this.onFight(this.PNJData.monsterId);
+      this.ngOnDestroy();
     }
     else {
       this.router.navigateByUrl('/game');
+      this.ngOnDestroy();
     }
     this.ngOnDestroy();
   }

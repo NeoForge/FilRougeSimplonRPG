@@ -60,7 +60,9 @@ export class GameComponent implements OnInit {
   }
   onPNJ(pnjId : number) {
     this.localData.pnjId = pnjId;
-    this.localData.storyStageBeforeDialogue = this.gameData.storyStage;
+    this.localData.storyStageBeforeDialog = this.gameData.storyStage;
+    console.log("le storyStage avant d'entré dans le dialogue est :",this.gameData.storyStage);
+    
     this.GM.dispatchLocal(this.localData);
     this.router.navigateByUrl('dialogue')
   }
