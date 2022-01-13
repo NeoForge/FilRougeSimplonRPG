@@ -33,6 +33,7 @@ export class NgModalOptionsComponent implements OnInit {
 
   };
   onQuit() {
+    localStorage.setItem('inGame', 'false');
     this.itemShop.forEach((element: any) => {
       element.quantity = 0;
       element.owned = false;
@@ -64,5 +65,14 @@ export class NgModalOptionsComponent implements OnInit {
     localStorage.clear();
     this.router.navigateByUrl('');
     this.activeModal.close('Close click');
+  }
+
+  onSong(){
+    let song = localStorage.getItem('music');
+    if(song == 'true'){
+    localStorage.setItem('music', 'false')
+    }else{
+    localStorage.setItem('music', 'true')
+    }
   }
 }

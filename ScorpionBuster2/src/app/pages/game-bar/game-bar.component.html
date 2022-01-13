@@ -1,14 +1,20 @@
 <section class="game-bar" *ngIf="localData.playerState != 'startmenu'">
-        <div class="img-hero">
-            <app-hero></app-hero>
-        </div>
-        <div class="choice">
-            <app-choices></app-choices>
-        </div>
-        <div class="options">
-            <app-options-bar></app-options-bar>
-        </div>
-        <div class="statistics">
-            <app-statistics-bar></app-statistics-bar>
-        </div>
+    <div class="img-hero">
+        <app-hero (click)='onPlay()'></app-hero>
+    </div>
+    <div class="choice">
+        <app-choices></app-choices>
+    </div>
+    <div class="options">
+        <app-options-bar></app-options-bar>
+    </div>
+    <div class="statistics">
+        <app-statistics-bar></app-statistics-bar>
+    </div>
+    <figure>
+        <audio src="../../../assets/audio/original-ghostbusters-theme-song.mp3" loop class="audio">
+        </audio>
+        <audio  src="../../../assets/audio/the-power-of-love.mp3" loop class="audio">
+        </audio>
+    </figure>
 </section>

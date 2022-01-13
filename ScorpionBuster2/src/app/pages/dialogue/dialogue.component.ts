@@ -25,7 +25,6 @@ export class DialogueComponent implements OnInit {
   ngOnInit(): void {
     this.GM.LocalData.subscribe(data => {
       this.localData = data;
-      console.log(this.localData);
     });
     this.GM.Data.subscribe(data => {
       this.gameData = data;
