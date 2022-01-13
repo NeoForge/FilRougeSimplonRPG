@@ -65,6 +65,10 @@ export class GameComponent implements OnInit {
     this.GM.dispatchLocal(this.localData);
     this.router.navigateByUrl('dialogue')
   }
+  onMap()
+  {
+    this.router.navigateByUrl('map')
+  }
 
 
 }
