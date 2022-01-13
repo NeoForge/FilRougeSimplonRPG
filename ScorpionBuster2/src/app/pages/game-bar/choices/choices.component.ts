@@ -38,9 +38,9 @@ export class ChoicesComponent implements OnInit {
 
   }
 
-  onDialog(nb : number)
-  {
+  onDialog(nb: number) {
     this.localData.choiceState = nb;
+    this.GM.dispatchLocal(this.localData);
   }
 
 
@@ -48,14 +48,20 @@ export class ChoicesComponent implements OnInit {
     switch (nb) {
       case 1: {
         this.localData.combatState = "attack";
+        this.GM.dispatchLocal(this.localData);
+
         break;
       }
       case 2: {
         this.localData.combatState = "defense";
+        this.GM.dispatchLocal(this.localData);
+
         break;
       }
       case 3: {
         this.localData.combatState = "flee";
+        this.GM.dispatchLocal(this.localData);
+
         break;
       }
     }

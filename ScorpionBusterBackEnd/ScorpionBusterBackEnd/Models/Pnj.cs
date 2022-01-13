@@ -14,5 +14,6 @@ namespace ScorpionBusterBackEnd.Models
         public string Dialog { get; set; }
         public string Response { get; set; }
         public int? ItemId { get; set; }
+        public int? MonsterId { get; set; }
     }
 }

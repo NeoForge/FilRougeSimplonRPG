@@ -8,6 +8,20 @@
    background-size: cover;
    word-wrap: break-word;
 }
+
+button{
+    font-size: 1.4em;
+    background-color: rgb(255, 182, 65, 0.8);
+    border: 5px ridge #1bff80bf;
+    border-radius: 20px;
+}
+
+button:hover {
+    border: 5px groove #1bff80bf;
+    border-radius: 20px;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;    
+ }
+
 .story1{
     position: absolute;
     margin: 30% 0 0 42.5%;
@@ -43,5 +57,6 @@
     margin: 28% 0 0 88%;
 }
 span{
-    font-size: xx-small;
+    font-size: small;
 }
+
