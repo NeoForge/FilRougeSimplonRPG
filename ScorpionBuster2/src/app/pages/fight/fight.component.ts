@@ -46,7 +46,8 @@ export class FightComponent implements OnInit {
     console.log(this.monster.hp > 0 && this.data.hp > 0 && this.localData.combatState != "flee");
     
     while (this.monster.hp > 0 && this.data.hp > 0 && this.localData.combatState != "flee") {
-      await this.timer(1000);
+      await this.timer(500);
+
       let monsterDamage = this.data.attack - this.monster.defense;
       let playerDamage = this.monster.attack - this.data.defense;
       switch (this.localData.combatState) {
