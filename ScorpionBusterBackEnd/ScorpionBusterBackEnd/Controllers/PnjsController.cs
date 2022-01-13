@@ -101,6 +101,13 @@ namespace ScorpionBusterBackEnd.Controllers
             return NoContent();
         }
 
+        //GET : api/Pnjs/Reset
+        [HttpGet("Reset")]
+        public async Task<ActionResult<int>> resetPNJ()
+        {
+            return await _context.GetProcedures().ResetAppearenceAsync();
+        }
+
         private bool PnjExists(int id)
         {
             return _context.Pnjs.Any(e => e.Id == id);
