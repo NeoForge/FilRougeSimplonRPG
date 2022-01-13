@@ -18,7 +18,9 @@ export class DialogueComponent implements OnInit {
   localData: any;
   PNJData: any;
   GM = GameManager.getInstance(this.heroService, parseInt(localStorage.getItem("hero") as string));
-  DialogResponse =[] ;
+  DialogResponse = [];
+  DialogArray = [];
+  dialogToDisplay = "";
 
   ngOnInit(): void {
     this.GM.LocalData.subscribe(data => {
@@ -30,13 +32,98 @@ export class DialogueComponent implements OnInit {
     this.pnjService.GetPNJById(this.localData.pnjId).subscribe(data => {
       this.PNJData = data;
       this.localData.playerState = "choix"
+      console.log(this.PNJData);
+      this.DialogArray = this.PNJData.dialog.split("£");
+      console.log(this.DialogArray);
       this.DialogResponse = this.PNJData.response.split("£");
       this.localData.choice1 = this.DialogResponse[0];
       this.localData.choice2 = this.DialogResponse[1];
       this.localData.choice3 = this.DialogResponse[2];
       this.GM.dispatchLocal(this.localData);
-      
+      this.choiceLoop();
+
+      let div = document.querySelector(".dialogue") as HTMLElement;
+      div.style.backgroundImage = "url("+'../../../assets/' + localStorage.getItem("background") + ")";
     });
   }
 
+  timer = (ms: any) => new Promise(res => setTimeout(res, ms));
+
+  async choiceLoop() {
+
+    this.localData.choiceState = "0";
+    this.GM.dispatchLocal(this.localData);
+    while (this.localData.playerState == "choix" && this.PNJData.stage <= this.DialogArray.length) {
+      this.dialogToDisplay = this.DialogArray[this.PNJData.stage - 1];
+      await this.timer(500);
+      console.log("j'attend la réponse");
+      console.log(this.localData.choiceState);
+      switch (this.localData.choiceState) {
+        case 1:
+          {
+            console.log("je suis dans le choix 1");
+
+            this.PNJData.stage += 1;
+            this.localData.choiceState = "0";
+            this.localData.choice1 = "Ok";
+            this.localData.choice2 = "Bye bye";
+            this.localData.choice3 = "Ciao";
+            this.GM.dispatchLocal(this.localData);
+
+            break;
+          }
+        case 2: {
+          console.log("je suis dans le choix 2");
+          this.PNJData.stage += 1;
+          this.localData.choiceState = "0";
+          this.localData.choice1 = "Ok";
+          this.localData.choice2 = "Bye bye";
+          this.localData.choice3 = "Ciao";
+          this.GM.dispatchLocal(this.localData);
+
+          break;
+        }
+        case 3: {
+          console.log("je suis dans le choix 3");
+          this.PNJData.stage += 1;
+          this.localData.choiceState = "0";
+          this.localData.choice1 = "Ok";
+          this.localData.choice2 = "Bye bye";
+          this.localData.choice3 = "Ciao";
+          this.GM.dispatchLocal(this.localData);
+
+          break;
+        }
+        case 0: {
+          break;
+        }
+      }
+      if(this.PNJData.stage > this.DialogArray.length){
+      this.onLeave();
+      } 
+    }
+  }
+ onLeave(){
+    this.localData.playerState="indice";
+    this.GM.dispatch(this.gameData);
+    if(this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0){ 
+      this.onFight(this.PNJData.monsterId);
+    }
+    else
+    {
+      this.router.navigateByUrl('/game');
+    }
+    this.ngOnDestroy();
+  }
+  ngOnDestroy() {
+    this.localData.playerState = "indice";
+    this.gameData.storyStage += 1;
+    this.GM.dispatch(this.gameData);
+    console.log('Destroying...');
+  }
+  onFight(monsterId : number) {
+    this.localData.monsterId = monsterId;
+    this.GM.dispatchLocal(this.localData);
+    this.router.navigateByUrl('fight')
+  }
 }
