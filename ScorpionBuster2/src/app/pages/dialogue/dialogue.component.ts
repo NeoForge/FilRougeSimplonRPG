@@ -127,7 +127,7 @@ export class DialogueComponent implements OnInit {
     this.pnjService.PutPNJ(this.PNJData).subscribe(data => {
       console.log(data)
     })
-    this.gameData.storyStage = this.playerStageInit + 1;
+    this.gameData.storyStage += 1;
     this.GM.dispatch(this.gameData);
     if(this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0){ 
       this.onFight(this.PNJData.monsterId);
