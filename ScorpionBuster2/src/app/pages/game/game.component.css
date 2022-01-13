@@ -28,4 +28,13 @@ button:hover {
     top: 3%;
     right: 3%;
     font-size: 1.8em;
+    background-color:  rgb(255, 182, 65, 0.8);
+    border: 5px ridge #1bff80bf;
+    border-radius: 20px;
+}
+
+.map:hover {
+    background-color: rgb(255, 182, 65, 0.8);
+    border: 5px groove #1bff80bf;
+    border-radius: 20px;
 }
