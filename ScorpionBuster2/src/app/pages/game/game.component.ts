@@ -39,6 +39,7 @@ export class GameComponent implements OnInit {
       console.log(this.mapData);
       let div = document.querySelector(".game") as HTMLElement;
       div.style.backgroundImage = "url("+'../../../assets/' + this.mapData.background + ")";
+      localStorage.setItem("background", this.mapData.background);
       if (data.pnjId != null) {
         console.log("ok");
         

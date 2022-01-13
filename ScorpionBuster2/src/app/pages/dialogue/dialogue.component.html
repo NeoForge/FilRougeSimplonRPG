@@ -1,9 +1,9 @@
-<section class="dialogue" *ngIf="PNJData">
-    <img class="pnj_img" [src]="'../../../assets/'+PNJData.image">
-    <div class="dialog_card" *ngIf="PNJData">
-        <div class="text_dialog">
-            <h2>{{PNJData.name}}</h2>
-            <p>{{dialogToDisplay}}</p>
+<section class="dialogue" id="bonobo" *ngIf="PNJData" [style]="backgroundDialog">
+        <img class="pnj_img" [src]="'../../../assets/'+PNJData.image">
+        <div class="dialog_card" *ngIf="PNJData">
+            <div class="text_dialog">
+                <h2>{{PNJData.name}}</h2>
+                <p>{{dialogToDisplay}}</p>
+            </div>
         </div>
-    </div>
 </section>
