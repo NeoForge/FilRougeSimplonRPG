@@ -49,7 +49,10 @@ export class DialogueComponent implements OnInit {
       this.choiceLoop();
 
       let div = document.querySelector(".dialogue") as HTMLElement;
-      div.style.backgroundImage = "url("+'../../../assets/' + localStorage.getItem("background") + ")";
+      if(this.PNJData.background && div)
+      {
+        div.style.backgroundImage = "url("+'../../../assets/' + localStorage.getItem("background") + ")";
+      }
     });
   }
 
