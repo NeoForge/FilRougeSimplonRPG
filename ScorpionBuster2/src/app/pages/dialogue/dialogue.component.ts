@@ -119,7 +119,10 @@ export class DialogueComponent implements OnInit {
       console.log("StoryStage que je vais save",this.gameData.storyStage);
       this.GM.dispatch(this.gameData);
     }
-    if (this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0) {
+    if(this.gameData.storyStage == 8){
+      this.router.navigateByUrl('/victory')
+    }
+    else if (this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0) {
       this.onFight(this.PNJData.monsterId);
       this.ngOnDestroy();
     }
