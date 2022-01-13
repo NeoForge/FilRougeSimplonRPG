@@ -104,11 +104,11 @@ export class DialogueComponent implements OnInit {
     this.localData.playerState="indice";
     this.GM.dispatch(this.gameData);
     this.router.navigateByUrl('/game');
+    this.gameData.storyStage += 1;
     this.ngOnDestroy();
   }
   ngOnDestroy() {
     this.localData.playerState = "indice";
-    this.gameData.storyStage += 1;
     this.GM.dispatch(this.gameData);
     console.log('Destroying...');
 
