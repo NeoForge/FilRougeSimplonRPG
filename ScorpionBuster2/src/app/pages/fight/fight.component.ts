@@ -111,7 +111,7 @@ export class FightComponent implements OnInit {
   }
 }
 changeHPbar() {
-  let bar = document.getElementById("bar") as HTMLDivElement;
+  let bar = document.getElementById("monsterBar") as HTMLDivElement;
   bar.style.width = `${this.monster.hp}%`;
 }
   onLeave(){
