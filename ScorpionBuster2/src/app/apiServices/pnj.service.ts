@@ -24,6 +24,6 @@ export class PNJService {
     return this.http.put<any>(environment.apiUrl + 'Pnjs/'+pnj.id,pnj,{headers:this.headers});
   }
   ResetPNJ() : Observable<PNJ> {
-    return this.http.put<any>(environment.apiUrl + 'Pnjs/Reset',{headers:this.headers});
+    return this.http.get<any>(environment.apiUrl + 'Pnjs/Reset',{headers:this.headers});
   }
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { HeroService } from 'src/app/apiServices/hero.service';
 import { ItemsService } from 'src/app/apiServices/items.service';
+import { PNJService } from 'src/app/apiServices/pnj.service';
 import { GameManager } from 'src/app/helpers/gameManager';
 
 @Component({
@@ -12,7 +13,7 @@ import { GameManager } from 'src/app/helpers/gameManager';
 })
 export class NgModalOptionsComponent implements OnInit {
 
-  constructor(public activeModal: NgbActiveModal, private router: Router, private HeroService: HeroService, private ItemService: ItemsService) { }
+  constructor(public activeModal: NgbActiveModal, private router: Router, private HeroService: HeroService, private ItemService: ItemsService,private PnjService: PNJService) { }
   hero: any;
   itemShop: any;
   GM = GameManager.getInstance(this.HeroService, parseInt(localStorage.getItem('hero') as string));
@@ -31,6 +32,7 @@ export class NgModalOptionsComponent implements OnInit {
     this.GM.LocalData.subscribe(data => {
       this.localData = data;
     })
+
   };
   onQuit() {
     this.itemShop.forEach((element: any) => {
@@ -59,6 +61,9 @@ export class NgModalOptionsComponent implements OnInit {
         }
       );
     });
+    this.PnjService.ResetPNJ().subscribe(data => {
+      console.log(data);    
+    })
     this.localData.playerState = 'startmenu';
     this.GM.dispatchLocal(this.localData);    
     localStorage.clear();

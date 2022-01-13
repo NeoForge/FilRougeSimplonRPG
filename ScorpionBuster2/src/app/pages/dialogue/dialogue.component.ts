@@ -35,6 +35,8 @@ export class DialogueComponent implements OnInit {
     });
     this.pnjService.GetPNJById(this.localData.pnjId).subscribe(data => {
       this.PNJData = data;
+      console.log("Pnj Data :", this.PNJData);
+      
       this.localData.playerState = "choix"
       console.log(this.PNJData);
       this.DialogArray = this.PNJData.dialog.split("£");
@@ -54,7 +56,6 @@ export class DialogueComponent implements OnInit {
   timer = (ms: any) => new Promise(res => setTimeout(res, ms));
 
   async choiceLoop() {
-
     this.localData.choiceState = "0";
     this.GM.dispatchLocal(this.localData);
     while (this.localData.playerState == "choix" && this.PNJData.stage <= this.DialogArray.length) {
@@ -119,6 +120,7 @@ export class DialogueComponent implements OnInit {
     this.GM.dispatch(this.gameData);
     console.log(this.playerStageInit);
     this.PNJData.appeared = true;
+    this.PNJData.stage = 1;
     this.pnjService.PutPNJ(this.PNJData).subscribe(data => {
       console.log(data)
     })
