@@ -14,20 +14,22 @@ export class StartScreenComponent implements OnInit {
   localData: any;
   GM = GameManager.getInstance(this.HeroService, 2);
   ngOnInit(): void {
-    this.GM.LocalData.subscribe((data : any) => {
+    this.GM.LocalData.subscribe((data: any) => {
       this.localData = data;
     });
   }
 
   onStart() {
     let heroChoice = localStorage.getItem('hero');
-    this.localData.playerState = "indice";
-    this.GM.dispatchLocal(this.localData);
     if (heroChoice === '2') {
       this.GM = GameManager.getInstance(this.HeroService, 2);
+      this.localData.playerState = "indice";
+      this.GM.dispatchLocal(this.localData);
       this.router.navigateByUrl('map');
     } else if (heroChoice === '3') {
       this.GM = GameManager.getInstance(this.HeroService, 3);
+      this.localData.playerState = "indice";
+      this.GM.dispatchLocal(this.localData);
       this.router.navigateByUrl('map');
     }
     else {
@@ -46,5 +48,5 @@ export class StartScreenComponent implements OnInit {
     displayMessage.innerHTML = '“Oh dur, c’est pas le pied !”';
     localStorage.setItem('hero', '3');
   }
-  
+
 }

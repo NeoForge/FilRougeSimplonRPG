@@ -17,7 +17,16 @@ export class HeroService {
     return this.http.get<Hero>(environment.apiUrl + 'Heroes',{headers:this.headers});
   }
   GetHeroById(id:number) : Observable<Hero> {
-    return this.http.get<Hero>(environment.apiUrl + 'Heroes/'+id,{headers:this.headers});
+    console.log(id);
+    
+    if(id == 2 || id == 3){
+    
+      return this.http.get<Hero>(environment.apiUrl + 'Heroes/'+id,{headers:this.headers});
+    }
+    else
+    {
+      return this.http.get<Hero>(environment.apiUrl + 'Heroes/2',{headers:this.headers});
+    }
   }
   PutHero(hero:any) : Observable<Hero> {
     return this.http.put<Hero>(environment.apiUrl + 'Heroes/'+hero.id,hero,{headers:this.headers});
