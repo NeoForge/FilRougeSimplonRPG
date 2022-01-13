@@ -16,9 +16,9 @@ export class IndiceService {
   });
 
   GetIndice() : Observable<Indice> {
-    return this.http.get<Indice>(environment.apiUrl + 'Indice',{headers:this.headers});
+    return this.http.get<Indice>(environment.apiUrl + 'Indices',{headers:this.headers});
   }
   GetIndiceId(id:number) : Observable<Indice> {
-    return this.http.get<Indice>(environment.apiUrl + 'Indice/'+id,{headers:this.headers});
+    return this.http.get<Indice>(environment.apiUrl + 'Indices/'+id,{headers:this.headers});
   }
 }
