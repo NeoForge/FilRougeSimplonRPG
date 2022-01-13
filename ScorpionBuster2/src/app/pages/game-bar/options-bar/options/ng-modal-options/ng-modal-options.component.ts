@@ -22,12 +22,10 @@ export class NgModalOptionsComponent implements OnInit {
     this.HeroService.GetHero().subscribe(
       (data: any) => {
         this.hero = data;
-        console.log(this.hero);
       })
     this.ItemService.GetItem().subscribe(
       (data: any) => {
         this.itemShop = data;
-        console.log(this.itemShop);
       }) 
     this.GM.LocalData.subscribe(data => {
       this.localData = data;
@@ -41,7 +39,6 @@ export class NgModalOptionsComponent implements OnInit {
       element.isEquipped = false;
       this.ItemService.PutItem(element).subscribe(
         (data: any) => {
-          console.log(data);
         }
       )
     });
@@ -57,12 +54,10 @@ export class NgModalOptionsComponent implements OnInit {
       element.credit = 100;
       this.HeroService.PutHero(element).subscribe(
         (data: any) => {
-          console.log(data);
         }
       );
     });
     this.PnjService.ResetPNJ().subscribe(data => {
-      console.log(data);    
     })
     this.localData.playerState = 'startmenu';
     this.GM.dispatchLocal(this.localData);    

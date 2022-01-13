@@ -26,7 +26,6 @@ export class StatisticsBarComponent implements OnInit {
     this.ItemsService.GetInventory().subscribe(
       (data: any) => {
         this.itemInventory = data;
-        console.log(this.itemInventory);
       }
     );
   }

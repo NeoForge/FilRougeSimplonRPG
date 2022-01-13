@@ -32,9 +32,7 @@ export class DialogueComponent implements OnInit {
     this.pnjService.GetPNJById(this.localData.pnjId).subscribe(data => {
       this.PNJData = data;
       this.localData.playerState = "choix"
-      console.log(this.PNJData);
       this.DialogArray = this.PNJData.dialog.split("£");
-      console.log(this.DialogArray);
       this.DialogResponse = this.PNJData.response.split("£");
       this.localData.choice1 = this.DialogResponse[0];
       this.localData.choice2 = this.DialogResponse[1];
@@ -53,12 +51,9 @@ export class DialogueComponent implements OnInit {
     while (this.localData.playerState == "choix" && this.PNJData.stage <= this.DialogArray.length) {
       this.dialogToDisplay = this.DialogArray[this.PNJData.stage - 1];
       await this.timer(1000);
-      console.log("j'attend la réponse");
-      console.log(this.localData.choiceState);
       switch (this.localData.choiceState) {
         case 1:
           {
-            console.log("je suis dans le choix 1");
 
             this.PNJData.stage += 1;
             this.localData.choiceState = "0";
@@ -70,7 +65,6 @@ export class DialogueComponent implements OnInit {
             break;
           }
         case 2: {
-          console.log("je suis dans le choix 2");
           this.PNJData.stage += 1;
           this.localData.choiceState = "0";
           this.localData.choice1 = "Ok";
@@ -81,7 +75,6 @@ export class DialogueComponent implements OnInit {
           break;
         }
         case 3: {
-          console.log("je suis dans le choix 3");
           this.PNJData.stage += 1;
           this.localData.choiceState = "0";
           this.localData.choice1 = "Ok";
@@ -96,7 +89,6 @@ export class DialogueComponent implements OnInit {
         }
       }
       if (this.PNJData.stage > this.DialogArray.length) {
-        console.log("is leaving dialog ", this.leaving);
 
         if (!this.leaving) {
           this.onLeave();
@@ -111,7 +103,6 @@ export class DialogueComponent implements OnInit {
     this.PNJData.appeared = true;
     this.PNJData.stage = 1;
     this.pnjService.PutPNJ(this.PNJData).subscribe(data => {
-      console.log(data)
     })
     this.gameData.storyStage += 1;
     if(this.gameData.storyStage == this.localData.storyStageBeforeDialog + 1 ){
@@ -132,8 +123,6 @@ export class DialogueComponent implements OnInit {
   }
   ngOnDestroy() {
     this.localData.playerState = "indice";
-
-    console.log('Destroying...');
   }
   onFight(monsterId: number) {
     this.localData.monsterId = monsterId;

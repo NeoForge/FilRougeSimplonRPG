@@ -22,7 +22,6 @@ export class ChoicesComponent implements OnInit {
       (data: any) => {
         this.data = data;
         this.storyStage = data.storyStage;
-        console.log("story stage",this.storyStage);
       }
     );
     this.GM.LocalData.subscribe(
