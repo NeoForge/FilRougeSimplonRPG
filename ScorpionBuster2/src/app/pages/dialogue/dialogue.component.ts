@@ -129,9 +129,10 @@ export class DialogueComponent implements OnInit {
     })
     this.gameData.storyStage += 1;
     this.GM.dispatch(this.gameData);
-    if(this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0){ 
-      this.onFight(this.PNJData.monsterId);
-    }
+    if(this.gameData.storyStage >= 8){
+      this.router.navigateByUrl('/victory')
+    } else if (this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0){ 
+      this.onFight(this.PNJData.monsterId)}
     else
     {
       this.router.navigateByUrl('/game');
