@@ -104,30 +104,35 @@ export class DialogueComponent implements OnInit {
     this.PNJData.appeared = true;
     this.PNJData.stage = 1;
     this.pnjService.PutPNJ(this.PNJData).subscribe(data => {
+      this.gameData.storyStage += 1;
+      console.log("Story Stage On Leave(after +1 ) = ",this.gameData.storyStage);
+      console.log("Story Stage Before Dialog",this.localData.storyStageBeforeDialog);
+      
+      if(this.gameData.storyStage == this.localData.storyStageBeforeDialog + 1 ){
+        console.log("StoryStage que je vais save",this.gameData.storyStage);
+        this.GM.dispatch(this.gameData);
+      }
+      else
+      {
+        this.gameData.storyStage = this.localData.storyStageBeforeDialog +1;
+        console.log("StoryStage que je vais save",this.gameData.storyStage);
+        this.GM.dispatch(this.gameData);
+      }
+      if(this.gameData.storyStage >= 8) {
+        this.localData.playerState = "startmenu"
+        this.router.navigateByUrl('/victory')
+      }
+      else if (this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0) {
+        this.onFight(this.PNJData.monsterId);
+        this.ngOnDestroy();
+      }
+      else {
+        this.router.navigateByUrl('/game');
+        this.ngOnDestroy();
+      }
+      this.ngOnDestroy();
     })
-    this.gameData.storyStage += 1;
-    console.log("Story Stage On Leave(after +1 ) = ",this.gameData.storyStage);
-    console.log("Story Stage Before Dialog",this.localData.storyStageBeforeDialog);
     
-    if(this.gameData.storyStage == this.localData.storyStageBeforeDialog + 1 ){
-      console.log("StoryStage que je vais save",this.gameData.storyStage);
-      this.GM.dispatch(this.gameData);
-    }
-    else
-    {
-      this.gameData.storyStage = this.localData.storyStageBeforeDialog +1;
-      console.log("StoryStage que je vais save",this.gameData.storyStage);
-      this.GM.dispatch(this.gameData);
-    }
-    if (this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0) {
-      this.onFight(this.PNJData.monsterId);
-      this.ngOnDestroy();
-    }
-    else {
-      this.router.navigateByUrl('/game');
-      this.ngOnDestroy();
-    }
-    this.ngOnDestroy();
   }
   ngOnDestroy() {
     this.localData.playerState = "indice";
