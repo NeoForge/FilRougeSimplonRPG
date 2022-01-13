@@ -3,6 +3,6 @@
         <button (click)="onFight(mapData.monsterId)" *ngIf="monsterData && pnjData.appeared"class="pnjButton"><img [src]="'../../../assets/'+monsterData.image"></button>
         <button (click)="onPNJ(mapData.pnjId)"  *ngIf="pnjData && !pnjData.appeared" class="pnjButton"><img [src]="'../../../assets/'+pnjData.image"></button>
     </div>
-    <button (click)="onMap()">Retourné sur la carte du monde</button>
+    <button class="map" (click)="onMap()">Carte du monde</button>
     <!-- <app-fight></app-fight> -->
 </section>

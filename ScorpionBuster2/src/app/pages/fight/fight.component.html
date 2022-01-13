@@ -1,4 +1,4 @@
-<section class="fight" *ngIf="!combatFinished">
+<section class="fight" *ngIf="!combatFinished" [style]="backgroundFight">
   <div class="container-fight">
     <div class="combatlog">
       <p>{{combatlog}}</p>
@@ -16,12 +16,12 @@
   </div>
 </section>
 
-<section class="reward" *ngIf="combatFinished">
+<section class="reward" *ngIf="combatFinished" [style]="backgroundFight">
   <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">Résultat du Combat</h5>
+      <h2 class="card-title">Résultat du Combat</h2>
       <p class="card-text">{{combatlog}}</p>
-      <a class="btn btn-primary" (click)="onLeave()">Sortir de l'écran</a>
+      <button (click)="onLeave()">Sortir de l'écran</button>
     </div>
   </div>
 </section>

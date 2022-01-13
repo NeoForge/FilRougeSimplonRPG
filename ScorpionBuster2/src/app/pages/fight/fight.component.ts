@@ -19,6 +19,7 @@ export class FightComponent implements OnInit {
   monster: any;
   combatlog : string = "";
   combatFinished = false;
+  backgroundFight: string = "";
   ngOnInit(): void {
     this.GM.Data.subscribe(
       (data: any) => {
@@ -37,8 +38,10 @@ export class FightComponent implements OnInit {
         this.localData.combatState = "wait";
         this.GM.dispatchLocal(this.localData);
         this.fightLoop();
+        this.backgroundFight ="background-image : url(" + '../../../assets/' + localStorage.getItem("background") + ")";
       }
     );
+    
   }
 
   timer = (ms:any) => new Promise(res => setTimeout(res, ms));
