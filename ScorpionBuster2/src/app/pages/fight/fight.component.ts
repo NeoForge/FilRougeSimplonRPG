@@ -122,8 +122,7 @@ changeHPbar() {
   }
   ngOnDestroy() {
     this.localData.combatState = "flee";
-    console.log('Destroying...');
-    
+    console.log('Destroying figth...');
   }
 
 }

@@ -1,5 +1,5 @@
 <section class="dialogue">
-    <div *ngIf="PNJData">
+    <div *ngIf="!PNJData.appeared">
         {{PNJData.name}}
         {{dialogToDisplay}}
     </div>

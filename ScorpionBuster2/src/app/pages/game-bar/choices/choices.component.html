@@ -1,7 +1,7 @@
 <section class="choices" *ngIf="localData.playerState == 'indice'">
 <div class="txt-indice">
     <h2>Indice</h2>
-    <p class="indice">{{indice[data.storyStage].text}}</p>
+    <p class="indice"*ngIf="indice && data.storyStage < 9">{{indice[data.storyStage].text}}</p>
 </div>
 </section>
 <section class="choices" *ngIf="localData.playerState == 'choix'">
