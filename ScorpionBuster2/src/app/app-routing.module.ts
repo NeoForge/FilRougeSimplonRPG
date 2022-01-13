@@ -6,6 +6,7 @@ import { MapComponent } from './pages/map/map.component';
 import { GameOverComponent } from './pages/game-over/game-over.component';
 import { FightComponent } from './pages/fight/fight.component';
 import { DialogueComponent } from './pages/dialogue/dialogue.component';
+import { VictoryComponent } from './pages/victory/victory.component';
 
 const routes: Routes = [
   { path: '', component: StartScreenComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'map', component: MapComponent},
   { path: 'fight', component: FightComponent },
   { path: 'dialogue', component: DialogueComponent},
-  { path: 'game-over', component: GameOverComponent }
+  { path: 'game-over', component: GameOverComponent },
+  { path: 'victory', component: VictoryComponent }
 ];
 
 @NgModule({

@@ -111,8 +111,10 @@ export class FightComponent implements OnInit {
   }
 }
 changeHPbar() {
-  let bar = document.getElementById("monsterBar") as HTMLDivElement;
-  bar.style.width = `${this.monster.hp}%`;
+  let barMonster = document.getElementById("monsterBar") as HTMLDivElement;
+  barMonster.style.width = `${this.monster.hp}%`;
+  let barHero = document.getElementById("bar") as HTMLElement;
+  barHero.style.width = `${this.data.hp}%`;
 }
   onLeave(){
     this.localData.playerState="indice";
