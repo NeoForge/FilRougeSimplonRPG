@@ -41,6 +41,9 @@ export class DialogueComponent implements OnInit {
       this.localData.choice3 = this.DialogResponse[2];
       this.GM.dispatchLocal(this.localData);
       this.choiceLoop();
+
+      let div = document.querySelector(".dialogue") as HTMLElement;
+      div.style.backgroundImage = "url("+'../../../assets/' + localStorage.getItem("background") + ")";
     });
   }
 
@@ -103,15 +106,24 @@ export class DialogueComponent implements OnInit {
  onLeave(){
     this.localData.playerState="indice";
     this.GM.dispatch(this.gameData);
-    this.router.navigateByUrl('/game');
-    this.gameData.storyStage += 1;
+    if(this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0){ 
+      this.onFight(this.PNJData.monsterId);
+    }
+    else
+    {
+      this.router.navigateByUrl('/game');
+    }
     this.ngOnDestroy();
   }
   ngOnDestroy() {
     this.localData.playerState = "indice";
+    this.gameData.storyStage += 1;
     this.GM.dispatch(this.gameData);
     console.log('Destroying...');
-
-
+  }
+  onFight(monsterId : number) {
+    this.localData.monsterId = monsterId;
+    this.GM.dispatchLocal(this.localData);
+    this.router.navigateByUrl('fight')
   }
 }

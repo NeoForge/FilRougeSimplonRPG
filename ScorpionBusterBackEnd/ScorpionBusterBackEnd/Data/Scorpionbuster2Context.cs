@@ -173,6 +173,8 @@ namespace ScorpionBusterBackEnd.Data
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
+                entity.Property(e => e.Appeared).HasColumnName("appeared");
+
                 entity.Property(e => e.Dialog)
                     .HasMaxLength(4000)
                     .IsUnicode(false)
