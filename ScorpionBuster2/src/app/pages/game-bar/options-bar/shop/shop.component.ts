@@ -18,6 +18,7 @@ export class ShopComponent implements OnInit {
   }
   onShop() {
     this.modalService.open(NgModalShopComponent);
+
   }
 
 }
