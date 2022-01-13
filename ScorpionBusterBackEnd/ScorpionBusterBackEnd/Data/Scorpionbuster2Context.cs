@@ -73,8 +73,8 @@ namespace ScorpionBusterBackEnd.Data
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Text)
-                    .IsRequired()
-                    .HasMaxLength(255)
+                    .HasMaxLength(4000)
+                    .IsUnicode(false)
                     .HasColumnName("text");
             });
 
@@ -174,8 +174,8 @@ namespace ScorpionBusterBackEnd.Data
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Dialog)
-                    .IsRequired()
-                    .HasMaxLength(1)
+                    .HasMaxLength(4000)
+                    .IsUnicode(false)
                     .HasColumnName("dialog");
 
                 entity.Property(e => e.Image)
@@ -184,14 +184,16 @@ namespace ScorpionBusterBackEnd.Data
 
                 entity.Property(e => e.ItemId).HasColumnName("item_id");
 
+                entity.Property(e => e.MonsterId).HasColumnName("monster_id");
+
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(255)
                     .HasColumnName("name");
 
                 entity.Property(e => e.Response)
-                    .IsRequired()
-                    .HasMaxLength(1)
+                    .HasMaxLength(4000)
+                    .IsUnicode(false)
                     .HasColumnName("response");
 
                 entity.Property(e => e.Stage).HasColumnName("stage");
