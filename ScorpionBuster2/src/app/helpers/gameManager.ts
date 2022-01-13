@@ -26,6 +26,7 @@ interface LocalData {
     choice1: string;
     choice2: string;
     choice3: string;
+    storyStageBeforeDialog : number;
 
 }
 
@@ -55,7 +56,8 @@ export class GameManager {
                 playerState: "startmenu",
                 choice1: "",
                 choice2: "",
-                choice3: ""
+                choice3: "",
+                storyStageBeforeDialog : 0
             });
         }
         this.instance.update(id);

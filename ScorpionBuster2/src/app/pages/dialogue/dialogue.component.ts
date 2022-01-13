@@ -21,17 +21,13 @@ export class DialogueComponent implements OnInit {
   DialogResponse = [];
   DialogArray = [];
   dialogToDisplay = "";
-  playerStageInit: number = 0;
   backgroundDialog = "  ";
   ngOnInit(): void {
-    console.log("Je suis une instance de dialogue");
-
     this.GM.LocalData.subscribe(data => {
       this.localData = data;
     });
     this.GM.Data.subscribe(data => {
       this.gameData = data;
-      this.playerStageInit = this.gameData.storyStage;
     });
     this.pnjService.GetPNJById(this.localData.pnjId).subscribe(data => {
       this.PNJData = data;
@@ -112,15 +108,20 @@ export class DialogueComponent implements OnInit {
   leaving = false;
   onLeave() {
     this.localData.playerState = "indice";
-    this.GM.dispatch(this.gameData);
-    console.log(this.playerStageInit);
     this.PNJData.appeared = true;
     this.PNJData.stage = 1;
     this.pnjService.PutPNJ(this.PNJData).subscribe(data => {
       console.log(data)
     })
     this.gameData.storyStage += 1;
-    this.GM.dispatch(this.gameData);
+    if(this.gameData.storyStage == this.localData.storyStageBeforeDialog + 1 ){
+      this.GM.dispatch(this.gameData);
+    }
+    else
+    {
+      this.gameData.storyStage = this.localData.storyStageBeforeDialog +1;
+      this.GM.dispatch(this.gameData);
+    }
     if (this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0) {
       this.onFight(this.PNJData.monsterId);
     }
