@@ -1,11 +1,11 @@
     <section class="map">
-        <button class="story1" (click)="onStory1()">Le Caire</button>
-        <button class="story2" (click)="onStory2()">Paris</button>
-        <button class="story3" (click)="onStory3()">Lima</button>
-        <button class="story4" (click)="onStory4()">Qaanaaq<br><span>(est un palindrome)</span></button>
-        <button class="story5" (click)="onStory5()">New-york</button>
-        <button class="story6" (click)="onStory6()">Moscou</button>
-        <button class="story7" (click)="onStory7()">Cancún</button>
-        <button class="story8" (click)="onStory8()">Oulan-Bator</button>
+        <button class="story1" *ngIf="data.storyStage >= 0"(click)="onStory1()">Le Caire</button>
+        <button class="story2" *ngIf="data.storyStage >= 1" (click)="onStory2()">Paris</button>
+        <button class="story3" *ngIf="data.storyStage >= 2"(click)="onStory3()">Lima</button>
+        <button class="story7" *ngIf="data.storyStage >= 3" (click)="onStory7()">Cancún</button>
+        <button class="story6" *ngIf="data.storyStage >= 4" (click)="onStory6()">Moscou</button>
+        <button class="story5" *ngIf="data.storyStage >= 5" (click)="onStory5()">New-york</button>
+        <button class="story8" *ngIf="data.storyStage >= 6" (click)="onStory8()">Oulan-Bator</button>
+        <button class="story4" *ngIf="data.storyStage >= 7"(click)="onStory4()">Qaanaaq<br><span>(est un palindrome)</span></button>
     </section>
 
