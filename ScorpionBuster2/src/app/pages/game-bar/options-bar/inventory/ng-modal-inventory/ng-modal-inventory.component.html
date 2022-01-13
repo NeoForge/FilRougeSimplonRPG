@@ -1,0 +1,27 @@
+<div class="modal-content">
+    <div class="header">
+        <h4 class="title">Inventaire</h4>
+    </div>
+    <div class="inventory">
+        <div class="container-items" *ngIf="(itemInventory)">
+            <div class="items" *ngFor="let item of itemInventory; let index = index">
+                <div class="btn-items" (click)="displayDescription(item.name, item.description, index)">
+                    <img [src]="'../../../../../assets/'+item.image"> 
+                    {{item.quantity}}
+                </div>
+            </div>
+        </div>
+        <div class="description_inventory">
+            <div class="description">
+                <h2 *ngIf="!itemName">Description</h2>
+                <h2 *ngIf="itemName">{{itemName}}</h2>
+                {{description}}
+            </div>
+            <div class="button_inventory">
+                <button (click)="onUse()">Equiper/Utiliser</button>
+                <button type="button" (click)="activeModal.close('Close click')">Retour</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="txt"></div>

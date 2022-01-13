@@ -5,7 +5,7 @@
     width: 100%;
     height: 30vh;
     margin-bottom: 0;
-    background-color: red;
+    background-color: rgba(26, 26, 26, 0.575);
 }
 .img-hero{
     width: 20%;
@@ -22,6 +22,5 @@
 }
 .statistics {
     width: 20%;
-    border: 2px solid black;
     margin: 0.5%;
 }

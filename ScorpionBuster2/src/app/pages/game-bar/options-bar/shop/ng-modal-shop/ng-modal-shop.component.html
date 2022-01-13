@@ -1,0 +1,32 @@
+<div class="modal-content">
+    <div class="header">
+        <h4 class="title">Amazon.com</h4>
+    </div>
+    <div class="shop">
+        <div class="container-items" *ngIf="!!(itemShop)">
+            <div class="items" *ngFor="let item of itemShop; let index = index">
+                <div class="btn-items" (click)="displayDescription(item.name, item.description, index)">
+                    <img [src]="'../../../../../assets/'+item.image">
+                </div>
+            </div>
+        </div>
+        <div class="description">
+            <h2 *ngIf="!itemName">Description</h2>
+            <h2 *ngIf="itemName">{{itemName}}</h2>
+            <div class="description-txt">
+                <p>{{description}}</p>
+                <p *ngIf="price !=0"><strong>Prix : {{price}}</strong></p>
+            </div>
+
+        </div>
+        <div class="merchant">
+            <img class="img-vendor" src="../../../../../assets/jeff_bezos.png">
+            <div class="passion">💰 {{hero.credit}} pa$$ion</div>
+            <div class="button_merchant">
+                <button type="button" (click)="onBuy()">Acheter</button>
+                <button type="button" (click)="activeModal.close('Close click')">Retour</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="txt"></div>

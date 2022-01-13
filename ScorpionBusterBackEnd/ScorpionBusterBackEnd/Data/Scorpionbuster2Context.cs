@@ -19,27 +19,184 @@ namespace ScorpionBusterBackEnd.Data
         {
         }
 
-        public virtual DbSet<AvailableCharacter> AvailableCharacters { get; set; }
+        public virtual DbSet<Hero> Heroes { get; set; }
+        public virtual DbSet<Indice> Indices { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<Map> Maps { get; set; }
+        public virtual DbSet<Monster> Monsters { get; set; }
+        public virtual DbSet<Pnj> Pnjs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AvailableCharacter>(entity =>
+            modelBuilder.Entity<Hero>(entity =>
             {
-                entity.ToTable("AvailableCharacter");
+                entity.ToTable("hero");
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("id");
+                entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.NomDuPersonnage)
-                    .HasMaxLength(100)
+                entity.Property(e => e.ArmorId).HasColumnName("armor_id");
+
+                entity.Property(e => e.Attack).HasColumnName("attack");
+
+                entity.Property(e => e.Credit).HasColumnName("credit");
+
+                entity.Property(e => e.Defense).HasColumnName("defense");
+
+                entity.Property(e => e.DidIDo)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("did_i_do");
+
+                entity.Property(e => e.Hp).HasColumnName("hp");
+
+                entity.Property(e => e.Image)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("image");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.PaSion).HasColumnName("pa$$sion");
+
+                entity.Property(e => e.StoryStage).HasColumnName("story_stage");
+
+                entity.Property(e => e.WeaponId).HasColumnName("weapon_id");
+            });
+
+            modelBuilder.Entity<Indice>(entity =>
+            {
+                entity.ToTable("indice");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Text)
+                    .HasMaxLength(4000)
                     .IsUnicode(false)
-                    .HasColumnName("nomDuPersonnage");
+                    .HasColumnName("text");
+            });
 
-                entity.Property(e => e.ProfilePicUrl)
-                    .HasMaxLength(100)
+            modelBuilder.Entity<Item>(entity =>
+            {
+                entity.ToTable("items");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Consumable).HasColumnName("consumable");
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("description");
+
+                entity.Property(e => e.Image)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("image");
+
+                entity.Property(e => e.IsBuyable).HasColumnName("isBuyable");
+
+                entity.Property(e => e.IsEquipped).HasColumnName("isEquipped");
+
+                entity.Property(e => e.ItemType)
+                    .HasMaxLength(255)
+                    .HasColumnName("itemType");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.Owned).HasColumnName("owned");
+
+                entity.Property(e => e.Price).HasColumnName("price");
+
+                entity.Property(e => e.Quantity).HasColumnName("quantity");
+
+                entity.Property(e => e.StatValue).HasColumnName("statValue");
+            });
+
+            modelBuilder.Entity<Map>(entity =>
+            {
+                entity.ToTable("map");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Background)
+                    .HasMaxLength(255)
+                    .HasColumnName("background");
+
+                entity.Property(e => e.MonsterId).HasColumnName("monster_id");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.PnjId).HasColumnName("pnj_id");
+
+                entity.Property(e => e.Text)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("text");
+            });
+
+            modelBuilder.Entity<Monster>(entity =>
+            {
+                entity.ToTable("monster");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Attack).HasColumnName("attack");
+
+                entity.Property(e => e.Defense).HasColumnName("defense");
+
+                entity.Property(e => e.Hp).HasColumnName("hp");
+
+                entity.Property(e => e.Image)
+                    .HasMaxLength(255)
+                    .HasColumnName("image");
+
+                entity.Property(e => e.ItemId).HasColumnName("item_id");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("name");
+            });
+
+            modelBuilder.Entity<Pnj>(entity =>
+            {
+                entity.ToTable("pnj");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Dialog)
+                    .HasMaxLength(4000)
                     .IsUnicode(false)
-                    .HasColumnName("profilePicUrl");
+                    .HasColumnName("dialog");
+
+                entity.Property(e => e.Image)
+                    .HasMaxLength(255)
+                    .HasColumnName("image");
+
+                entity.Property(e => e.ItemId).HasColumnName("item_id");
+
+                entity.Property(e => e.MonsterId).HasColumnName("monster_id");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.Response)
+                    .HasMaxLength(4000)
+                    .IsUnicode(false)
+                    .HasColumnName("response");
+
+                entity.Property(e => e.Stage).HasColumnName("stage");
             });
 
             OnModelCreatingPartial(modelBuilder);

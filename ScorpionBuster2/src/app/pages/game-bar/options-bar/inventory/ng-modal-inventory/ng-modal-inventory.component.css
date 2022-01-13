@@ -1,0 +1,90 @@
+.modal-content {
+    width: 200%;
+    margin-left: -250px;
+}
+h2 {
+    font-size: 25px;
+}
+h4{
+    text-align: center;
+    font-size: 30px;
+}
+.inventory {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;  
+    height: 57vh;
+    background-color: rgba(37, 37, 37, 0.171);
+}
+.container-items {
+    width: 55%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 2%;
+    overflow: hidden;
+    overflow-y: scroll
+}
+.items {
+    width: 30%;
+    height: 30%;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.items:hover {
+    border: 2px solid black;
+}
+
+.description_inventory{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: auto;
+    margin-left: auto;
+}
+.description {
+    width: 100%;
+    height: 60%;
+    border: 2px solid black;
+    padding: 4%;
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.btn-items {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+}
+.btn-items p {
+    position: absolute;
+    text-align: center;
+}
+
+.button_inventory {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+#txt {
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: rgba(0, 0, 0, 0.322);
+    font-size: 20px;
+    text-align: center;
+}

@@ -10,6 +10,8 @@ export class OptionsBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
+
 
 }

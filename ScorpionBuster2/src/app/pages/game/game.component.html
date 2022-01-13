@@ -1,4 +1,5 @@
 <section class="game">
-    <p>game works!</p>
-    <app-game-bar></app-game-bar>
+    <button (click)="onFight(mapData.monsterId)" *ngIf="monsterData"class="pnjButton"><img [src]="'../../../assets/'+monsterData.image"></button>
+    <button (click)="onPNJ(mapData.pnjId)"  *ngIf="pnjData" class="pnjButton"><img [src]="'../../../assets/'+pnjData.image"></button>
+    <!-- <app-fight></app-fight> -->
 </section>

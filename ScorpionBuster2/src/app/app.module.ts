@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StartScreenComponent } from './pages/start-screen/start-screen.component';
-import { InventoryComponent } from './pages/inventory/inventory.component';
-import { ShopComponent } from './pages/shop/shop.component';
+import { InventoryComponent } from './pages/game-bar/options-bar/inventory/inventory.component';
+import { ShopComponent } from './pages/game-bar/options-bar/shop/shop.component';
 import { GameComponent } from './pages/game/game.component';
 import { MapComponent } from './pages/map/map.component';
 import { FightComponent } from './pages/fight/fight.component';
@@ -16,6 +17,14 @@ import { ChoicesComponent } from './pages/game-bar/choices/choices.component';
 import { HeroComponent } from './pages/game-bar/hero/hero.component';
 import { OptionsBarComponent } from './pages/game-bar/options-bar/options-bar.component';
 import { StatisticsBarComponent } from './pages/game-bar/statistics-bar/statistics-bar.component';
+import { ItemsShopComponent } from './pages/game-bar/options-bar/shop/items-shop/items-shop.component';
+import { OptionsComponent } from './pages/game-bar/options-bar/options/options.component';
+import { DialogueComponent } from './pages/dialogue/dialogue.component';
+import { NgModalInventoryComponent } from './pages/game-bar/options-bar/inventory/ng-modal-inventory/ng-modal-inventory.component';
+import { NgModalShopComponent } from './pages/game-bar/options-bar/shop/ng-modal-shop/ng-modal-shop.component';
+import { NgModalOptionsComponent } from './pages/game-bar/options-bar/options/ng-modal-options/ng-modal-options.component';
+import { ResetAllComponent } from './pages/game-over/reset-all/reset-all.component';
+
 
 @NgModule({
   declarations: [
@@ -31,12 +40,21 @@ import { StatisticsBarComponent } from './pages/game-bar/statistics-bar/statisti
     ChoicesComponent,
     HeroComponent,
     OptionsBarComponent,
-    StatisticsBarComponent
+    StatisticsBarComponent,
+    ItemsShopComponent,
+    OptionsComponent,
+    DialogueComponent,
+    NgModalInventoryComponent,
+    NgModalOptionsComponent,
+    NgModalShopComponent,
+    ResetAllComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

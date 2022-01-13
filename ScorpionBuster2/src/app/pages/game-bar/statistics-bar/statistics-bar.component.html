@@ -1,1 +1,23 @@
-<p>statistics-bar works!</p>
+<section class="statistics" >
+  <div class="health-bar" data-total="100" data-value="100">
+    <div id="bar">
+      <div id="hit">  
+      </div>
+    </div>
+    <div *ngIf="hero" (change)="changeHPbar()"></div>
+    <div class="life" *ngIf="hero">Points de vie : {{hero.hp}}/100</div>
+  </div>
+  <div class="infos" *ngIf="hero">
+    <div class="infos-hero">
+      <div>{{hero.name}}</div>
+      <div>⚔️ {{hero.attack}}</div>
+      <div>🛡️ {{hero.defense}}</div>
+      <div>💰 {{hero.credit}} pa$$ion</div>
+    </div>
+    <div class="equiped-items">
+      <!-- <div class="weapon" *ngIf="weapon.image"><img [src]="'../../../../assets/' + weapon.image " alt="">Armes</div>
+      <div class="armor"*ngIf="armor.image"><img [src]="'../../../../assets/' + armor.image" alt="">Armure</div> -->
+    </div>
+  </div>
+
+</section>
