@@ -12,15 +12,20 @@ export class StartScreenComponent implements OnInit {
 
   constructor(private router: Router, private HeroService: HeroService) { }
   localData: any;
-  GM = GameManager.getInstance(this.HeroService, 2);
+  GM = GameManager.getInstance(this.HeroService, parseInt(localStorage.getItem("hero") as string));
+  hero: any;
   ngOnInit(): void {
     this.GM.LocalData.subscribe((data: any) => {
       this.localData = data;
+    });
+    this.GM.Data.subscribe(data => {
+      this.hero = data.id;
     });
   }
 
   onStart() {
     let heroChoice = localStorage.getItem('hero');
+    localStorage.setItem('inGame', 'true');
     if (heroChoice === '2') {
       this.GM = GameManager.getInstance(this.HeroService, 2);
       this.localData.playerState = "indice";
@@ -48,5 +53,6 @@ export class StartScreenComponent implements OnInit {
     displayMessage.innerHTML = '“Oh dur, c’est pas le pied !”';
     localStorage.setItem('hero', '3');
   }
+
 
 }
