@@ -62,6 +62,10 @@
          "ObjectType": 1
       },
       {
+         "Name": "[dbo].[ResetAppearence]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[UnequipArmor]",
          "ObjectType": 1
       },
