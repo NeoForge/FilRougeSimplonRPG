@@ -41,6 +41,9 @@ export class DialogueComponent implements OnInit {
       this.localData.choice3 = this.DialogResponse[2];
       this.GM.dispatchLocal(this.localData);
       this.choiceLoop();
+
+      let div = document.querySelector(".dialogue") as HTMLElement;
+      div.style.backgroundImage = "url("+'../../../assets/' + localStorage.getItem("background") + ")";
     });
   }
 
