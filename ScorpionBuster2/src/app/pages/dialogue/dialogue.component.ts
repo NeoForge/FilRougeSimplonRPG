@@ -1,10 +1,10 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeroService } from 'src/app/apiServices/hero.service';
 import { MonsterService } from 'src/app/apiServices/monster.service';
 import { PNJService } from 'src/app/apiServices/pnj.service';
 import { GameManager } from 'src/app/helpers/gameManager';
+
 
 @Component({
   selector: 'app-dialogue',
@@ -21,16 +21,22 @@ export class DialogueComponent implements OnInit {
   DialogResponse = [];
   DialogArray = [];
   dialogToDisplay = "";
+  playerStageInit: number = 0;
 
   ngOnInit(): void {
+    console.log("Je suis une instance de dialogue");
+    
     this.GM.LocalData.subscribe(data => {
       this.localData = data;
     });
     this.GM.Data.subscribe(data => {
       this.gameData = data;
+      this.playerStageInit = this.gameData.storyStage;
     });
     this.pnjService.GetPNJById(this.localData.pnjId).subscribe(data => {
       this.PNJData = data;
+      console.log("Pnj Data :", this.PNJData);
+      
       this.localData.playerState = "choix"
       console.log(this.PNJData);
       this.DialogArray = this.PNJData.dialog.split("£");
@@ -50,12 +56,11 @@ export class DialogueComponent implements OnInit {
   timer = (ms: any) => new Promise(res => setTimeout(res, ms));
 
   async choiceLoop() {
-
     this.localData.choiceState = "0";
     this.GM.dispatchLocal(this.localData);
     while (this.localData.playerState == "choix" && this.PNJData.stage <= this.DialogArray.length) {
       this.dialogToDisplay = this.DialogArray[this.PNJData.stage - 1];
-      await this.timer(500);
+      await this.timer(1000);
       console.log("j'attend la réponse");
       console.log(this.localData.choiceState);
       switch (this.localData.choiceState) {
@@ -99,12 +104,27 @@ export class DialogueComponent implements OnInit {
         }
       }
       if(this.PNJData.stage > this.DialogArray.length){
-      this.onLeave();
+        console.log("is leaving dialog ",this.leaving);
+        
+        if(!this.leaving)
+        {
+          this.onLeave();
+          this.leaving = true
+        }
       } 
     }
   }
+  leaving = false;
  onLeave(){
     this.localData.playerState="indice";
+    this.GM.dispatch(this.gameData);
+    console.log(this.playerStageInit);
+    this.PNJData.appeared = true;
+    this.PNJData.stage = 1;
+    this.pnjService.PutPNJ(this.PNJData).subscribe(data => {
+      console.log(data)
+    })
+    this.gameData.storyStage = this.playerStageInit + 1;
     this.GM.dispatch(this.gameData);
     if(this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0){ 
       this.onFight(this.PNJData.monsterId);
@@ -117,8 +137,7 @@ export class DialogueComponent implements OnInit {
   }
   ngOnDestroy() {
     this.localData.playerState = "indice";
-    this.gameData.storyStage += 1;
-    this.GM.dispatch(this.gameData);
+    
     console.log('Destroying...');
   }
   onFight(monsterId : number) {

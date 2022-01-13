@@ -24,6 +24,7 @@ import { NgModalInventoryComponent } from './pages/game-bar/options-bar/inventor
 import { NgModalShopComponent } from './pages/game-bar/options-bar/shop/ng-modal-shop/ng-modal-shop.component';
 import { NgModalOptionsComponent } from './pages/game-bar/options-bar/options/ng-modal-options/ng-modal-options.component';
 import { ResetAllComponent } from './pages/game-over/reset-all/reset-all.component';
+import { VictoryComponent } from './pages/victory/victory.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ResetAllComponent } from './pages/game-over/reset-all/reset-all.compone
     NgModalInventoryComponent,
     NgModalOptionsComponent,
     NgModalShopComponent,
-    ResetAllComponent
+    ResetAllComponent,
+    VictoryComponent
   ],
   imports: [
     BrowserModule,
