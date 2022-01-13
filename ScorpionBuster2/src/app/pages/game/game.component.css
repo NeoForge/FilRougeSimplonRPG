@@ -4,9 +4,21 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    
+} 
+ .button_place{
+    padding-top: 2.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
-.pnjButton
-{
-    background-color: transparent;
+
+button{   
+    background-color:  rgb(255, 182, 65, 0.2);
+    border: 5px ridge #1bff80bf;
+    border-radius: 20px;
+}
+button:hover {
+    background-color: rgb(255, 182, 65, 0.2);
+    border: 5px groove #1bff80bf;
+    border-radius: 20px;
 }

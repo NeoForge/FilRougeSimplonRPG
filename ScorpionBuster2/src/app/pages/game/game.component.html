@@ -1,5 +1,7 @@
 <section class="game">
-    <button (click)="onFight(mapData.monsterId)" *ngIf="monsterData"class="pnjButton"><img [src]="'../../../assets/'+monsterData.image"></button>
-    <button (click)="onPNJ(mapData.pnjId)"  *ngIf="pnjData" class="pnjButton"><img [src]="'../../../assets/'+pnjData.image"></button>
+    <div class="button_place">
+        <button (click)="onFight(mapData.monsterId)" *ngIf="monsterData"class="pnjButton"><img [src]="'../../../assets/'+monsterData.image"></button>
+        <button (click)="onPNJ(mapData.pnjId)"  *ngIf="pnjData" class="pnjButton"><img [src]="'../../../assets/'+pnjData.image"></button>
+    </div>
     <!-- <app-fight></app-fight> -->
 </section>
