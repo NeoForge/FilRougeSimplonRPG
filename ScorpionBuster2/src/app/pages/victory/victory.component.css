@@ -4,4 +4,22 @@
     background-image: url('../../../assets/background_meteorite.gif');
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-txt{
+    width: 60%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items	:center;
+    border-radius: 10px;
+    background-color: rgb(255, 182, 65, 0.8);
+    border: 5px ridge #1bff80bf;
+}
+.txt {
+    padding: 5%;
+    font-size: 25px;
 }

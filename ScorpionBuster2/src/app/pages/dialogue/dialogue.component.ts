@@ -21,38 +21,26 @@ export class DialogueComponent implements OnInit {
   DialogResponse = [];
   DialogArray = [];
   dialogToDisplay = "";
-  playerStageInit: number = 0;
-
+  backgroundDialog = "  ";
   ngOnInit(): void {
-    console.log("Je suis une instance de dialogue");
-    
     this.GM.LocalData.subscribe(data => {
       this.localData = data;
+      console.log(this.localData);
     });
     this.GM.Data.subscribe(data => {
       this.gameData = data;
-      this.playerStageInit = this.gameData.storyStage;
     });
     this.pnjService.GetPNJById(this.localData.pnjId).subscribe(data => {
       this.PNJData = data;
-      console.log("Pnj Data :", this.PNJData);
-      
       this.localData.playerState = "choix"
-      console.log(this.PNJData);
       this.DialogArray = this.PNJData.dialog.split("£");
-      console.log(this.DialogArray);
       this.DialogResponse = this.PNJData.response.split("£");
       this.localData.choice1 = this.DialogResponse[0];
       this.localData.choice2 = this.DialogResponse[1];
       this.localData.choice3 = this.DialogResponse[2];
       this.GM.dispatchLocal(this.localData);
       this.choiceLoop();
-
-      let div = document.querySelector(".dialogue") as HTMLElement;
-      if(this.PNJData.background && div)
-      {
-        div.style.backgroundImage = "url("+'../../../assets/' + localStorage.getItem("background") + ")";
-      }
+      this.backgroundDialog ="background-image : url(" + '../../../assets/' + localStorage.getItem("background") + ")";
     });
   }
 
@@ -64,12 +52,9 @@ export class DialogueComponent implements OnInit {
     while (this.localData.playerState == "choix" && this.PNJData.stage <= this.DialogArray.length) {
       this.dialogToDisplay = this.DialogArray[this.PNJData.stage - 1];
       await this.timer(1000);
-      console.log("j'attend la réponse");
-      console.log(this.localData.choiceState);
       switch (this.localData.choiceState) {
         case 1:
           {
-            console.log("je suis dans le choix 1");
 
             this.PNJData.stage += 1;
             this.localData.choiceState = "0";
@@ -81,7 +66,6 @@ export class DialogueComponent implements OnInit {
             break;
           }
         case 2: {
-          console.log("je suis dans le choix 2");
           this.PNJData.stage += 1;
           this.localData.choiceState = "0";
           this.localData.choice1 = "Ok";
@@ -92,7 +76,6 @@ export class DialogueComponent implements OnInit {
           break;
         }
         case 3: {
-          console.log("je suis dans le choix 3");
           this.PNJData.stage += 1;
           this.localData.choiceState = "0";
           this.localData.choice1 = "Ok";
@@ -106,45 +89,50 @@ export class DialogueComponent implements OnInit {
           break;
         }
       }
-      if(this.PNJData.stage > this.DialogArray.length){
-        console.log("is leaving dialog ",this.leaving);
-        
-        if(!this.leaving)
-        {
+      if (this.PNJData.stage > this.DialogArray.length) {
+
+        if (!this.leaving) {
           this.onLeave();
           this.leaving = true
         }
-      } 
+      }
     }
   }
   leaving = false;
- onLeave(){
-    this.localData.playerState="indice";
-    this.GM.dispatch(this.gameData);
-    console.log(this.playerStageInit);
+  onLeave() {
+    this.localData.playerState = "indice";
     this.PNJData.appeared = true;
     this.PNJData.stage = 1;
     this.pnjService.PutPNJ(this.PNJData).subscribe(data => {
-      console.log(data)
     })
     this.gameData.storyStage += 1;
-    this.GM.dispatch(this.gameData);
-    if(this.gameData.storyStage >= 8){
-      this.router.navigateByUrl('/victory')
-    } else if (this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0){ 
-      this.onFight(this.PNJData.monsterId)}
+    console.log("Story Stage On Leave(after +1 ) = ",this.gameData.storyStage);
+    console.log("Story Stage Before Dialog",this.localData.storyStageBeforeDialog);
+    
+    if(this.gameData.storyStage == this.localData.storyStageBeforeDialog + 1 ){
+      console.log("StoryStage que je vais save",this.gameData.storyStage);
+      this.GM.dispatch(this.gameData);
+    }
     else
     {
+      this.gameData.storyStage = this.localData.storyStageBeforeDialog +1;
+      console.log("StoryStage que je vais save",this.gameData.storyStage);
+      this.GM.dispatch(this.gameData);
+    }
+    if (this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0) {
+      this.onFight(this.PNJData.monsterId);
+      this.ngOnDestroy();
+    }
+    else {
       this.router.navigateByUrl('/game');
+      this.ngOnDestroy();
     }
     this.ngOnDestroy();
   }
   ngOnDestroy() {
     this.localData.playerState = "indice";
-    
-    console.log('Destroying...');
   }
-  onFight(monsterId : number) {
+  onFight(monsterId: number) {
     this.localData.monsterId = monsterId;
     this.GM.dispatchLocal(this.localData);
     this.router.navigateByUrl('fight')

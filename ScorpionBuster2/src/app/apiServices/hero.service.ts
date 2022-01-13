@@ -17,7 +17,6 @@ export class HeroService {
     return this.http.get<Hero>(environment.apiUrl + 'Heroes',{headers:this.headers});
   }
   GetHeroById(id:number) : Observable<Hero> {
-    console.log(id);
     
     if(id == 2 || id == 3){
     

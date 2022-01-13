@@ -43,7 +43,6 @@ export class FightComponent implements OnInit {
 
   timer = (ms:any) => new Promise(res => setTimeout(res, ms));
   async fightLoop(){
-    console.log(this.monster.hp > 0 && this.data.hp > 0 && this.localData.combatState != "flee");
     
     while (this.monster.hp > 0 && this.data.hp > 0 && this.localData.combatState != "flee") {
       await this.timer(500);
@@ -95,14 +94,12 @@ export class FightComponent implements OnInit {
   }
 
   if (this.monster.hp <= 0) {
-    console.log("You win!");
     this.combatlog="Vous avais vaincu le "+this.monster.name+"! Vous gagnez 100 de Pa$$ion!";
     this.data.credit += 100;
     this.localData.playerState="indice";
     this.GM.dispatch(this.data);
     this.combatFinished = true;
   } else if (this.data.hp <= 0) {
-    console.log("You lose!");
     this.combatlog="Vous avait était vaincu par le "+this.monster.name+"! Vous perdez votre vie!";
     this.combatFinished = true;
     this.router.navigateByUrl('game-over');
@@ -124,7 +121,6 @@ changeHPbar() {
   }
   ngOnDestroy() {
     this.localData.combatState = "flee";
-    console.log('Destroying figth...');
   }
 
 }

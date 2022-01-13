@@ -16,12 +16,10 @@ export class ResetAllComponent implements OnInit {
     this.HeroService.GetHero().subscribe(
       (data: any) => {
         this.hero = data;
-        console.log(this.hero);
       })
     this.ItemService.GetItem().subscribe(
       (data: any) => {
         this.itemShop = data;
-        console.log(this.itemShop);
       })  
   };
   onQuit() {
@@ -30,7 +28,6 @@ export class ResetAllComponent implements OnInit {
       element.owned = false;
       this.ItemService.PutItem(element).subscribe(
         (data: any) => {
-          console.log(data);
         }
       )
     });
@@ -46,7 +43,6 @@ export class ResetAllComponent implements OnInit {
       element.credit = 100;
       this.HeroService.PutHero(element).subscribe(
         (data: any) => {
-          console.log(data);
         }
       );
     });

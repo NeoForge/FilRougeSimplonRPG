@@ -36,15 +36,13 @@ export class GameComponent implements OnInit {
     });
     this.mapService.GetMapByid(parseInt(localStorage.getItem("mapId") as string)).subscribe(data => {
       this.mapData = data;
-      console.log(this.mapData);
       let div = document.querySelector(".game") as HTMLElement;
       div.style.backgroundImage = "url("+'../../../assets/' + this.mapData.background + ")";
+      localStorage.setItem("background", this.mapData.background);
       if (data.pnjId != null) {
-        console.log("ok");
         
         this.pnjService.GetPNJById(data.pnjId).subscribe(data => {
           this.pnjData = data;
-          console.log("pnj data game",this.pnjData)
           
         });
       }
@@ -62,6 +60,9 @@ export class GameComponent implements OnInit {
   }
   onPNJ(pnjId : number) {
     this.localData.pnjId = pnjId;
+    this.localData.storyStageBeforeDialog = this.gameData.storyStage;
+    console.log("le storyStage avant d'entré dans le dialogue est :",this.gameData.storyStage);
+    
     this.GM.dispatchLocal(this.localData);
     this.router.navigateByUrl('dialogue')
   }

@@ -30,7 +30,6 @@ export class NgModalInventoryComponent implements OnInit {
     this.ItemsService.GetInventory().subscribe(
       (data: any) => {
         this.itemInventory = data;
-        console.log(this.itemInventory);
       }
     );
   }
