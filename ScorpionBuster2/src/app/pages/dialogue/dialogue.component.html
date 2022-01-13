@@ -1,6 +1,9 @@
 <section class="dialogue">
-    <div *ngIf="PNJData">
-        {{PNJData.name}}
-        {{dialogToDisplay}}
+    <div class="dialog_card" *ngIf="PNJData">
+        <img class="pnj_img" [src]="'../../../assets/'+PNJData.image">
+        <div class="text_dialog">
+            <h4>{{PNJData.name}}</h4>
+            <p>{{dialogToDisplay}}</p>
+        </div>
     </div>
 </section>
