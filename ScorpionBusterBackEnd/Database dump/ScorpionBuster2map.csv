@@ -1,0 +1,9 @@
+id,name,text,background,pnj_id,monster_id
+1,Le Caire,La ville du Caire,background_cairo.png,2,1
+2,Paris,Paris,background_paris.png,3,1
+3,Lima,Lima,background_lima.png,4,2
+4,Qaanaaq,Qaanaaq,background_qaanaaq.png,9,1
+5,New-york,New-york,background_newyork.png,7,1
+6,Moscou,Moscou,background_moscow.png,6,1
+7,Cancún,Cancún,background_cancun.png,5,1
+8,Oulan-Bator,Oulan-Bator,background_oulanbator.png,8,1

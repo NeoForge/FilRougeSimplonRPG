@@ -1,0 +1,13 @@
+id,name,description,image,price,owned,consumable,isBuyable,isEquipped,itemType,statValue,quantity
+2,Potion de soin,Un liquide rouge dans une fiole collector Zelda , elle est sensée vous soigner...,potion_rouge.png,30,False,True,True,False,potion,16,0
+3,Crédit Galactique,Une piéce d'une monnaie antique collector, elle a au moins 1 ans,credit_galactique.png,10,False,False,True,False,KeyItem,0,0
+4,Fruit de la passion doré,Un fruit de la passion, peint en doré avec gimp. Malgré ses pixels mal détourés, il a l'air appétissant.,golden_passion_fruit.png,1000000,False,True,False,False,KeyItem,1,0
+5,Epée des mille vérités,Une épée horriblement lourde qui vous fait porter le poids de la vérité sur les épaules.,épée.png,500,False,False,True,False,weapon,150,0
+6,Tenue du passionné inconditionnel,Une tenue qui vous fait entrer dans la grande famille des passionnés et vous octroie plus de résistance.,passionné_inconditionnel.png,150,False,False,True,False,armor,40,0
+7,Le Jean-Jacques Gourdin ,Il assommera d'ennui vos ennemis,gourdin.png,300,False,False,True,False,weapon,70,0
+8,Le livre de la passion,Un galimatias de mystique, psychopolitique et de méta-économie.,livreDeLaPassion.png,0,False,False,False,False,droppedItem,1000,0
+9,Un papier avec inscrit GoT Endding,Un petit bout de papier avec une histoire qui n'est pas terminée. ,got.png,0,False,False,False,False,droppedItem,100,0
+10,Bâton de berger saugrenu,A première vue, il s'agit d'une branche. Mais bien manié, il peut s'avérer redoutable.,baton_de_berger.png,50,True,False,False,True,weapon,50,1
+11,Armure du scorpion passionné,une armure qui ne vous protège pas beaucoup mais qui vous permet de vous décorer de votre ennemi,scorpion_passionné.png,40,True,True,True,True,armor,30,1
+12,Armure des témoins de la passion,Il s'agit d'une robe magique qui protège votre âme des ondes négatives et vous comble de passion,armure_temoin_de_la_passion.png,600,False,False,True,False,armor,100,0
+13,Anneau de la passion,Un anneau qui ne sert à rien mais vous apporte de la passion intérieure. De la passion, beaucoup de passion, toujours plus de passion !,anneau_de_passion.png,40,False,False,True,False,KeyItem,100,0

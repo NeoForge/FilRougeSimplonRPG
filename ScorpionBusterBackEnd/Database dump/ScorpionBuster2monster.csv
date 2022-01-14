@@ -1,0 +1,3 @@
+id,item_id,name,image,hp,attack,defense
+1,0,Scorpion,scorpion1.png,100,10,0
+2,0,Marin pas content,sailor.png,100,20,5
