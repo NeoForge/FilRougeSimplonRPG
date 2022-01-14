@@ -25,7 +25,6 @@ export class DialogueComponent implements OnInit {
   ngOnInit(): void {
     this.GM.LocalData.subscribe(data => {
       this.localData = data;
-      console.log(this.localData);
     });
     this.GM.Data.subscribe(data => {
       this.gameData = data;
@@ -118,7 +117,11 @@ export class DialogueComponent implements OnInit {
         console.log("StoryStage que je vais save",this.gameData.storyStage);
         this.GM.dispatch(this.gameData);
       }
-      if (this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0) {
+      if(this.gameData.storyStage >= 8) {
+        this.localData.playerState = "startmenu"
+        this.router.navigateByUrl('/victory')
+      }
+      else if (this.PNJData.monsterId != null || this.PNJData.monsterId != undefined || this.PNJData.monsterId < 0) {
         this.onFight(this.PNJData.monsterId);
         this.ngOnDestroy();
       }
@@ -131,9 +134,13 @@ export class DialogueComponent implements OnInit {
     
   }
   ngOnDestroy() {
+    localStorage.setItem("musicChange","true")
+    this.localData.whatMusicToPlay = 0;
     this.localData.playerState = "indice";
   }
   onFight(monsterId: number) {
+    localStorage.setItem("musicChange","true")
+    this.localData.whatMusicToPlay = 1
     this.localData.monsterId = monsterId;
     this.GM.dispatchLocal(this.localData);
     this.router.navigateByUrl('fight')

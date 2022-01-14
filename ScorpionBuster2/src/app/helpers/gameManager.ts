@@ -27,6 +27,9 @@ interface LocalData {
     choice2: string;
     choice3: string;
     storyStageBeforeDialog : number;
+    isPlaying : boolean,
+    whatMusicToPlay : number,
+
 
 }
 
@@ -57,7 +60,9 @@ export class GameManager {
                 choice1: "",
                 choice2: "",
                 choice3: "",
-                storyStageBeforeDialog : 0
+                storyStageBeforeDialog : 0,
+                isPlaying : false,
+                whatMusicToPlay : 0
             });
         }
         this.instance.update(id);

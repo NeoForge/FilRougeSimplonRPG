@@ -40,7 +40,7 @@ export class NgModalInventoryComponent implements OnInit {
     this.choosenItem = id;
   }
   onUse() {
-    let txt = document.getElementById("txt") as HTMLInputElement;
+    let txt = document.querySelector(".txt") as HTMLInputElement;
     switch (this.itemInventory[this.choosenItem].itemType) {
       case "potion": {
         let temp = this.itemInventory[this.choosenItem];

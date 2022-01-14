@@ -1,6 +1,6 @@
 <div class="modal-content">
     <div class="header">
-        <h4 class="title">Inventaire</h4>
+        <h2 class="title">Inventaire</h2>
     </div>
     <div class="inventory">
         <div class="container-items" *ngIf="(itemInventory)">
@@ -13,8 +13,8 @@
         </div>
         <div class="description_inventory">
             <div class="description">
-                <h2 *ngIf="!itemName">Description</h2>
-                <h2 *ngIf="itemName">{{itemName}}</h2>
+                <h4 *ngIf="!itemName">Description</h4>
+                <h4 *ngIf="itemName">{{itemName}}</h4>
                 {{description}}
             </div>
             <div class="button_inventory">
@@ -24,4 +24,4 @@
         </div>
     </div>
 </div>
-<div id="txt"></div>
+<div class="txt"></div>

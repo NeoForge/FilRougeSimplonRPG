@@ -49,12 +49,15 @@ export class GameComponent implements OnInit {
       if(data.monsterId != null){
         this.monsterService.GetMonsterById(data.monsterId).subscribe(data => {
           this.monsterData = data;
+          localStorage.setItem("monsterId",data.id.toString());
         });
       }
     });
   }
   onFight(monsterId : number) {
     this.localData.monsterId = monsterId;
+    localStorage.setItem("musicChange","true")
+    this.localData.whatMusicToPlay = 1
     this.GM.dispatchLocal(this.localData);
     this.router.navigateByUrl('fight')
   }

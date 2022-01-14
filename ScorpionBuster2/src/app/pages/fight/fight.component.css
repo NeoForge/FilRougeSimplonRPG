@@ -1,12 +1,22 @@
 h2 {
     font-size: 40px;
+    color: #093f21bf;
+    font-size: 1.8em;    
+    padding-top: 5px;
+
 }
 .fight {
-    width: 100%;
-    height: 70vh;
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .container-fight{
-    width: 70%;
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    width: 50%;
     height: 60vh;
     display: flex;
     flex-direction: column;
@@ -14,6 +24,15 @@ h2 {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    background-color:  rgb(255, 182, 65, 0.2);
+    border: 5px ridge #1bff80bf;
+    border-radius: 20px;
+    font-size: 1.6em; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    text-align: center;   
 }
 .health-bar {
     -webkit-box-sizing: border-box;
@@ -36,18 +55,48 @@ h2 {
     width: 100%;
     height: 10px;
     position: relative;
-    
+    font-size: 1.8em;    
     transition: width .5s linear;
   }
 
   .reward
   {
-    width: 70%;
-    height: 60vh;
+    width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    position: absolute;
+    align-content: center;
+    text-align: center;
   }
+
+  .card{
+    width: 100px;
+    top: 15%;
+    background-color:  rgb(255, 182, 65, 0.2);
+    border: 5px ridge #1bff80bf;
+    border-radius: 20px;
+    font-size: 1.8em;
+    
+  }
+
+  button{
+    width: 95%;
+    font-size: 1.2em;
+    background-color: rgb(255, 182, 65, 0.8);
+    border: 5px ridge #1bff80bf;
+    border-radius: 20px;
+}
+
+button:hover {
+    border: 5px groove #1bff80bf;
+    border-radius: 20px;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;    
+ }

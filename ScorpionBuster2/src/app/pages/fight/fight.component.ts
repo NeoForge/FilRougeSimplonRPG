@@ -19,6 +19,7 @@ export class FightComponent implements OnInit {
   monster: any;
   combatlog : string = "";
   combatFinished = false;
+  backgroundFight: string = "";
   ngOnInit(): void {
     this.GM.Data.subscribe(
       (data: any) => {
@@ -30,15 +31,17 @@ export class FightComponent implements OnInit {
         this.localData = data;
       }
     );
-    this.monsterService.GetMonsterById(1).subscribe(
+    this.monsterService.GetMonsterById(parseInt(localStorage.getItem("monsterId")as string)).subscribe(
       (data: any) => {
         this.monster = data;   
         this.localData.playerState = "fight";
         this.localData.combatState = "wait";
         this.GM.dispatchLocal(this.localData);
         this.fightLoop();
+        this.backgroundFight ="background-image : url(" + '../../../assets/' + localStorage.getItem("background") + ")";
       }
     );
+    
   }
 
   timer = (ms:any) => new Promise(res => setTimeout(res, ms));
@@ -117,6 +120,8 @@ changeHPbar() {
     this.localData.playerState="indice";
     this.GM.dispatch(this.data);
     this.router.navigateByUrl('/map');
+    localStorage.setItem("musicChange","true")
+    this.localData.whatMusicToPlay = 0;
     this.ngOnDestroy();
   }
   ngOnDestroy() {

@@ -1,10 +1,12 @@
-<div class="modal-header">
-    <h4 class="modal-title">Options</h4>
-</div>
-<div class="modal-body">
-    <button class="song">Son</button>
-    <button class="quit" (click)="onQuit()">Quitter</button>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Retour</button>
+<div class="options_modal">
+    <div class="modal-header">
+        <h4 class="modal-title">Options</h4>
+    </div>
+    <div class="modal-body">
+        <button class="song" (click)="onSong()">Son</button>
+        <button class="quit" (click)="onQuit()">Quitter</button>
+    </div>
+    <div class="modal-footer">
+        <button type="button" (click)="activeModal.close('Close click')">Retour</button>
+    </div>
 </div>
