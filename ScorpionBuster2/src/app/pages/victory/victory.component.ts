@@ -61,6 +61,10 @@ export class VictoryComponent implements OnInit {
     this.PnjService.ResetPNJ().subscribe(data => {
     })
     this.localData.playerState = 'startmenu';
+    this.localData.isPlaying = false;
+    localStorage.setItem('inGame', 'false');
+    localStorage.setItem("music","false");
+    localStorage.setItem("hero","0");
     this.GM.dispatchLocal(this.localData);    
     localStorage.clear();
     this.router.navigateByUrl('');

@@ -134,9 +134,13 @@ export class DialogueComponent implements OnInit {
     
   }
   ngOnDestroy() {
+    localStorage.setItem("musicChange","true")
+    this.localData.whatMusicToPlay = 0;
     this.localData.playerState = "indice";
   }
   onFight(monsterId: number) {
+    localStorage.setItem("musicChange","true")
+    this.localData.whatMusicToPlay = 1
     this.localData.monsterId = monsterId;
     this.GM.dispatchLocal(this.localData);
     this.router.navigateByUrl('fight')

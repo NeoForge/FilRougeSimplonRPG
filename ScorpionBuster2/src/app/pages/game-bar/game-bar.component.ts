@@ -14,6 +14,8 @@ export class GameBarComponent implements OnInit {
   GM = GameManager.getInstance(this.heroService, parseInt(localStorage.getItem("hero") as string));
   localData: any;
   hero: any;
+  audioMartyArray =["../../../assets/audio/the-power-of-love.mp3","../../../assets/audio/original-ghostbusters-theme-song.mp3"];
+  audioBillArray =["../../../assets/audio/original-ghostbusters-theme-song.mp3","../../../assets/audio/the-power-of-love.mp3"];
 
   ngOnInit(): void {
     this.GM.LocalData.subscribe(data => {
@@ -22,38 +24,54 @@ export class GameBarComponent implements OnInit {
     this.GM.Data.subscribe(data => {
       this.hero = data.id;
     });
-    this.onPlay();
-
+    
   }
-
+  
   timer = (ms: any) => new Promise(res => setTimeout(res, ms));
   async onPlay() {
     localStorage.setItem('music', 'true');
     let heroMusic = localStorage.getItem('hero');
     if (heroMusic === '2') {
       let audioBill = new Audio();
-      audioBill.src = "../../../assets/audio/original-ghostbusters-theme-song.mp3";
+      audioBill.src = this.audioBillArray[this.localData.whatMusicToPlay];
       audioBill.volume = 0.2;
       audioBill.load();
-      audioBill.play();
-      while (localStorage.getItem('inGame')) {
+      if(this.localData.isPlaying == false)
+      {
+        audioBill.play();
+        this.localData.isPlaying = true;
+        this.GM.dispatchLocal(this.localData);
+      }
         while (localStorage.getItem('inGame')) {
-
           if (localStorage.getItem('music') === 'true') {
             audioBill.volume = 0.1;
           } else {
             audioBill.volume = 0;
           }
+          if(localStorage.getItem("musicChange")==="true")
+          {
+            audioBill.pause();
+            audioBill.src = this.audioBillArray[this.localData.whatMusicToPlay];
+            audioBill.volume = 0.1;
+            audioBill.load();
+            audioBill.play();
+            localStorage.setItem("musicChange","false");
+          }
           await this.timer(500);
-        }
       }
     } else if (heroMusic === '3') {
-      console.log("Marty");
       let audioMarty = new Audio();
       audioMarty.src = "../../../assets/audio/the-power-of-love.mp3";
       audioMarty.volume = 0.1;
       audioMarty.load();
-      audioMarty.play();
+      console.log(this.localData.isPlaying);
+      
+      if(this.localData.isPlaying == false)
+      {
+        audioMarty.play();
+        this.localData.isPlaying = true;
+        this.GM.dispatchLocal(this.localData);
+      }
       while (localStorage.getItem('inGame')) {
 
         if (localStorage.getItem('music') === 'true') {
@@ -61,6 +79,7 @@ export class GameBarComponent implements OnInit {
         } else {
           audioMarty.volume = 0;
         }
+        
         await this.timer(500);
       }
 

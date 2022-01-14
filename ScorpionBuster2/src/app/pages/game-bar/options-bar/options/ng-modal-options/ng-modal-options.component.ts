@@ -34,6 +34,8 @@ export class NgModalOptionsComponent implements OnInit {
   };
   onQuit() {
     localStorage.setItem('inGame', 'false');
+    localStorage.setItem("music","false");
+    localStorage.setItem("hero","0");
     this.itemShop.forEach((element: any) => {
       element.quantity = 0;
       element.owned = false;
@@ -61,6 +63,7 @@ export class NgModalOptionsComponent implements OnInit {
     this.PnjService.ResetPNJ().subscribe(data => {
     })
     this.localData.playerState = 'startmenu';
+    this.localData.isPlaying = false;
     this.GM.dispatchLocal(this.localData);    
     localStorage.clear();
     this.router.navigateByUrl('');

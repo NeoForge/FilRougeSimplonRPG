@@ -21,11 +21,15 @@ export class StartScreenComponent implements OnInit {
     this.GM.Data.subscribe(data => {
       this.hero = data.id;
     });
+    localStorage.setItem('inGame', 'false');
+    localStorage.setItem("music","false");
+    localStorage.setItem("hero","0");
   }
 
   onStart() {
     let heroChoice = localStorage.getItem('hero');
     localStorage.setItem('inGame', 'true');
+    this.localData.whatMusicToPlay = 0;
     if (heroChoice === '2') {
       this.GM = GameManager.getInstance(this.HeroService, 2);
       this.localData.playerState = "indice";
