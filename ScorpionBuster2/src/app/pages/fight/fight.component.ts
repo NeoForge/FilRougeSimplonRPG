@@ -120,6 +120,8 @@ changeHPbar() {
     this.localData.playerState="indice";
     this.GM.dispatch(this.data);
     this.router.navigateByUrl('/map');
+    localStorage.setItem("musicChange","true")
+    this.localData.whatMusicToPlay = 0;
     this.ngOnDestroy();
   }
   ngOnDestroy() {

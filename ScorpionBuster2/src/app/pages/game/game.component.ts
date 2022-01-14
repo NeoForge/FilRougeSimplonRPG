@@ -55,6 +55,8 @@ export class GameComponent implements OnInit {
   }
   onFight(monsterId : number) {
     this.localData.monsterId = monsterId;
+    localStorage.setItem("musicChange","true")
+    this.localData.whatMusicToPlay = 1
     this.GM.dispatchLocal(this.localData);
     this.router.navigateByUrl('fight')
   }
