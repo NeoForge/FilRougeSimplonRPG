@@ -31,7 +31,7 @@ export class FightComponent implements OnInit {
         this.localData = data;
       }
     );
-    this.monsterService.GetMonsterById(1).subscribe(
+    this.monsterService.GetMonsterById(parseInt(localStorage.getItem("monsterId")as string)).subscribe(
       (data: any) => {
         this.monster = data;   
         this.localData.playerState = "fight";

@@ -49,6 +49,7 @@ export class GameComponent implements OnInit {
       if(data.monsterId != null){
         this.monsterService.GetMonsterById(data.monsterId).subscribe(data => {
           this.monsterData = data;
+          localStorage.setItem("monsterId",data.id.toString());
         });
       }
     });
